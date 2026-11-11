@@ -172,6 +172,12 @@ class RulesTest(unittest.TestCase):
         self.assertEqual(d.action, "reject_draft")
         self.assertIn("outside_europe", d.flags)
 
+    def test_gradual_damage_rejects_even_without_loss_date(self):
+        d = run(facts(loss_date=None, loss_type=None, gradual_damage=Judgment(True, "al sinds vorig jaar schimmel")),
+                res(policy(product="home", covered_perils=["fire", "storm", "sudden_water"])))
+        self.assertEqual(d.action, "reject_draft")
+        self.assertIn("gradual_damage", d.flags)
+
     def test_contents_accidental_damage_rejects(self):
         p = policy(product="contents", covered_perils=["burglary_theft", "fire", "storm", "lightning", "sudden_water"],
                    deductible=100.0, glass_deductible=100.0)

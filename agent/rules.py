@@ -240,6 +240,28 @@ def decide(facts: Facts, res: PolicyResolution, history: List[HistoryClaim], tod
                        "§4 risk indicators, no automatic decision: " + "; ".join(details) + ".",
                        flags, trace, "acknowledgement")
 
+    # Rule 4b (lead's call): clear exclusions that do not depend on the missing facts. Asking a customer for
+    # a loss date or invoice is pointless when the claim is excluded anyway (C-010 dropped phone, C-019/C-024
+    # gradual damage). The policy-active check still needs a loss date, so it stays in rule 6.
+    early: Optional[Tuple[str, str]] = None
+    if facts.loss_type and not _peril_covered(facts.loss_type, policy):
+        early = ("peril_not_covered", f"§1: {facts.loss_type} is not a covered peril for {policy.product} policy "
+                 f"{policy.policy_number} (covered: {', '.join(policy.covered_perils)}).")
+    elif facts.gradual_damage.value:
+        ev = f" (\"{facts.gradual_damage.evidence[:100]}\")" if facts.gradual_damage.evidence else ""
+        early = ("gradual_damage", f"§2.2: the damage appears gradual rather than sudden{ev}, which is excluded.")
+    elif policy.product == "contents" and facts.loss_outside_europe.value:
+        early = ("outside_europe", "§1: contents cover applies in Europe only and the loss happened outside Europe.")
+    elif policy.product == "contents" and facts.accidental_own_damage.value:
+        early = ("accidental_damage_not_covered", "§1: contents policies have no accidental damage cover (drops, spills)"
+                 + (f"; \"{facts.accidental_own_damage.evidence[:80]}\"" if facts.accidental_own_damage.evidence else "")
+                 + ".")
+    if early:
+        trace.append(RuleStep("coverage.exclusion", False, early[1]))
+        flags.append(early[0])
+        return _finish(facts, "reject_draft", None, early[1] + " Draft held for a handler to confirm.",
+                       flags, trace, "rejection_draft")
+
     # Rule 5: missing essentials.
     missing: List[str] = []
     if not loss:
