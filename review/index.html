@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claims Review</title>
+<style>
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --panel-2: #f9fafb; --line: #e4e7ec; --line-2: #eef0f3;
+  --text: #1d2433; --muted: #5d6779; --faint: #8a93a3; --focus: #2f6fdf;
+  --green: #1f8a4c; --green-bg: #e7f5ed; --blue: #2563c9; --blue-bg: #e8f0fc;
+  --amber: #a86400; --amber-bg: #fdf3e1; --red: #c23434; --red-bg: #fcebeb;
+  --gray: #5b6474; --gray-bg: #eef0f3; --purple: #7a45c2; --purple-bg: #f2ebfb;
+  --shadow: 0 1px 2px rgba(16,24,40,.05), 0 1px 3px rgba(16,24,40,.06);
+  --radius: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1218; --panel: #161a22; --panel-2: #1b2029; --line: #2a303c; --line-2: #222833;
+    --text: #e6e9ef; --muted: #a2abbb; --faint: #737d8e; --focus: #6f9cf0;
+    --green: #4cc483; --green-bg: rgba(76,196,131,.13); --blue: #6fa0f2; --blue-bg: rgba(111,160,242,.14);
+    --amber: #e8a43a; --amber-bg: rgba(232,164,58,.14); --red: #f07070; --red-bg: rgba(240,112,112,.14);
+    --gray: #a2abbb; --gray-bg: rgba(162,171,187,.13); --purple: #b48af0; --purple-bg: rgba(180,138,240,.14);
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg); color: var(--text);
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex; flex-direction: column;
+}
+.num { font-variant-numeric: tabular-nums; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Header */
+header.top {
+  display: flex; align-items: center; gap: 20px; padding: 12px 20px;
+  background: var(--panel); border-bottom: 1px solid var(--line); flex-wrap: wrap;
+}
+.brand { display: flex; flex-direction: column; min-width: 180px; }
+.brand b { font-size: 15px; letter-spacing: -.01em; }
+.brand span { color: var(--muted); font-size: 12px; }
+.stats { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+.stat { padding: 4px 12px; border-left: 1px solid var(--line-2); min-width: 92px; }
+.stat:first-child { border-left: 0; }
+.stat .v { font-size: 18px; font-weight: 600; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.stat .k { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.stat.attn .v { color: var(--amber); }
+.reviewer { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12.5px; }
+.reviewer input { width: 130px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 7px; background: var(--panel-2); }
+
+/* Layout */
+main { flex: 1; display: grid; grid-template-columns: 360px 1fr; min-height: 0; }
+aside { border-right: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; min-height: 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 14px 10px; border-bottom: 1px solid var(--line-2); }
+.chip-btn {
+  border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 3px 10px;
+  font-size: 12.5px; cursor: pointer; color: var(--muted); display: inline-flex; gap: 6px; align-items: center;
+  transition: background-color .15s ease-out, border-color .15s ease-out, color .15s ease-out;
+}
+.chip-btn:hover { border-color: var(--faint); color: var(--text); }
+.chip-btn[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--panel); }
+.chip-btn .c { font-variant-numeric: tabular-nums; opacity: .75; }
+.list { overflow-y: auto; flex: 1; padding: 6px; }
+.row {
+  display: block; width: 100%; text-align: left; border: 1px solid transparent; background: none; cursor: pointer;
+  padding: 10px 12px; border-radius: 9px; margin-bottom: 2px; position: relative;
+  transition: background-color .15s ease-out;
+}
+.row:hover { background: var(--panel-2); }
+.row[aria-current="true"] { background: var(--panel-2); border-color: var(--line); }
+.row[aria-current="true"]::before {
+  content: ""; position: absolute; left: -1px; top: 10px; bottom: 10px; width: 3px; border-radius: 3px; background: var(--focus);
+}
+.row .l1 { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.row .id { font-weight: 600; font-variant-numeric: tabular-nums; }
+.row .who { color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .subj { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 1px 0 6px; }
+.row .l3 { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+.row .pay { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 600; font-size: 13px; }
+.empty { color: var(--muted); padding: 24px; text-align: center; }
+
+/* Badges & chips */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600;
+  padding: 2px 8px; border-radius: 6px; white-space: nowrap;
+}
+.badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.a-auto_approve { color: var(--green); background: var(--green-bg); }
+.a-request_info { color: var(--blue); background: var(--blue-bg); }
+.a-escalate_handler, .a-escalate_senior { color: var(--amber); background: var(--amber-bg); }
+.a-fraud_review { color: var(--red); background: var(--red-bg); }
+.a-reject_draft { color: var(--gray); background: var(--gray-bg); }
+.a-route_other { color: var(--purple); background: var(--purple-bg); }
+.flag { font-size: 11.5px; padding: 1px 7px; border-radius: 5px; border: 1px solid var(--line); color: var(--muted); background: var(--panel); }
+.flag.hot { border-color: transparent; color: var(--red); background: var(--red-bg); }
+.rs { font-size: 11.5px; color: var(--muted); }
+.rs.pending { color: var(--amber); font-weight: 600; }
+.rs.approved, .rs.edited { color: var(--green); font-weight: 600; }
+.rs.rejected { color: var(--red); font-weight: 600; }
+
+/* Detail */
+section.detail { overflow-y: auto; min-height: 0; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 22px 24px 64px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 14px; }
+.card > h2 {
+  margin: 0; padding: 12px 16px; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted);
+  border-bottom: 1px solid var(--line-2); display: flex; justify-content: space-between; align-items: center; gap: 10px;
+}
+.card .body { padding: 14px 16px; }
+.hero { padding: 18px 18px 16px; }
+.hero .t { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.hero h1 { margin: 0; font-size: 20px; letter-spacing: -.015em; font-variant-numeric: tabular-nums; }
+.hero .meta { color: var(--muted); font-size: 13px; }
+.proposal { display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line-2); }
+.proposal .lbl { font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: 3px; }
+.proposal .big { font-size: 22px; font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.proposal .badge { font-size: 14px; padding: 4px 10px; }
+.reason { margin-top: 12px; color: var(--text); }
+.flags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px; }
+
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; align-items: center; }
+.btn {
+  border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 8px 16px; font-weight: 600;
+  cursor: pointer; transition: background-color .15s ease-out, border-color .15s ease-out, transform .12s ease-out;
+}
+.btn:hover { border-color: var(--faint); }
+.btn:active { transform: scale(.97); }
+.btn:disabled { opacity: .5; cursor: progress; transform: none; }
+.btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
+.btn.primary:hover { filter: brightness(1.06); }
+.btn.danger { color: var(--red); }
+.btn.danger.solid { background: var(--red); border-color: var(--red); color: #fff; }
+.btn.blue { background: var(--blue); border-color: var(--blue); color: #fff; }
+.done-note { font-size: 13px; color: var(--muted); }
+.done-note b { color: var(--text); }
+
+.inline-form { margin-top: 14px; padding: 14px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel-2); display: grid; gap: 10px; }
+.inline-form .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.inline-form label { display: grid; gap: 4px; font-size: 12.5px; color: var(--muted); }
+.inline-form input, .inline-form select, .inline-form textarea {
+  border: 1px solid var(--line); border-radius: 7px; padding: 7px 9px; background: var(--panel); color: var(--text);
+}
+.inline-form .row-btns { display: flex; gap: 8px; justify-content: flex-end; }
+
+/* Trace */
+.trace { list-style: none; margin: 0; padding: 0; }
+.trace li { display: grid; grid-template-columns: 22px 170px 1fr; gap: 10px; padding: 8px 16px; border-top: 1px solid var(--line-2); align-items: start; }
+.trace li:first-child { border-top: 0; }
+.trace .ic { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; margin-top: 1px; }
+.trace .ok .ic { color: var(--green); background: var(--green-bg); }
+.trace .bad { background: var(--red-bg); }
+.trace .bad .ic { color: #fff; background: var(--red); }
+.trace .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--muted); padding-top: 1px; overflow-wrap: anywhere; }
+.trace .bad .rule { color: var(--red); font-weight: 600; }
+.trace .det { overflow-wrap: anywhere; }
+.trace-sum { font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 500; }
+
+/* Letter */
+.letter-status { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; font-size: 13.5px; }
+.letter-status b { display: block; }
+.ls-held { background: var(--amber-bg); color: var(--amber); }
+.ls-sent { background: var(--green-bg); color: var(--green); }
+.ls-none { background: var(--gray-bg); color: var(--gray); }
+.ls-failed { background: var(--red-bg); color: var(--red); }
+.letter-status span { color: var(--text); opacity: .85; }
+.letter-meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; display: grid; gap: 2px; }
+.letter-meta b { color: var(--text); font-weight: 500; }
+textarea.letter { width: 100%; min-height: 220px; resize: vertical; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--panel-2); line-height: 1.55; }
+textarea.letter[readonly] { color: var(--muted); }
+
+/* Email & attachments */
+.warn { display: flex; gap: 10px; padding: 10px 14px; border-radius: 8px; background: var(--red-bg); color: var(--red); margin-bottom: 12px; font-size: 13.5px; }
+.warn span { color: var(--text); opacity: .85; }
+.mail-head { display: grid; grid-template-columns: 64px 1fr; gap: 3px 10px; font-size: 13px; margin-bottom: 12px; }
+.mail-head dt { color: var(--muted); }
+.mail-head dd { margin: 0; overflow-wrap: anywhere; }
+pre.text { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; font: inherit; line-height: 1.6; }
+pre.att { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 8px; padding: 10px 12px; }
+mark { background: var(--red-bg); color: var(--red); outline: 1px dashed var(--red); border-radius: 3px; padding: 0 2px; }
+details.att-item { border-top: 1px solid var(--line-2); padding: 10px 16px; }
+details.att-item:first-child { border-top: 0; }
+details.att-item summary { cursor: pointer; font-weight: 500; }
+details.att-item summary .ct { color: var(--muted); font-weight: 400; font-size: 12.5px; margin-left: 6px; }
+details.att-item pre { margin-top: 8px; }
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+table.kv { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.kv th { text-align: left; font-weight: 400; color: var(--muted); padding: 5px 16px; width: 44%; vertical-align: top; }
+table.kv td { padding: 5px 16px 5px 0; overflow-wrap: anywhere; vertical-align: top; }
+table.kv tr + tr th, table.kv tr + tr td { border-top: 1px solid var(--line-2); }
+.nil { color: var(--faint); }
+.yes { color: var(--red); font-weight: 600; }
+
+.placeholder { display: grid; place-items: center; height: 100%; color: var(--muted); text-align: center; padding: 40px; }
+.banner-err { margin: 14px; padding: 12px 14px; border-radius: 8px; background: var(--red-bg); color: var(--red); white-space: pre-wrap; }
+
+/* Toasts */
+.toasts { position: fixed; right: 20px; bottom: 20px; display: grid; gap: 8px; z-index: 50; max-width: min(420px, calc(100vw - 40px)); }
+.toast {
+  background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--green); border-radius: 9px;
+  padding: 10px 14px; box-shadow: 0 8px 24px rgba(16,24,40,.14); font-size: 13.5px;
+  animation: toast-in .2s ease-out;
+}
+.toast.err { border-left-color: var(--red); }
+.toast.warn { border-left-color: var(--amber); }
+.toast b { display: block; margin-bottom: 2px; }
+.toast .d { color: var(--muted); overflow-wrap: anywhere; }
+.toast.out { opacity: 0; transform: translateY(6px); transition: opacity .16s ease-in, transform .16s ease-in; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+@media (max-width: 1100px) {
+  main { grid-template-columns: 300px 1fr; }
+  .cols { grid-template-columns: 1fr; }
+  .trace li { grid-template-columns: 22px 1fr; }
+  .trace .det { grid-column: 2; }
+}
+@media (max-width: 760px) {
+  main { grid-template-columns: 1fr; }
+  aside { max-height: 40vh; border-right: 0; border-bottom: 1px solid var(--line); }
+  .proposal { grid-template-columns: 1fr 1fr; }
+  .wrap { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><b>Noorderhaven Claims</b><span>Human review queue</span></div>
+  <div class="stats" id="stats" aria-label="Run statistics"></div>
+  <label class="reviewer">Reviewer <input id="reviewer" autocomplete="off" spellcheck="false"></label>
+</header>
+<main>
+  <aside>
+    <div class="filters" id="filters" role="toolbar" aria-label="Filter claims"></div>
+    <div class="list" id="list" role="list"></div>
+  </aside>
+  <section class="detail" id="detail" aria-live="polite"></section>
+</main>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+// All data from the queue is untrusted (emails contain injected instructions). Every value goes into the DOM
+// through textContent / setAttribute via el(); innerHTML is never used.
+
+const ACTION_LABEL = {
+  auto_approve: "Auto-approve", request_info: "Request info", escalate_handler: "Escalate: handler",
+  escalate_senior: "Escalate: senior", reject_draft: "Reject (draft)", fraud_review: "Fraud review", route_other: "Route other"
+};
+const ACTIONS = Object.keys(ACTION_LABEL);
+const REVIEW_LABEL = { auto: "Handled automatically", pending: "Needs review", approved: "Approved", edited: "Edited", rejected: "Proposal rejected" };
+const HOT_FLAGS = /injection|fraud|duplicate|bank|account|mismatch/i;
+
+const state = { data: null, filter: "pending", selected: null, item: null, mode: null, busy: false };
+
+function el(tag, attrs, ...children) {
+  const n = document.createElement(tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) {
+    if (v === null || v === undefined || v === false) continue;
+    if (k === "class") n.className = v;
+    else if (k === "text") n.textContent = String(v);
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+    else n.setAttribute(k, v === true ? "" : String(v));
+  }
+  for (const c of children.flat()) {
+    if (c === null || c === undefined || c === false) continue;
+    n.appendChild(c instanceof Node ? c : document.createTextNode(String(c)));
+  }
+  return n;
+}
+const eur = v => (v === null || v === undefined || v === "") ? null :
+  new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR" }).format(Number(v));
+const badge = a => el("span", { class: "badge a-" + (ACTIONS.includes(a) ? a : "reject_draft"), text: ACTION_LABEL[a] || String(a || "unknown") });
+const flagChip = f => el("span", { class: "flag" + (HOT_FLAGS.test(f) ? " hot" : ""), text: f });
+const fmtDate = s => { if (!s) return ""; const d = new Date(s); return isNaN(d) ? String(s) : d.toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }); };
+
+function store(key, val) { try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; } }
+
+async function api(path, opts) {
+  const res = await fetch(path, opts);
+  let body;
+  try { body = await res.json(); } catch (e) { throw new Error(`${opts && opts.method || "GET"} ${path}: HTTP ${res.status}, response is not JSON`); }
+  if (!res.ok) throw new Error(body && body.error ? body.error : `${path}: HTTP ${res.status}`);
+  return body;
+}
+
+function toast(kind, title, detail) {
+  const t = el("div", { class: "toast " + kind }, el("b", { text: title }), detail ? el("div", { class: "d", text: detail }) : null);
+  const box = document.getElementById("toasts");
+  box.appendChild(t);
+  setTimeout(() => { t.classList.add("out"); setTimeout(() => t.remove(), 200); }, kind === "err" ? 9000 : 4500);
+}
+
+/* ---------- header ---------- */
+function findKey(obj, re, depth) {
+  if (!obj || typeof obj !== "object" || depth > 3) return undefined;
+  for (const [k, v] of Object.entries(obj)) if (re.test(k) && (typeof v === "number" || typeof v === "string")) return v;
+  for (const v of Object.values(obj)) { const r = findKey(v, re, depth + 1); if (r !== undefined) return r; }
+  return undefined;
+}
+function renderStats() {
+  const d = state.data, items = d.items, rs = d.counts.review_status || {}, ls = d.counts.letter_status || {};
+  const run = d.run_summary || {}, ev = d.eval_summary || {};
+  const models = [...new Set(items.map(i => (i.facts || {}).extractor).filter(Boolean))];
+  let retries = findKey(run, /retr/i, 0);
+  let acc = d.eval_summary ? findKey(ev, /accuracy/i, 0) : undefined;
+  if (typeof acc === "number") acc = (acc <= 1 ? acc * 100 : acc).toFixed(0) + "%";
+  const llm = findKey(run, /^(llm_)?model/i, 0) || (models.length ? models.join(", ").replace(/llm:/g, "") : "-");
+  const cells = [
+    ["Claims", items.length],
+    ["Auto-handled", rs.auto || 0],
+    ["Needs review", rs.pending || 0, (rs.pending || 0) > 0],
+    ["Letters held", ls.held || 0, (ls.held || 0) > 0],
+    ["Reviewed", (rs.approved || 0) + (rs.edited || 0) + (rs.rejected || 0)],
+    ["API retries", retries === undefined ? "-" : retries],
+    ["Eval accuracy", acc === undefined ? "-" : acc],
+    ["Extractor", llm],
+  ];
+  const box = document.getElementById("stats");
+  box.replaceChildren(...cells.map(([k, v, attn]) =>
+    el("div", { class: "stat" + (attn ? " attn" : "") }, el("div", { class: "v", text: v }), el("div", { class: "k", text: k }))));
+  const ex = box.lastChild.querySelector(".v"); ex.style.fontSize = "13px"; ex.style.paddingTop = "4px";
+}
+
+/* ---------- filters + list ---------- */
+function matches(it, f) {
+  if (f === "all") return true;
+  if (f === "pending") return it.review_status === "pending";
+  if (f === "held") return it.letter_status === "held";
+  return (it.decision || {}).action === f;
+}
+function renderFilters() {
+  const items = state.data.items;
+  const defs = [["pending", "Needs review"], ["held", "Letter held"], ["all", "All"]]
+    .concat(ACTIONS.map(a => [a, ACTION_LABEL[a]]));
+  const box = document.getElementById("filters");
+  box.replaceChildren(...defs.map(([f, label]) => {
+    const n = items.filter(i => matches(i, f)).length;
+    if (n === 0 && ACTIONS.includes(f)) return null;
+    return el("button", { class: "chip-btn", "aria-pressed": String(state.filter === f), onclick: () => { state.filter = f; renderFilters(); renderList(); } },
+      label, el("span", { class: "c", text: n }));
+  }).filter(Boolean));
+}
+function renderList() {
+  const items = state.data.items.filter(i => matches(i, state.filter));
+  const box = document.getElementById("list");
+  if (!items.length) { box.replaceChildren(el("div", { class: "empty", text: state.filter === "pending" ? "Nothing waiting for review." : "No claims in this filter." })); return; }
+  box.replaceChildren(...items.map(it => {
+    const d = it.decision || {}, flags = d.flags || [];
+    return el("button", { class: "row", role: "listitem", "aria-current": String(it.claim_id === state.selected), onclick: () => select(it.claim_id) },
+      el("div", { class: "l1" }, el("span", { class: "id", text: it.claim_id }), el("span", { class: "rs " + (it.review_status || ""), text: REVIEW_LABEL[it.review_status] || it.review_status || "" })),
+      el("div", { class: "who", text: (it.from_name || "") + " · " + (it.from_email || "") }),
+      el("div", { class: "subj", text: it.subject || "(no subject)" }),
+      el("div", { class: "l3" }, badge(d.action), ...flags.slice(0, 3).map(flagChip),
+        flags.length > 3 ? el("span", { class: "flag", text: "+" + (flags.length - 3) }) : null,
+        el("span", { class: "pay", text: eur(d.net_payout) || "" })));
+  }));
+}
+
+/* ---------- detail ---------- */
+async function select(id) {
+  state.selected = id; state.mode = null;
+  renderList();
+  try {
+    state.item = await api("/api/claims/" + encodeURIComponent(id));
+    renderDetail();
+  } catch (e) { toast("err", "Could not load " + id, e.message); }
+}
+
+function kvTable(rows) {
+  return el("table", { class: "kv" }, el("tbody", null, rows.map(([k, v]) => {
+    let cell;
+    if (v === null || v === undefined || v === "" || (Array.isArray(v) && !v.length)) cell = el("span", { class: "nil", text: "-" });
+    else if (v instanceof Node) cell = v;
+    else cell = document.createTextNode(Array.isArray(v) ? v.join(", ") : String(v));
+    return el("tr", null, el("th", { text: k }), el("td", null, cell));
+  })));
+}
+
+function highlighted(text, needle) {
+  // Mark the injected passage inside the email body (still text nodes only).
+  const pre = el("pre", { class: "text" });
+  const n = (needle || "").trim().replace(/^"|"$/g, "").replace(/\.\.\.$/, "");
+  const idx = n.length > 12 ? text.indexOf(n.slice(0, 60)) : -1;
+  if (idx < 0) { pre.textContent = text; return pre; }
+  const end = text.indexOf(n) === idx ? idx + n.length : text.length;
+  pre.append(text.slice(0, idx), el("mark", { text: text.slice(idx, end) }), text.slice(end));
+  return pre;
+}
+
+function letterStatusBox(it) {
+  const s = it.letter_status, d = it.decision || {};
+  if (s === "held") return el("div", { class: "letter-status ls-held" }, el("div", null, el("b", { text: "Held: not sent" }),
+    el("span", { text: "This letter goes to the customer only when you approve it." })));
+  if (s === "sent") return el("div", { class: "letter-status ls-sent" }, el("div", null, el("b", { text: "Sent" }),
+    el("span", { text: it.review_status === "approved" ? `Approved by ${it.reviewed_by || "handler"} and queued to the outbox.` : "Sent automatically under the auto-handling rules." })));
+  if (s === "failed") return el("div", { class: "letter-status ls-failed" }, el("div", null, el("b", { text: "Sending failed: still held" }),
+    el("span", { text: it.letter_error || "The mock API did not accept the letter. Approve again to retry." })));
+  return el("div", { class: "letter-status ls-none" }, el("div", null, el("b", { text: it.letter ? "Not sent (discarded)" : "No letter" }),
+    el("span", { text: it.letter ? "The proposal was rejected; nothing went to the customer." :
+      (d.action === "fraud_review" ? "No message goes out while fraud review is open. Use Edit to draft one if needed." : "The agent did not draft a letter for this claim.") })));
+}
+
+function renderDetail() {
+  const it = state.item, d = it.decision || {}, f = it.facts || {}, p = it.policy, r = it.resolution || {};
+  const trace = d.trace || [];
+  const failed = trace.filter(t => !t.passed).length;
+  const held = it.letter_status === "held" || it.letter_status === "failed";
+  const reviewed = ["approved", "edited", "rejected"].includes(it.review_status);
+  const inj = f.injection_detected && f.injection_detected.value;
+
+  // Hero: proposal + actions
+  const approveLabel = held ? "Approve & send letter" : "Approve";
+  const actions = el("div", { class: "actions" },
+    el("button", { class: "btn primary", id: "b-approve", onclick: () => submit("approve") }, approveLabel),
+    el("button", { class: "btn", onclick: () => { state.mode = state.mode === "edit" ? null : "edit"; renderDetail(); } }, "Edit"),
+    el("button", { class: "btn danger", onclick: () => { state.mode = state.mode === "reject" ? null : "reject"; renderDetail(); } }, "Reject"),
+    reviewed ? el("span", { class: "done-note" }, el("b", { text: REVIEW_LABEL[it.review_status] }), ` by ${it.reviewed_by || "handler"} · ${fmtDate(it.reviewed_at)}`) : null);
+
+  let form = null;
+  if (state.mode === "edit") {
+    const sel = el("select", { id: "f-action" }, ACTIONS.map(a => { const o = el("option", { value: a, text: ACTION_LABEL[a] }); if (a === d.action) o.selected = true; return o; }));
+    form = el("div", { class: "inline-form" },
+      el("div", { class: "grid2" },
+        el("label", null, "Action", sel),
+        el("label", null, "Net payout (EUR)", el("input", { id: "f-payout", type: "number", min: "0", step: "0.01", value: d.net_payout === null || d.net_payout === undefined ? "" : d.net_payout, placeholder: "none" }))),
+      el("label", null, "Reason", el("textarea", { id: "f-reason", rows: "3" }, d.reason || "")),
+      el("div", { class: "done-note", text: "The letter text below is saved with the edit. It stays held until you approve." }),
+      el("div", { class: "row-btns" },
+        el("button", { class: "btn", onclick: () => { state.mode = null; renderDetail(); } }, "Cancel"),
+        el("button", { class: "btn blue", onclick: () => submit("edit") }, "Save correction")));
+  } else if (state.mode === "reject") {
+    form = el("div", { class: "inline-form" },
+      el("label", null, "Why is the agent's proposal wrong? (kept for measuring the agent)", el("textarea", { id: "f-reason", rows: "2", placeholder: "Optional note" })),
+      el("div", { class: "done-note", text: held ? "The held letter will be discarded. Nothing is sent to the customer." : "Nothing is sent to the customer." }),
+      el("div", { class: "row-btns" },
+        el("button", { class: "btn", onclick: () => { state.mode = null; renderDetail(); } }, "Cancel"),
+        el("button", { class: "btn danger solid", onclick: () => submit("reject") }, "Reject proposal")));
+  }
+
+  const hero = el("div", { class: "card hero" },
+    el("div", { class: "t" }, el("h1", { text: it.claim_id }),
+      el("span", { class: "meta", text: `${it.from_name || ""} · received ${fmtDate(it.received_at)}` }),
+      el("span", { class: "rs " + (it.review_status || ""), text: REVIEW_LABEL[it.review_status] || "" })),
+    el("div", { class: "proposal" },
+      el("div", null, el("div", { class: "lbl", text: reviewed && it.review_status === "edited" ? "Decision (edited)" : "Agent proposes" }), badge(d.action)),
+      el("div", null, el("div", { class: "lbl", text: "Net payout" }), el("div", { class: "big", text: eur(d.net_payout) || "-" })),
+      el("div", null, el("div", { class: "lbl", text: "Checks" }), el("div", { class: "big", text: `${trace.length - failed}/${trace.length}` }))),
+    el("div", { class: "reason", text: d.reason || "" }),
+    (d.flags || []).length ? el("div", { class: "flags" }, d.flags.map(flagChip)) : null,
+    actions, form);
+
+  // Reasoning
+  const traceCard = el("div", { class: "card" },
+    el("h2", null, "Agent reasoning: rule checks", el("span", { class: "trace-sum", text: failed ? `${failed} check${failed > 1 ? "s" : ""} failed · decided by first failing rule` : "all checks passed" })),
+    trace.length ? el("ol", { class: "trace" }, trace.map(t => el("li", { class: t.passed ? "ok" : "bad" },
+      el("span", { class: "ic", "aria-label": t.passed ? "passed" : "failed", text: t.passed ? "✓" : "✗" }),
+      el("span", { class: "rule", text: t.rule }), el("span", { class: "det", text: t.detail }))))
+      : el("div", { class: "body nil", text: "No trace recorded." }));
+
+  // Letter
+  const L = it.letter;
+  const letterCard = el("div", { class: "card" }, el("h2", null, "Customer letter", L ? el("span", { class: "trace-sum", text: L.kind || "" }) : null),
+    el("div", { class: "body" }, letterStatusBox(it),
+      L ? el("div", { class: "letter-meta" },
+        el("div", null, "To ", el("b", { text: L.to || "" }), (L.to || "").toLowerCase() === (it.from_email || "").toLowerCase() ? " (original sender)" : " (NOT the original sender)"),
+        el("div", null, "Subject ", el("b", { text: L.subject || "" }))) : null,
+      (L || state.mode === "edit") ? el("textarea", { class: "letter", id: "f-letter", readonly: held || state.mode === "edit" ? null : true, "aria-label": "Letter text" }, L ? (L.body || "") : "") : null));
+
+  // Email
+  const emailCard = el("div", { class: "card" }, el("h2", { text: "Original email" }),
+    el("div", { class: "body" },
+      inj ? el("div", { class: "warn" }, el("div", null, el("b", { text: "Instruction-like text detected. " }),
+        el("span", { text: "It was treated as data, ignored by the rules, and the claim was routed to a human." }))) : null,
+      el("dl", { class: "mail-head" },
+        el("dt", { text: "From" }), el("dd", { text: `${it.from_name || ""} <${it.from_email || ""}>` }),
+        el("dt", { text: "Subject" }), el("dd", { text: it.subject || "" }),
+        el("dt", { text: "Received" }), el("dd", { text: it.received_at || "" })),
+      inj ? highlighted(it.body || "", f.injection_detected.evidence) : el("pre", { class: "text", text: it.body || "" })));
+
+  const atts = it.attachments || [];
+  const attCard = el("div", { class: "card" }, el("h2", { text: `Attachments (${atts.length})` }),
+    atts.length ? atts.map((a, i) => el("details", { class: "att-item", open: i === 0 && a.text ? true : null },
+      el("summary", null, a.filename || "attachment", el("span", { class: "ct", text: a.content_type || "" })),
+      a.text ? el("pre", { class: "text att", text: a.text }) : el("div", { class: "nil", text: (a.content_type || "").startsWith("image/") ? "Photo (counted, not read)." : "No text extracted." })))
+      : el("div", { class: "body nil", text: "None." }));
+
+  const j = x => x && x.value ? el("span", { class: "yes", text: "yes" + (x.evidence ? ` · "${x.evidence.slice(0, 80)}${x.evidence.length > 80 ? "..." : ""}"` : "") }) : "no";
+  const docs = (f.documents || []).map(x => [x.kind, x.number, x.date, eur(x.amount)].filter(Boolean).join(" · "));
+  const factsCard = el("div", { class: "card" }, el("h2", { text: "Extracted facts" }), kvTable([
+    ["Extractor", f.extractor], ["Intent", f.intent], ["Language", f.language], ["Policy number", f.policy_number],
+    ["Loss date", f.loss_date], ["Loss type", f.loss_type], ["What happened", f.description],
+    ["Amount in email", eur(f.amount_in_email)], ["Documents", docs.length ? el("div", null, docs.map(x => el("div", { text: x }))) : null],
+    ["Photos", f.photo_count], ["Police report", f.police_report_number], ["Existing claim ref", f.existing_claim_reference],
+    ["Injection detected", j(f.injection_detected)], ["Other bank account", j(f.other_bank_account_requested)],
+    ["Gradual damage", j(f.gradual_damage)], ["Third party involved", j(f.third_party_involved)],
+    ["Thread parent", f.thread_parent],
+  ]));
+  const policyCard = el("div", { class: "card" }, el("h2", { text: "Policy" }), p ? kvTable([
+    ["Policy", p.policy_number], ["Holder", `${p.holder_name || ""} <${p.holder_email || ""}>`],
+    ["Product", p.product_label || p.product], ["Status", p.status + (p.lapsed_on ? ` (lapsed ${p.lapsed_on})` : "") + (p.suspended_on ? ` (suspended ${p.suspended_on})` : "")],
+    ["Start date", p.start_date], ["Covered perils", p.covered_perils],
+    ["Deductible", eur(p.deductible)], ["Glass deductible", eur(p.glass_deductible)], ["Max payout", eur(p.max_payout)],
+    ["Resolved by", r.how], ["Sender verified", r.sender_verified ? "yes" : el("span", { class: "yes", text: "no" })],
+    ["Number mismatch", r.number_mismatch ? el("span", { class: "yes", text: "yes" }) : "no"], ["API claim id", it.api_claim_id],
+  ]) : el("div", { class: "body nil", text: "No policy resolved." }));
+
+  document.getElementById("detail").replaceChildren(el("div", { class: "wrap" },
+    hero, traceCard, letterCard, emailCard, attCard, el("div", { class: "cols" }, factsCard, policyCard)));
+}
+
+/* ---------- actions ---------- */
+async function submit(action) {
+  if (state.busy) return;
+  const it = state.item, val = id => { const n = document.getElementById(id); return n ? n.value : undefined; };
+  const reviewer = (document.getElementById("reviewer").value || "").trim() || "handler";
+  const body = { action, reviewer };
+  const letter = val("f-letter");
+  if (letter !== undefined && (it.letter ? letter !== it.letter.body : letter.trim())) body.letter_body = letter;
+  if (action === "edit") {
+    body.new_action = val("f-action");
+    const pay = val("f-payout");
+    body.net_payout = pay === "" ? null : Number(pay);
+    body.reason = val("f-reason");
+  } else if (action === "reject") body.reason = val("f-reason");
+
+  state.busy = true;
+  document.querySelectorAll(".detail .btn").forEach(b => b.disabled = true);
+  try {
+    const res = await api("/api/claims/" + encodeURIComponent(it.claim_id) + "/review",
+      { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    const titles = { approve: "Approved", edit: "Correction saved", reject: "Proposal rejected" };
+    if (res.api_error) toast("warn", `${titles[action]} · ${it.claim_id} (API not reached)`, `Review recorded in reviews.jsonl. ${res.api_error}`);
+    else toast("ok", `${titles[action]} · ${it.claim_id}`, (res.notes || []).join("; ") || "Review recorded.");
+    state.item = res.item; state.mode = null;
+    await refresh(false);
+    renderDetail();
+  } catch (e) {
+    toast("err", `Review not saved · ${it.claim_id}`, e.message);
+    renderDetail();
+  } finally { state.busy = false; }
+}
+
+async function refresh(first) {
+  try {
+    state.data = await api("/api/queue");
+  } catch (e) {
+    document.getElementById("list").replaceChildren(el("div", { class: "banner-err", text: "Could not load the review queue.\n" + e.message }));
+    return;
+  }
+  if (first && !state.data.items.some(i => matches(i, state.filter))) state.filter = "all";
+  renderStats(); renderFilters(); renderList();
+  if (first) {
+    const firstItem = state.data.items.find(i => matches(i, state.filter));
+    if (firstItem) select(firstItem.claim_id);
+    else document.getElementById("detail").replaceChildren(el("div", { class: "placeholder", text: "Select a claim to review." }));
+  }
+}
+
+document.addEventListener("keydown", e => {
+  if (!state.data || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  if (e.key !== "j" && e.key !== "k" && e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+  const items = state.data.items.filter(i => matches(i, state.filter));
+  const i = items.findIndex(x => x.claim_id === state.selected);
+  const next = items[Math.max(0, Math.min(items.length - 1, i + (e.key === "j" || e.key === "ArrowDown" ? 1 : -1)))];
+  if (next && next.claim_id !== state.selected) { e.preventDefault(); select(next.claim_id); }
+});
+
+const rv = document.getElementById("reviewer");
+rv.value = store("reviewer") || "handler";
+rv.addEventListener("change", () => store("reviewer", rv.value.trim()));
+refresh(true);
+</script>
+</body>
+</html>
