@@ -12,12 +12,20 @@ _SKIP = {"claim_id", "documents", "photo_count", "thread_parent", "extractor", "
 
 
 def link_threads(emails: List[Email]) -> Dict[str, str]:
-    """Map reply claim_id -> parent claim_id where reply.in_reply_to == parent.message_id."""
-    by_mid = {e.message_id: e.claim_id for e in emails if e.message_id}
+    """Map reply claim_id -> parent claim_id where reply.in_reply_to == parent.message_id.
+
+    Only links when the reply comes from the same sender address as the parent: an In-Reply-To header
+    is trivially forged, and linking across senders would let a stranger inherit another customer's
+    claim facts (privacy rule §5). Cross-sender replies are processed as standalone emails.
+    """
+    by_mid = {e.message_id: e for e in emails if e.message_id}
     links: Dict[str, str] = {}
     for e in emails:
-        if e.in_reply_to and e.in_reply_to in by_mid and by_mid[e.in_reply_to] != e.claim_id:
-            links[e.claim_id] = by_mid[e.in_reply_to]
+        parent = by_mid.get(e.in_reply_to) if e.in_reply_to else None
+        if parent is None or parent.claim_id == e.claim_id:
+            continue
+        if parent.from_email.strip().lower() == e.from_email.strip().lower():
+            links[e.claim_id] = parent.claim_id
     return links
 
 

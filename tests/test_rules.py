@@ -247,6 +247,11 @@ class RulesTest(unittest.TestCase):
         c = Email("C-012", "<c@x>", "<unknown@x>", "A", "a@x", "Re: s", "2026-10-27T10:00:00", "b")
         self.assertEqual(link_threads([a, b, c]), {"C-011": "C-010"})
 
+    def test_link_threads_rejects_other_sender(self):
+        a = Email("C-010", "<a@x>", None, "A", "a@x", "s", "2026-10-26T10:00:00", "b")
+        forged = Email("C-013", "<d@y>", "<a@x>", "M", "mallory@y", "Re: s", "2026-10-27T10:00:00", "b")
+        self.assertEqual(link_threads([a, forged]), {})
+
 
 if __name__ == "__main__":
     unittest.main()
