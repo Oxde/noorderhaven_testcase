@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-002",
+  "message_id": "<c-002@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Ruud Mulder",
+    "email": "ruud.mulder@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Voorruit stuk",
+  "received_at": "2026-10-30T13:40:00",
+  "body": "Hallo, op 24 oktober is mijn voorruit gebarsten door een steen. De reparatie kostte 560 euro, factuur is bijgevoegd. Polis POL-100239.\n\nRuud Mulder",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

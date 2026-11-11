@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-037",
+  "message_id": "<c-037@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Anouk Hendriks",
+    "email": "anouk.hendriks@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Theft on holiday",
+  "received_at": "2026-10-29T20:00:00",
+  "body": "Hi,\n\nMy bag with my camera and laptop was stolen from the beach bar on Bali on 12 October. I reported it to the local police. The report and my receipts are attached. Policy number POL-100242.\n\nAnouk",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

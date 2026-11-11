@@ -1,0 +1,14 @@
+{
+  "claim_id": "C-033",
+  "message_id": "<c-033@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Hendrik Aalders",
+    "email": "h.aalders@example.net"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "auto beschadigd",
+  "received_at": "2026-10-31T17:05:00",
+  "body": "Mijn auto is beschadigd, wat gaat u daaraan doen? Ik wil dit vandaag nog geregeld hebben.",
+  "attachments": []
+}

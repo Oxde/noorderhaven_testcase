@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-022",
+  "message_id": "<c-022@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Fatima Yilmaz",
+    "email": "fatima.yilmaz@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Fiets gestolen / bike stolen",
+  "received_at": "2026-10-28T13:05:00",
+  "body": "Hallo,\n\nMijn elektrische fiets is gestolen uit de afgesloten schuur (nacht van 23 op 24 oktober). Aangifte is gedaan, het proces-verbaal en de aankoopbon zitten in de bijlage. My policy number is POL-100238.\n\nMvg,\nFatima Yilmaz",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

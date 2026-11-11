@@ -1,0 +1,14 @@
+{
+  "claim_id": "C-003",
+  "message_id": "<c-003@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Eva Brouwer",
+    "email": "eva.brouwer@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Inbraak, laptop weg",
+  "received_at": "2026-10-29T14:10:00",
+  "body": "Hallo,\n\nEr is bij mij ingebroken en mijn laptop is gestolen. Kunnen jullie dit afhandelen? Ik heb de bon niet meer.\n\nEva",
+  "attachments": []
+}

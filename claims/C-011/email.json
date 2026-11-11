@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-011",
+  "message_id": "<c-011@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Daan Meijer",
+    "email": "daan.meijer@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Schade auto + gestolen spullen",
+  "received_at": "2026-10-29T18:00:00",
+  "body": "Hoi,\n\nMijn auto is opengebroken en er is veel schade (ruit, interieur, audio-installatie gestolen). Het gebeurde op 17 oktober. Alles bij elkaar 3.200 euro. Ik heb geen bonnen meer, wel een lijstje. Polis POL-100241.\n\nDaan",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

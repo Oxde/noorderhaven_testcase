@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-017",
+  "message_id": "<c-017@mail.noorderhaven.example>",
+  "in_reply_to": "<c-003@mail.noorderhaven.example>",
+  "from": {
+    "name": "Eva Brouwer",
+    "email": "eva.brouwer@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "RE: Inbraak, laptop weg",
+  "received_at": "2026-11-01T10:05:00",
+  "body": "Hallo,\n\nHierbij de aanvullende gegevens. De inbraak was in de nacht van 26 op 27 oktober. Aangifte is gedaan (zie bijlage). De gestolen laptop was een MacBook Air die ik in januari voor 1.200 euro heb gekocht, de aankoopbevestiging van de webshop stuur ik ook mee.\n\nGroet, Eva",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

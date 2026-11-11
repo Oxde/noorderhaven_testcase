@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-025",
+  "message_id": "<c-025@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Lisa Janssen",
+    "email": "lisa.janssen@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Gebroken ruit woonkamer",
+  "received_at": "2026-10-28T10:31:00",
+  "body": "Goedemorgen,\n\nMijn zoontje heeft een bal door het raam van de woonkamer geschopt (zaterdag 25 oktober). De glaszetter heeft het al vervangen. Factuur is bijgevoegd, polisnummer POL-100234.\n\nGroet,\nLisa Janssen",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

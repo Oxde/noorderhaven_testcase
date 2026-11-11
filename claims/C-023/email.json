@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-023",
+  "message_id": "<c-023@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Lotte de Groot",
+    "email": "lotte.degroot@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "My car was hit",
+  "received_at": "2026-10-30T16:45:00",
+  "body": "Hi, my car was hit. See the attached photo. Please advise on next steps.\n\nLotte",
+  "attachments": [
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

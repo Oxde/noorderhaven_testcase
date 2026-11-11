@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-031",
+  "message_id": "<c-031@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Maud Willems",
+    "email": "maud.willems@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "TV kapot na blikseminslag",
+  "received_at": "2026-10-30T10:20:00",
+  "body": "Hallo,\n\nTijdens het onweer van 26 oktober is er blikseminslag geweest in onze straat en is mijn televisie kapot gegaan. De reparateur zegt dat de printplaat doorgeslagen is en reparatie niet loont. Bon van de nieuwe tv en de verklaring van de reparateur zitten in de bijlage. Polisnummer POL-100263.\n\nGroet, Maud Willems",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

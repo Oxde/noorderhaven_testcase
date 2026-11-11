@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-006",
+  "message_id": "<c-006@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Sanne Bakker",
+    "email": "sanne.bakker@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Windscreen cracked, invoice attached",
+  "received_at": "2026-10-28T09:02:00",
+  "body": "Hi,\n\nA stone chip in my windscreen turned into a long crack on 19 October. I had the screen replaced the next day at Glasservice Nederland. Invoice attached. My policy number is POL-100232.\n\nCould you let me know when the payout will arrive?\n\nThanks,\nSanne",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-009",
+  "message_id": "<c-009@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Bas Kok",
+    "email": "bas.kok@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Waterlek keuken",
+  "received_at": "2026-10-30T09:12:00",
+  "body": "Beste,\n\nGisteren schoot de afvoerslang onder mijn keukenspoelbak plotseling los. Er stond veel water in het keukenkastje. De loodgieter was er dezelfde dag, de timmerman heeft het kastje vervangen. Facturen in 1 bestand. POL-100245.\n\nGroet, Bas Kok",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

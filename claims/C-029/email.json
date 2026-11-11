@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-029",
+  "message_id": "<c-029@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Sophie van Dijk",
+    "email": "sophie.vandijk@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Aanrijding met ree",
+  "received_at": "2026-10-31T07:45:00",
+  "body": "Hallo,\n\nGisteravond (30 oktober) reed er een ree voor mijn auto op de N34. Het voorscherm en de koplamp zijn kapot. Offerte van de garage bijgevoegd. POL-100244.\n\nGr. Sophie",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-012",
+  "message_id": "<c-012@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Thomas Smit",
+    "email": "thomas.smit@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Stormschade dak",
+  "received_at": "2026-10-29T08:50:00",
+  "body": "Beste verzekeraar,\n\nTijdens de storm van 17 oktober zijn er vijf dakpannen van mijn dak gewaaid. De dakdekker heeft ze vervangen, factuur in de bijlage. Polisnummer POL-100237.\n\nVriendelijke groet,\nThomas Smit",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

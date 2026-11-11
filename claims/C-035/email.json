@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-035",
+  "message_id": "<c-035@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Tess van Leeuwen",
+    "email": "tess.vanleeuwen@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Spiegel afgerukt in parkeergarage",
+  "received_at": "2026-10-31T12:30:00",
+  "body": "Hello,\n\nSomeone ripped off my left wing mirror in a car park on 28 October (I found the car like that when I came back). Repair invoice attached, policy POL-100256.\n\nKind regards,\nTess van Leeuwen",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

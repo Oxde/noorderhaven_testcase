@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-019",
+  "message_id": "<c-019@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Marloes Peters",
+    "email": "marloes.peters@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Waterschade plafond",
+  "received_at": "2026-11-02T08:20:00",
+  "body": "Beste,\n\nEr zit al een paar weken een vochtplek in het plafond van de slaapkamer die steeds groter wordt. Nu is er een stuk stucwerk naar beneden gekomen. De loodgieter vond een lekkende leiding in de vloer van de verdieping erboven. Reparatie en herstel hebben 2.400 euro gekost, factuur zit erbij. POL-100248.\n\nGroet, Marloes Peters",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

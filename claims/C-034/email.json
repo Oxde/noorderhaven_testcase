@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-034",
+  "message_id": "<c-034@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Karin de Boer",
+    "email": "karin.deboer@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Hagelschade dak, late melding",
+  "received_at": "2026-10-30T10:10:00",
+  "body": "Beste,\n\nIn juni (20 juni, bij die zware hagelbui) zijn er een aantal pannen kapot gegaan op mijn dak. Ik had het eerst niet door, maar nu merk ik dat er lekkage ontstaat. Offerte van de dakdekker voor 1.900 euro zit in de bijlage. POL-100240.\n\nKarin de Boer",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

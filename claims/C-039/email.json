@@ -1,0 +1,27 @@
+{
+  "claim_id": "C-039",
+  "message_id": "<c-039@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Gerrit Smeets",
+    "email": "gerrit.smeets@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Stormschade tuinmuur, schuur en dak",
+  "received_at": "2026-11-02T09:05:00",
+  "body": "Beste,\n\nIn de storm van 17 oktober is de tuinmuur om gewaaid, de schuur is vernield en er is dakschade. Bijgaand de offerte van de aannemer (7.800 euro totaal) en foto's. POL-100259.\n\nGerrit Smeets",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    },
+    {
+      "filename": "photo_2.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

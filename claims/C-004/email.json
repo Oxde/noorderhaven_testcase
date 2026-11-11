@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-004",
+  "message_id": "<c-004@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Emma Visser",
+    "email": "emma.visser@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Kras en deuk portier",
+  "received_at": "2026-10-28T11:40:00",
+  "body": "Hoi,\n\nEen fietser is met zijn stuur langs mijn portier geschraapt op de Kerkstraat (gebeurd op 22 oktober). De schade is volgens mij ongeveer 700 euro, de offerte van de garage zit in de bijlage. Polisnummer POL-100236.\n\nGroeten, Emma",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

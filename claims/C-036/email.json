@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-036",
+  "message_id": "<c-036@mail.noorderhaven.example>",
+  "in_reply_to": "<c-023@mail.noorderhaven.example>",
+  "from": {
+    "name": "Lotte de Groot",
+    "email": "lotte.degroot@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "RE: My car was hit",
+  "received_at": "2026-11-01T14:00:00",
+  "body": "Hi,\n\nSorry for the late reply. It happened on 29 October around 6pm in the Hoogstraat car park. The other driver left a note with his plate: 52-LKV-9 and name P. de Wit. I have attached the filled-in damage form and the quote from the garage.\n\nLotte",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-001",
+  "message_id": "<c-001@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Jeroen de Vries",
+    "email": "jeroen.devries@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Schade aan achterbumper",
+  "received_at": "2026-10-28T08:14:00",
+  "body": "Beste,\n\nAfgelopen dinsdag (21 oktober) heeft iemand mijn auto geraakt op de parkeerplaats van de Jumbo en is doorgereden. Mijn achterbumper zit flink ingedeukt. Ik heb de reparatie al laten uitvoeren bij Autoschade Zuid, de factuur zit in de bijlage.\n\nMijn polisnummer is POL-100231.\n\nMet vriendelijke groet,\nJeroen de Vries",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

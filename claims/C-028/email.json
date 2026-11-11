@@ -1,0 +1,27 @@
+{
+  "claim_id": "C-028",
+  "message_id": "<c-028@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Stefan Jacobs",
+    "email": "stefan.jacobs@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Total loss after collision",
+  "received_at": "2026-11-02T09:30:00",
+  "body": "Hello,\n\nI was rear-ended and then pushed into the car in front on the A28 on 29 October. My car is a total loss according to the garage. The police report and the garage's assessment are attached. Policy POL-100251.\n\nStefan Jacobs",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

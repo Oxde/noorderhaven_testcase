@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-015",
+  "message_id": "<c-015@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Yara Hoekstra",
+    "email": "yara.hoekstra@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Sieraden gestolen bij inbraak",
+  "received_at": "2026-10-31T09:30:00",
+  "body": "Beste,\n\nOp 20 oktober is er bij ons ingebroken. De dieven hebben sieraden meegenomen. Ik stuur het proces-verbaal en de waardebepaling van de juwelier mee. Mijn polisnummer is POL-100520.\n\nMet vriendelijke groet,\nYara Hoekstra",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

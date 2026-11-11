@@ -1,0 +1,14 @@
+{
+  "claim_id": "C-013",
+  "message_id": "<c-013@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Amber Kuiper",
+    "email": "amber.kuiper@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Waterschade meubels",
+  "received_at": "2026-10-29T15:22:00",
+  "body": "Beste,\n\nIk heb waterschade aan mijn meubels. Graag vergoeding.\n\nAmber Kuiper\nPOL-100258",
+  "attachments": []
+}

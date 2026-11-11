@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-021",
+  "message_id": "<c-021@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Mohammed El Amrani",
+    "email": "m.elamrani@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Glasschade voorruit",
+  "received_at": "2026-11-02T10:00:00",
+  "body": "Hallo,\n\nOp 3 oktober is mijn voorruit gebarsten door steenslag. Ik heb de ruit laten vervangen bij Glasservice Nederland, de factuur zit bij deze mail. De kosten waren 485 euro. Mijn polisnummer is POL-100233.\n\nGroeten, Mohammed",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

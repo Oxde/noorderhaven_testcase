@@ -1,0 +1,14 @@
+{
+  "claim_id": "C-026",
+  "message_id": "<c-026@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Carla Hermans",
+    "email": "carla.hermans@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Nog steeds geen reactie op mijn schademelding!!",
+  "received_at": "2026-11-02T07:50:00",
+  "body": "Goedemiddag,\n\nIk heb op 6 oktober een waterschade gemeld (CLM-2026-0881) en ik hoor al drie weken helemaal niets. Dit is onacceptabel. Als ik niet uiterlijk vrijdag een reactie heb, overweeg ik een klacht in te dienen bij het Kifid.\n\nCarla Hermans",
+  "attachments": []
+}

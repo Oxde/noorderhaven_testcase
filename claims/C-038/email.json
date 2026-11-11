@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-038",
+  "message_id": "<c-038@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Rob Aalbers",
+    "email": "r.aalbers@example.net"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Schade veroorzaakt door uw verzekerde",
+  "received_at": "2026-11-01T16:30:00",
+  "body": "Geachte heer/mevrouw,\n\nOp 25 oktober heeft een van uw verzekerden, een zwarte Volkswagen met kenteken TK-482-L, mijn geparkeerde auto geraakt op de Dorpsstraat. Mijn linker achterlicht en bumper zijn beschadigd. Ik wil de schade op uw verzekerde verhalen. Ik heb de offerte en een foto meegestuurd.\n\nRob Aalbers",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-032",
+  "message_id": "<c-032@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Henk Prins",
+    "email": "henk.prins@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Schade aan auto",
+  "received_at": "2026-10-30T14:20:00",
+  "body": "Beste,\n\nMijn auto kreeg op 10 oktober een flinke deuk van een vrachtwagen die achteruit reed. Ik heb een offerte van 1.100 euro. Polisnummer POL-100249.\n\nHenk Prins",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

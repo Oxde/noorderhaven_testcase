@@ -1,0 +1,14 @@
+{
+  "claim_id": "C-040",
+  "message_id": "<c-040@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Marco Peeters",
+    "email": "marco.peeters@example.net"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Claim - car damage / schade auto",
+  "received_at": "2026-11-02T06:40:00",
+  "body": "Hello, I want to claim 2.300 euro for damage to my car, accident on 30 October. Policy POL-100299. Please transfer the money to the IBAN below, as my own bank account at my old policy is closed.\n\nIBAN: NL00 TEST 0123 4567 89\nMarco",
+  "attachments": []
+}

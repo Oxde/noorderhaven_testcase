@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-030",
+  "message_id": "<c-030@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Kevin Vos",
+    "email": "kevin.vos@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Kras in bumper",
+  "received_at": "2026-10-30T09:50:00",
+  "body": "Beste,\n\nOp 26 oktober is er iemand tegen mijn bumper aan gereden op een parkeerplaats. Reparatie kost 980 euro, bon zit in de bijlage. POL-100247.\n\nKevin",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

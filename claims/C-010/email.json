@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-010",
+  "message_id": "<c-010@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Ilse Bos",
+    "email": "ilse.bos@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Telefoon gevallen",
+  "received_at": "2026-10-31T16:00:00",
+  "body": "Hoi,\n\nMijn telefoon is uit mijn handen gevallen en het scherm is kapot. Reparatie kost 180 euro. De offerte zit bij de mail. POL-100246\n\nIlse",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-018",
+  "message_id": "<c-018@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Rik Verhoeven",
+    "email": "rik.verhoeven@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Steenslag voorruit",
+  "received_at": "2026-10-31T11:00:00",
+  "body": "Hi,\n\nSteenslag in mijn voorruit op de A7, 27 oktober. Het glas is vandaag hersteld. Factuur is bijgevoegd. POL-100253\n\nRik",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

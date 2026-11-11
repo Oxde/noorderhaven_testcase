@@ -1,0 +1,27 @@
+{
+  "claim_id": "C-027",
+  "message_id": "<c-027@mail.noorderhaven.example>",
+  "in_reply_to": "<c-013@mail.noorderhaven.example>",
+  "from": {
+    "name": "Amber Kuiper",
+    "email": "amber.kuiper@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "RE: Waterschade meubels",
+  "received_at": "2026-11-01T11:15:00",
+  "body": "Beste,\n\nDe bovenburen hadden een lekkende wasmachineslang, daardoor liep er plotseling water door het plafond op 24 oktober. Mijn bank en kast zijn doorweekt. Ik stuur foto's en een offerte voor vervanging mee.\n\nGroet, Amber",
+  "attachments": [
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    },
+    {
+      "filename": "photo_2.jpg",
+      "content_type": "image/jpeg"
+    },
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

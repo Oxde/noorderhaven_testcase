@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-014",
+  "message_id": "<c-014@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Olivier Sanders",
+    "email": "olivier.sanders@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Collision damage claim",
+  "received_at": "2026-10-31T15:10:00",
+  "body": "Hi,\n\nOn 27 October I scraped a concrete pillar in a car park and damaged the front bumper and wing. The garage quote is 1,900 euro. I have WA plus on this car, policy POL-100257, please process.\n\nOlivier",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

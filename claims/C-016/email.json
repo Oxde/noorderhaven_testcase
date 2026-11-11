@@ -1,0 +1,31 @@
+{
+  "claim_id": "C-016",
+  "message_id": "<c-016@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Jan-Willem Postma",
+    "email": "jw.postma@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Fire in kitchen extension - urgent",
+  "received_at": "2026-11-01T07:30:00",
+  "body": "Dear Noorderhaven,\n\nLast night (31 October) we had a serious fire in the kitchen extension at the back of our house. The fire brigade came and the fire is out, but the extension is gutted and there is heavy smoke and water damage in the rest of the ground floor. We are staying with family. A first estimate from the contractor is attached, as is the fire brigade report and photos. Policy POL-100255.\n\nPlease call me as soon as possible: 06-12345678.\n\nJan-Willem Postma",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    },
+    {
+      "filename": "photo_2.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

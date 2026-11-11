@@ -1,0 +1,14 @@
+{
+  "claim_id": "C-008",
+  "message_id": "<c-008@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "LeadBoost Marketing",
+    "email": "sales@leadboost-offers.example.net"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Verzekeringsleads: 70% korting deze week!",
+  "received_at": "2026-10-30T03:12:00",
+  "body": "Beste verzekeraar, wij leveren gekwalificeerde leads voor verzekeringsmaatschappijen. Alleen deze week 70% korting. Klik hier om uw offerte te ontvangen.",
+  "attachments": []
+}

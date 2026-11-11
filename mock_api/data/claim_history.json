@@ -1,0 +1,74 @@
+[
+  {
+    "claim_id": "CLM-2025-0412",
+    "policy_number": "POL-100231",
+    "loss_date": "2025-04-09",
+    "loss_type": "parking_damage",
+    "amount_claimed": 540,
+    "status": "paid",
+    "invoice_number": "INV-2025-0213"
+  },
+  {
+    "claim_id": "CLM-2024-0977",
+    "policy_number": "POL-100234",
+    "loss_date": "2024-11-20",
+    "loss_type": "storm",
+    "amount_claimed": 1350,
+    "status": "paid",
+    "invoice_number": "D-2024-512"
+  },
+  {
+    "claim_id": "CLM-2026-0602",
+    "policy_number": "POL-100247",
+    "loss_date": "2026-08-04",
+    "loss_type": "collision",
+    "amount_claimed": 1150,
+    "status": "paid",
+    "invoice_number": "INV-2026-0301"
+  },
+  {
+    "claim_id": "CLM-2026-0731",
+    "policy_number": "POL-100247",
+    "loss_date": "2026-09-02",
+    "loss_type": "parking_damage",
+    "amount_claimed": 890,
+    "status": "paid",
+    "invoice_number": "INV-2026-0388"
+  },
+  {
+    "claim_id": "CLM-2026-0881",
+    "policy_number": "POL-100262",
+    "loss_date": "2026-10-06",
+    "loss_type": "sudden_water",
+    "amount_claimed": 780,
+    "status": "open",
+    "invoice_number": "LA-4299"
+  },
+  {
+    "claim_id": "CLM-2025-0120",
+    "policy_number": "POL-100255",
+    "loss_date": "2025-02-14",
+    "loss_type": "storm",
+    "amount_claimed": 2100,
+    "status": "paid",
+    "invoice_number": "D-2025-077"
+  },
+  {
+    "claim_id": "CLM-2026-0310",
+    "policy_number": "POL-100239",
+    "loss_date": "2026-03-18",
+    "loss_type": "glass",
+    "amount_claimed": 380,
+    "status": "paid",
+    "invoice_number": "GS-85102"
+  },
+  {
+    "claim_id": "CLM-2026-0944",
+    "policy_number": "POL-100233",
+    "loss_date": "2026-10-02",
+    "loss_type": "glass",
+    "amount_claimed": 365,
+    "status": "paid",
+    "invoice_number": "GS-87654"
+  }
+]

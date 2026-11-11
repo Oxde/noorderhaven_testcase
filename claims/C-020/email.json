@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-020",
+  "message_id": "<c-020@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Joris Wouters",
+    "email": "joris.wouters@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Parkeerschade",
+  "received_at": "2026-11-01T09:00:00",
+  "body": "Hi,\n\nParkeerschade aan mijn rechterspatbord op 29 oktober (weggereden dader). Offerte in de bijlage, 700 euro. POL-100261.\n\nJoris",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

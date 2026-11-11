@@ -1,0 +1,23 @@
+{
+  "claim_id": "C-007",
+  "message_id": "<c-007@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Willem Dekker",
+    "email": "willem.dekker@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Katalysator gestolen",
+  "received_at": "2026-11-02T08:40:00",
+  "body": "Goedemiddag,\n\nMijn katalysator is onder mijn auto uit gezaagd, in de nacht van 27 op 28 oktober, voor mijn huis. Aangifte gedaan. Garage heeft een offerte gemaakt voor vervanging: 1.650 euro. Alles zit in de bijlagen. POL-100243.\n\nWillem Dekker",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "document_2.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "claim_id": "C-024",
+  "message_id": "<c-024@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Nadia Boukhari",
+    "email": "nadia.boukhari@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Schimmel en vocht badkamer",
+  "received_at": "2026-11-01T12:00:00",
+  "body": "Beste,\n\nAl sinds vorig jaar heb ik last van vocht en schimmel in de badkamermuur. Het is nu zo erg dat de muur vervangen moet worden, kosten 3.100 euro. Factuur is bijgevoegd. Polisnummer POL-100252.\n\nNadia Boukhari",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}
