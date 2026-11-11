@@ -172,6 +172,11 @@ class RulesTest(unittest.TestCase):
         self.assertEqual(d.action, "reject_draft")
         self.assertIn("outside_europe", d.flags)
 
+    def test_vague_email_from_unknown_sender_asks_identity(self):
+        unresolved = PolicyResolution(policy=None, how="none")
+        d = run(facts(intent="other", policy_number=None, loss_date=None, loss_type=None), unresolved)
+        self.assertEqual(d.action, "request_info")
+
     def test_gradual_damage_rejects_even_without_loss_date(self):
         d = run(facts(loss_date=None, loss_type=None, gradual_damage=Judgment(True, "al sinds vorig jaar schimmel")),
                 res(policy(product="home", covered_perils=["fire", "storm", "sudden_water"])))

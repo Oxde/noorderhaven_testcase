@@ -136,7 +136,9 @@ def decide(facts: Facts, res: PolicyResolution, history: List[HistoryClaim], tod
                        "Third-party liability claim against an insured; routed to the liability team. §5: nothing about "
                        "the insured or the policy may be disclosed, so only a neutral acknowledgement is sent.",
                        flags, trace, "third_party_ack", extra=False)
-    if facts.intent == "other":
+    # A vague "my car is damaged" from an unknown sender (C-033) is often classified "other". When no policy
+    # matches the sender, §5 says ask for identification, so let it fall through to rule 2 (lead's call).
+    if facts.intent == "other" and res.policy is not None:
         flags.append("needs_triage")
         trace.append(RuleStep("intent.other", False, "email is not a claim, complaint or third-party claim"))
         return _finish(facts, "route_other", None,
