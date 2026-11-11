@@ -94,6 +94,8 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 
 ## Next steps, in order
 
+- (small) Flag `third_party_disclosure_requested` when a customer asks for policy details to be sent to someone else (e.g. an accountant). Letters already go only to the sender, so nothing leaks; the flag would just tell the handler. It was left out because it changes the extraction prompt and would have needed another live final run minutes before the deadline.
+
 0. A persistent per-claim ledger (or reading decision state back from the API) consulted before deciding, so a re-run never auto-approves a claim an earlier run left for a handler after a failed write (robustness finding 1; only partly mitigated by `api_state_mismatch`).
 
 1. Reminder flow for request_info, with real inbox threading by Message-ID and sender (part 05).

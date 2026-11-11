@@ -22,6 +22,12 @@ class ReadOnlyApiClient(ApiClient):
     def _blocked(self, method: str):
         raise RuntimeError("dry run: write blocked: %s" % method)
 
+    def _request(self, method: str, path: str, *args, **kwargs):
+        # Defence in depth: even a future code path that calls _request directly can only read.
+        if method.upper() != "GET":
+            self._blocked("%s %s" % (method.upper(), path))
+        return super()._request(method, path, *args, **kwargs)
+
     def register_claim(self, payload: dict, idempotency_key: str) -> dict:
         self._blocked("register_claim")
 

@@ -129,5 +129,15 @@ class TryEndpointGuardTest(unittest.TestCase):
         self.assertFalse((Path(tmp.name) / "reviews.jsonl").exists())
 
 
+class ReadOnlyRequestLayer(unittest.TestCase):
+    def test_direct_non_get_request_is_blocked(self):
+        from agent.try_email import ReadOnlyApiClient
+        c = ReadOnlyApiClient(base="http://127.0.0.1:9")   # nothing listens; a request would fail differently
+        for m in ("POST", "PUT", "DELETE", "PATCH"):
+            with self.assertRaises(RuntimeError) as ctx:
+                c._request(m, "/claims", {"x": 1})
+            self.assertIn("write blocked", str(ctx.exception))
+
+
 if __name__ == "__main__":
     unittest.main()
