@@ -58,4 +58,69 @@ Purple is AI, green is plain code, orange is human, grey is data and outside sys
 
 Requirements: Python 3.9+. **No packages to install** (standard library only).
 
-_(run instructions are finalised after integration)_
+```bash
+# 1. LLM key (KIE.ai). Without it the agent still runs, using the rule-based fallback extractor.
+echo "KIE_API_KEY=your-key" > .env
+```
+
+```bash
+# 2. Start the mock API (chaos on, as in review). Keep it running.
+python3 mock_api/server.py
+```
+
+```bash
+# 3. In a second terminal: process all 40 claims. --reset clears the mock API state first.
+python3 -m agent.run --reset
+```
+
+```bash
+# 4. Evaluate against the answer key (accuracy, payouts, safety checks)
+python3 eval/run_eval.py
+```
+
+```bash
+# 5. Human review page at http://localhost:8000
+python3 review/server.py
+```
+
+Other options:
+- `python3 -m agent.run --no-llm` runs without the LLM (fallback extractor only).
+- `python3 -m agent.run --only C-001,C-005` processes a subset.
+- Environment variables: `LLM_MODELS` (model chain, default `deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash`), `LLM_CONCURRENCY` (default 4), `CLAIMS_API_BASE` (default `http://localhost:8080`).
+
+Tests (73 unit tests: rules, letters, API client retries and idempotency, PDF text, extraction, eval):
+
+```bash
+python3 -m unittest discover -s tests
+```
+
+## Outputs
+
+| File | What |
+|---|---|
+| `output/decisions.json` | one entry per claim, in the case's hand-in format |
+| `output/review_queue.json` | everything the review page shows: email, facts, policy, rule trace, letter |
+| `output/audit.jsonl` | one line per pipeline step per claim, with API attempt counts |
+| `output/run_summary.json` | counts per action, API and LLM stats, duration |
+| `output/eval_report.md`, `output/eval_summary.json` | eval results |
+| `output/reviews.jsonl` | handler actions from the review page (created on first review) |
+| `mock_api/runtime/` | the mock API's own record of every write and queued email, from the final run |
+
+## Final run result
+
+40 claims, chaos on, real LLM (`deepseek-v4-1-flash` via KIE):
+- **Actions:** 9 auto-approved, 4 info requests, 11 escalated (8 handler, 3 senior), 7 rejections drafted (held), 6 fraud review, 3 routed elsewhere.
+- **API:** 170 calls, 43 retries, 0 failed writes, no duplicates.
+- **Eval:** 100% action and payout match, all safety checks 0. See [DECISIONS.md](DECISIONS.md) for why that number flatters it.
+
+## Repository map
+
+```
+agent/        pipeline: models, config, api_client, pdf_text, llm, prompts, extract, threads, rules, comms, pipeline, run
+review/       review web page (server.py + index.html, sample_queue.json fixture)
+eval/         expected.json (answer key, written before the code) and run_eval.py
+tests/        unittest suite
+docs/         design.md (spec), plan.md (build plan), kie-llm-api.md, case rulebook and API docs
+claims/ mock_api/   the case's starter pack (unchanged)
+output/       results of the final run
+```

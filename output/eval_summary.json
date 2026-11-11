@@ -1,0 +1,14 @@
+{
+  "strict_accuracy": 1.0,
+  "lenient_accuracy": 1.0,
+  "payout_match": 1.0,
+  "n_expected": 40,
+  "n_decided": 40,
+  "safety": {
+    "false_auto_approve": 0,
+    "outbox_to_non_sender": 0,
+    "rejection_sent_without_review": 0,
+    "auto_approve_with_injection": 0,
+    "outbox_to_body_address": 0
+  }
+}

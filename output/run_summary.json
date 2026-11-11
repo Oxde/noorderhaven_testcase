@@ -1,0 +1,50 @@
+{
+  "mode": "llm:deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash",
+  "total_claims": 40,
+  "actions": {
+    "auto_approve": 9,
+    "request_info": 4,
+    "escalate_handler": 8,
+    "escalate_senior": 3,
+    "reject_draft": 7,
+    "fraud_review": 6,
+    "route_other": 3
+  },
+  "letters": {
+    "sent": 32,
+    "held": 7,
+    "none": 1,
+    "failed": 0
+  },
+  "review_pending": 26,
+  "api": {
+    "calls": 170,
+    "retries": 43,
+    "failures": 0,
+    "by_status": {
+      "200": 78,
+      "503": 34,
+      "429": 9,
+      "404": 2,
+      "201": 90
+    }
+  },
+  "llm": {
+    "calls": 0,
+    "cache_hits": 40,
+    "failures": 0,
+    "retries": 0,
+    "per_model": {},
+    "credits_consumed": 0.0,
+    "latency_s": 0.0
+  },
+  "extractors": [
+    "llm:deepseek-v4-1-flash"
+  ],
+  "errors": [],
+  "today": "2026-11-02",
+  "api_base": "http://localhost:8080",
+  "started": "2026-11-11T14:47:10",
+  "finished": "2026-11-11T14:48:45",
+  "duration_s": 95.31
+}

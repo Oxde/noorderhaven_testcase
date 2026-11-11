@@ -60,10 +60,10 @@ Skipped: FastAPI skills (we use the stdlib), a PDF skill (one was already availa
 | # | Agent | Model | Role | Started | Finished |
 |---|---|---|---|---|---|
 | 1 | Builder check | Sonnet | Read the design as a builder would and listed the open questions | 14:22 | 14:23 |
-| 2 | A: API client + pipeline | Opus | Task 1 | 14:30 | _running_ |
-| 3 | B: Intake + KIE LLM client | Opus | Task 2 | 14:30 | _running_ |
+| 2 | A: API client + pipeline | Opus | Task 1 | 14:30 | 14:42 (7 tests; 40-claim chaos smoke run, 0 errors) |
+| 3 | B: Intake + KIE LLM client | Opus | Task 2 | 14:30 | 14:38 (17 tests; live KIE smoke on 4 claims) |
 | 4 | C: Rules, threads, letters | Opus | Task 3 | 14:30 | 14:34 (39 tests green) |
-| 5 | D: Review web page | Opus | Task 4 | 14:30 | _running_ |
+| 5 | D: Review web page | Opus | Task 4 | 14:30 | 14:37 (checked with curl, then in a browser by the lead) |
 | 6 | E: Evaluation | Opus | Task 5 | 14:30 | 14:33 (7 tests green) |
 
 A separate Claude session tested the KIE.ai models live and wrote `docs/kie-llm-api.md`. This build used its findings: model choice, the Responses format for DeepSeek and GPT, errors inside HTTP 200 bodies, and Haiku failing on system prompts.
@@ -77,6 +77,17 @@ A separate Claude session tested the KIE.ai models live and wrote `docs/kie-llm-
 5. **The lead integrates.** Builders never commit. When one reports back, the lead re-runs its tests, commits it, and relays any interface detail other agents need. For example, the rules agent added a `received_at` parameter to `decide()`, and the lead passed that to the pipeline agent while it was still working.
 6. **Isolation for live systems.** Builders that start the mock API use their own port (8091) and delete `mock_api/runtime/` afterwards, so the lead's final run starts clean.
 
+All five builders finished between 14:33 and 14:42, well inside their 15:05 deadline. Total: **6 subagents** (1 reviewer + 5 builders), plus the separate KIE testing session.
+
 ## Integration, test and hand-in
 
-_(filled in as it happens)_
+- **14:35–14:42, while builders were still working:**
+  - **Fix 1, from the automated security review:** thread linking trusted the In-Reply-To header alone, so a stranger could have merged another customer's claim. Replies now only link to an email from the same sender.
+  - **Fix 2, from the automated security review:** the review server accepted cross-origin POSTs, so any website open in the handler's browser could have released held letters. It now requires JSON and checks Origin and Host. Tested with curl.
+  - **Fix 3, raised by the intake agent:** claims with a clear exclusion but no loss date (C-010, C-019, C-024) would have got "please send the date". Exclusions are now checked first.
+  - **Fix 4, from the pipeline agent's notes:** claims from unverified senders are no longer registered against the matched policy.
+- **14:43:** first full run with the real KIE LLM and chaos on. 40 claims in 127 s; 39 LLM calls, all answered by deepseek-v4-1-flash for 1.31 credits; 169 API calls, 33 retries, 0 failures.
+- **14:45:** first eval: **97.5%** actions, 100% payouts, 0 safety violations. The one miss was C-033, a vague email from an unknown sender that the LLM labelled "other" and that was routed to triage. Fixed: with no matching policy it now asks for identification (§5).
+- **14:47:** rerun: **100%** actions, 100% payouts, safety 0. (Caveat in DECISIONS.md: the rules were adjusted on the same 40 claims.)
+- **14:48:** checked the review page in a browser with real data: the queue, the rule trace, and C-005's injection warning with its neutral Dutch acknowledgement.
+- **14:50:** wrote DECISIONS.md, PROMPTS.md (runtime prompt generated from the source) and the README run guide.
