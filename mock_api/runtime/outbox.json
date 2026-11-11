@@ -1,6 +1,6 @@
 [
   {
-    "message_id": "MSG-165b6fde",
+    "message_id": "MSG-abc18249",
     "state": "queued",
     "to": "jeroen.devries@example.com",
     "subject": "Re: Schade aan achterbumper",
@@ -10,7 +10,7 @@
     "claim_id": "C-001"
   },
   {
-    "message_id": "MSG-0186e034",
+    "message_id": "MSG-ae24a115",
     "state": "queued",
     "to": "sanne.bakker@example.com",
     "subject": "Re: Windscreen cracked, invoice attached",
@@ -20,27 +20,7 @@
     "claim_id": "C-006"
   },
   {
-    "message_id": "MSG-93eefce3",
-    "state": "queued",
-    "to": "fatima.yilmaz@example.com",
-    "subject": "Re: Fiets gestolen / bike stolen",
-    "body": "Beste Fatima Yilmaz,\n\nGoed nieuws: wij hebben uw schademelding beoordeeld en goedgekeurd. Wij keren EUR 790,00 uit, dit is het gedocumenteerde bedrag min uw eigen risico. Het bedrag wordt overgemaakt naar het rekeningnummer dat bij ons bekend is.\n\nHeeft u vragen? Antwoord dan gerust op deze e-mail.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-022@mail.noorderhaven.example>",
-    "kind": "decision",
-    "claim_id": "C-022"
-  },
-  {
-    "message_id": "MSG-e35410cf",
-    "state": "queued",
-    "to": "emma.visser@example.com",
-    "subject": "Re: Kras en deuk portier",
-    "body": "Beste Emma Visser,\n\nGoed nieuws: wij hebben uw schademelding beoordeeld en goedgekeurd. Wij keren EUR 530,00 uit, dit is het gedocumenteerde bedrag min uw eigen risico. Het bedrag wordt overgemaakt naar het rekeningnummer dat bij ons bekend is.\n\nHeeft u vragen? Antwoord dan gerust op deze e-mail.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-004@mail.noorderhaven.example>",
-    "kind": "decision",
-    "claim_id": "C-004"
-  },
-  {
-    "message_id": "MSG-4ba2682f",
+    "message_id": "MSG-278eab44",
     "state": "queued",
     "to": "lisa.janssen@example.com",
     "subject": "Re: Gebroken ruit woonkamer",
@@ -50,17 +30,27 @@
     "claim_id": "C-025"
   },
   {
-    "message_id": "MSG-c877ff21",
+    "message_id": "MSG-13f2b86c",
     "state": "queued",
-    "to": "eva.brouwer@example.com",
-    "subject": "Re: Inbraak, laptop weg",
-    "body": "Beste Eva Brouwer,\n\nBedankt voor uw schademelding (polis POL-100254). Om uw schade te kunnen beoordelen hebben wij nog het volgende van u nodig:\n\n- de datum waarop de schade is ontstaan\n- een factuur of reparatieofferte met het bedrag\n- het nummer van het proces-verbaal (aangifte bij de politie)\n\nU kunt dit sturen door op deze e-mail te antwoorden. Zodra wij alles hebben, nemen wij uw melding verder in behandeling.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-003@mail.noorderhaven.example>",
-    "kind": "info_request",
-    "claim_id": "C-003"
+    "to": "emma.visser@example.com",
+    "subject": "Re: Kras en deuk portier",
+    "body": "Beste Emma Visser,\n\nGoed nieuws: wij hebben uw schademelding beoordeeld en goedgekeurd. Wij keren EUR 530,00 uit, dit is het gedocumenteerde bedrag min uw eigen risico. Het bedrag wordt overgemaakt naar het rekeningnummer dat bij ons bekend is.\n\nHeeft u vragen? Antwoord dan gerust op deze e-mail.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-004@mail.noorderhaven.example>",
+    "kind": "decision",
+    "claim_id": "C-004"
   },
   {
-    "message_id": "MSG-4411d49b",
+    "message_id": "MSG-15491ddc",
+    "state": "queued",
+    "to": "fatima.yilmaz@example.com",
+    "subject": "Re: Fiets gestolen / bike stolen",
+    "body": "Beste Fatima Yilmaz,\n\nGoed nieuws: wij hebben uw schademelding beoordeeld en goedgekeurd. Wij keren EUR 790,00 uit, dit is het gedocumenteerde bedrag min uw eigen risico. Het bedrag wordt overgemaakt naar het rekeningnummer dat bij ons bekend is.\n\nHeeft u vragen? Antwoord dan gerust op deze e-mail.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-022@mail.noorderhaven.example>",
+    "kind": "decision",
+    "claim_id": "C-022"
+  },
+  {
+    "message_id": "MSG-a7a89ed0",
     "state": "queued",
     "to": "amber.kuiper@example.com",
     "subject": "Re: Waterschade meubels",
@@ -70,17 +60,17 @@
     "claim_id": "C-013"
   },
   {
-    "message_id": "MSG-fc70976a",
+    "message_id": "MSG-3fca31d8",
     "state": "queued",
-    "to": "thomas.smit@example.com",
-    "subject": "Re: Stormschade dak",
-    "body": "Beste Thomas Smit,\n\nGoed nieuws: wij hebben uw schademelding beoordeeld en goedgekeurd. Wij keren EUR 670,00 uit, dit is het gedocumenteerde bedrag min uw eigen risico. Het bedrag wordt overgemaakt naar het rekeningnummer dat bij ons bekend is.\n\nHeeft u vragen? Antwoord dan gerust op deze e-mail.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-012@mail.noorderhaven.example>",
-    "kind": "decision",
-    "claim_id": "C-012"
+    "to": "eva.brouwer@example.com",
+    "subject": "Re: Inbraak, laptop weg",
+    "body": "Beste Eva Brouwer,\n\nBedankt voor uw schademelding (polis POL-100254). Om uw schade te kunnen beoordelen hebben wij nog het volgende van u nodig:\n\n- de datum waarop de schade is ontstaan\n- een factuur of reparatieofferte met het bedrag\n- het nummer van het proces-verbaal (aangifte bij de politie)\n\nU kunt dit sturen door op deze e-mail te antwoorden. Zodra wij alles hebben, nemen wij uw melding verder in behandeling.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-003@mail.noorderhaven.example>",
+    "kind": "info_request",
+    "claim_id": "C-003"
   },
   {
-    "message_id": "MSG-c73791f2",
+    "message_id": "MSG-0775e503",
     "state": "queued",
     "to": "daan.meijer@example.com",
     "subject": "Re: Schade auto + gestolen spullen",
@@ -90,7 +80,17 @@
     "claim_id": "C-011"
   },
   {
-    "message_id": "MSG-c0fe7101",
+    "message_id": "MSG-e9dd7823",
+    "state": "queued",
+    "to": "thomas.smit@example.com",
+    "subject": "Re: Stormschade dak",
+    "body": "Beste Thomas Smit,\n\nGoed nieuws: wij hebben uw schademelding beoordeeld en goedgekeurd. Wij keren EUR 670,00 uit, dit is het gedocumenteerde bedrag min uw eigen risico. Het bedrag wordt overgemaakt naar het rekeningnummer dat bij ons bekend is.\n\nHeeft u vragen? Antwoord dan gerust op deze e-mail.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-012@mail.noorderhaven.example>",
+    "kind": "decision",
+    "claim_id": "C-012"
+  },
+  {
+    "message_id": "MSG-68fac149",
     "state": "queued",
     "to": "bas.kok@example.com",
     "subject": "Re: Waterlek keuken",
@@ -100,17 +100,7 @@
     "claim_id": "C-009"
   },
   {
-    "message_id": "MSG-b5245aa7",
-    "state": "queued",
-    "to": "karin.deboer@example.com",
-    "subject": "Re: Hagelschade dak, late melding",
-    "body": "Beste Karin de Boer,\n\nBedankt voor uw schademelding. Wij hebben uw melding en de bijlagen goed ontvangen. Een schadebehandelaar bekijkt uw melding en neemt zo snel mogelijk contact met u op.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-034@mail.noorderhaven.example>",
-    "kind": "other",
-    "claim_id": "C-034"
-  },
-  {
-    "message_id": "MSG-a08f04e6",
+    "message_id": "MSG-eefa83bd",
     "state": "queued",
     "to": "kevin.vos@example.com",
     "subject": "Re: Kras in bumper",
@@ -120,7 +110,7 @@
     "claim_id": "C-030"
   },
   {
-    "message_id": "MSG-577bc459",
+    "message_id": "MSG-469bf5c9",
     "state": "queued",
     "to": "maud.willems@example.com",
     "subject": "Re: TV kapot na blikseminslag",
@@ -130,7 +120,17 @@
     "claim_id": "C-031"
   },
   {
-    "message_id": "MSG-8224cff4",
+    "message_id": "MSG-53b8e2ed",
+    "state": "queued",
+    "to": "karin.deboer@example.com",
+    "subject": "Re: Hagelschade dak, late melding",
+    "body": "Beste Karin de Boer,\n\nBedankt voor uw schademelding. Wij hebben uw melding en de bijlagen goed ontvangen. Een schadebehandelaar bekijkt uw melding en neemt zo snel mogelijk contact met u op.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-034@mail.noorderhaven.example>",
+    "kind": "other",
+    "claim_id": "C-034"
+  },
+  {
+    "message_id": "MSG-1a4275b6",
     "state": "queued",
     "to": "lotte.degroot@example.com",
     "subject": "Re: My car was hit",
@@ -140,7 +140,7 @@
     "claim_id": "C-023"
   },
   {
-    "message_id": "MSG-9553b0df",
+    "message_id": "MSG-fa2939f5",
     "state": "queued",
     "to": "sophie.vandijk@example.com",
     "subject": "Re: Aanrijding met ree",
@@ -150,7 +150,7 @@
     "claim_id": "C-029"
   },
   {
-    "message_id": "MSG-62fa987d",
+    "message_id": "MSG-e9d3d06d",
     "state": "queued",
     "to": "yara.hoekstra@example.com",
     "subject": "Re: Sieraden gestolen bij inbraak",
@@ -160,17 +160,7 @@
     "claim_id": "C-015"
   },
   {
-    "message_id": "MSG-7ed5438e",
-    "state": "queued",
-    "to": "rik.verhoeven@example.com",
-    "subject": "Re: Steenslag voorruit",
-    "body": "Beste Rik Verhoeven,\n\nGoed nieuws: wij hebben uw schademelding beoordeeld en goedgekeurd. Wij keren EUR 215,00 uit, dit is het gedocumenteerde bedrag min uw eigen risico. Het bedrag wordt overgemaakt naar het rekeningnummer dat bij ons bekend is.\n\nHeeft u vragen? Antwoord dan gerust op deze e-mail.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-018@mail.noorderhaven.example>",
-    "kind": "decision",
-    "claim_id": "C-018"
-  },
-  {
-    "message_id": "MSG-4763eb4c",
+    "message_id": "MSG-bb72e4ac",
     "state": "queued",
     "to": "tess.vanleeuwen@example.com",
     "subject": "Re: Spiegel afgerukt in parkeergarage",
@@ -180,7 +170,17 @@
     "claim_id": "C-035"
   },
   {
-    "message_id": "MSG-c4006aed",
+    "message_id": "MSG-29c0adfe",
+    "state": "queued",
+    "to": "rik.verhoeven@example.com",
+    "subject": "Re: Steenslag voorruit",
+    "body": "Beste Rik Verhoeven,\n\nGoed nieuws: wij hebben uw schademelding beoordeeld en goedgekeurd. Wij keren EUR 215,00 uit, dit is het gedocumenteerde bedrag min uw eigen risico. Het bedrag wordt overgemaakt naar het rekeningnummer dat bij ons bekend is.\n\nHeeft u vragen? Antwoord dan gerust op deze e-mail.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-018@mail.noorderhaven.example>",
+    "kind": "decision",
+    "claim_id": "C-018"
+  },
+  {
+    "message_id": "MSG-332045b2",
     "state": "queued",
     "to": "h.aalders@example.net",
     "subject": "Re: auto beschadigd",
@@ -190,7 +190,7 @@
     "claim_id": "C-033"
   },
   {
-    "message_id": "MSG-418950ff",
+    "message_id": "MSG-0de47661",
     "state": "queued",
     "to": "pieter.vdberg@example.com",
     "subject": "Re: Fietsdiefstal",
@@ -200,17 +200,7 @@
     "claim_id": "C-005"
   },
   {
-    "message_id": "MSG-db3dda3b",
-    "state": "queued",
-    "to": "jw.postma@example.com",
-    "subject": "Re: Fire in kitchen extension - urgent",
-    "body": "Dear Jan-Willem Postma,\n\nThank you for your claim. We have received your message and attachments. A claims handler is reviewing your claim and will get back to you as soon as possible.\n\nKind regards,\n\nClaims Team\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-016@mail.noorderhaven.example>",
-    "kind": "other",
-    "claim_id": "C-016"
-  },
-  {
-    "message_id": "MSG-a1e5a033",
+    "message_id": "MSG-8d642f59",
     "state": "queued",
     "to": "joris.wouters@example.com",
     "subject": "Re: Parkeerschade",
@@ -220,57 +210,17 @@
     "claim_id": "C-020"
   },
   {
-    "message_id": "MSG-46e5c1e3",
+    "message_id": "MSG-2ba37318",
     "state": "queued",
-    "to": "eva.brouwer@example.com",
-    "subject": "RE: Inbraak, laptop weg",
-    "body": "Beste Eva Brouwer,\n\nBedankt voor uw schademelding. Wij hebben uw melding en de bijlagen goed ontvangen. Een schadebehandelaar bekijkt uw melding en neemt zo snel mogelijk contact met u op.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-017@mail.noorderhaven.example>",
+    "to": "jw.postma@example.com",
+    "subject": "Re: Fire in kitchen extension - urgent",
+    "body": "Dear Jan-Willem Postma,\n\nThank you for your claim. We have received your message and attachments. A claims handler is reviewing your claim and will get back to you as soon as possible.\n\nKind regards,\n\nClaims Team\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-016@mail.noorderhaven.example>",
     "kind": "other",
-    "claim_id": "C-017"
+    "claim_id": "C-016"
   },
   {
-    "message_id": "MSG-bf8b03af",
-    "state": "queued",
-    "to": "amber.kuiper@example.com",
-    "subject": "RE: Waterschade meubels",
-    "body": "Beste Amber Kuiper,\n\nBedankt voor uw schademelding. Wij hebben uw melding en de bijlagen goed ontvangen. Een schadebehandelaar bekijkt uw melding en neemt zo snel mogelijk contact met u op.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-027@mail.noorderhaven.example>",
-    "kind": "other",
-    "claim_id": "C-027"
-  },
-  {
-    "message_id": "MSG-fd12045d",
-    "state": "queued",
-    "to": "r.aalbers@example.net",
-    "subject": "Re: Schade veroorzaakt door uw verzekerde",
-    "body": "Beste Rob Aalbers,\n\nBedankt voor uw bericht. Wij hebben het doorgestuurd naar de juiste afdeling, die uw bericht beoordeelt. Om privacyredenen kunnen wij geen informatie geven over verzekerden of polissen.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-038@mail.noorderhaven.example>",
-    "kind": "other",
-    "claim_id": "C-038"
-  },
-  {
-    "message_id": "MSG-b1840125",
-    "state": "queued",
-    "to": "lotte.degroot@example.com",
-    "subject": "RE: My car was hit",
-    "body": "Dear Lotte de Groot,\n\nThank you for your claim. We have received your message and attachments. A claims handler is reviewing your claim and will get back to you as soon as possible.\n\nKind regards,\n\nClaims Team\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-036@mail.noorderhaven.example>",
-    "kind": "other",
-    "claim_id": "C-036"
-  },
-  {
-    "message_id": "MSG-c6280929",
-    "state": "queued",
-    "to": "carla.hermans@example.com",
-    "subject": "Re: Nog steeds geen reactie op mijn schademelding!!",
-    "body": "Beste Carla Hermans,\n\nBedankt voor uw bericht. Wij hebben het doorgestuurd naar het team dat uw lopende schade behandelt. Een collega neemt zo snel mogelijk persoonlijk contact met u op.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
-    "in_reply_to": "<c-026@mail.noorderhaven.example>",
-    "kind": "other",
-    "claim_id": "C-026"
-  },
-  {
-    "message_id": "MSG-c3e7ddf7",
+    "message_id": "MSG-32fd4a6d",
     "state": "queued",
     "to": "marco.peeters@example.net",
     "subject": "Re: Claim - car damage / schade auto",
@@ -280,7 +230,57 @@
     "claim_id": "C-040"
   },
   {
-    "message_id": "MSG-ce0d67e4",
+    "message_id": "MSG-515470c3",
+    "state": "queued",
+    "to": "carla.hermans@example.com",
+    "subject": "Re: Nog steeds geen reactie op mijn schademelding!!",
+    "body": "Beste Carla Hermans,\n\nBedankt voor uw bericht. Wij hebben het doorgestuurd naar het team dat uw lopende schade behandelt. Een collega neemt zo snel mogelijk persoonlijk contact met u op.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-026@mail.noorderhaven.example>",
+    "kind": "other",
+    "claim_id": "C-026"
+  },
+  {
+    "message_id": "MSG-7ad9ef4b",
+    "state": "queued",
+    "to": "amber.kuiper@example.com",
+    "subject": "RE: Waterschade meubels",
+    "body": "Beste Amber Kuiper,\n\nBedankt voor uw schademelding. Wij hebben uw melding en de bijlagen goed ontvangen. Een schadebehandelaar bekijkt uw melding en neemt zo snel mogelijk contact met u op.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-027@mail.noorderhaven.example>",
+    "kind": "other",
+    "claim_id": "C-027"
+  },
+  {
+    "message_id": "MSG-9d1ac939",
+    "state": "queued",
+    "to": "eva.brouwer@example.com",
+    "subject": "RE: Inbraak, laptop weg",
+    "body": "Beste Eva Brouwer,\n\nBedankt voor uw schademelding. Wij hebben uw melding en de bijlagen goed ontvangen. Een schadebehandelaar bekijkt uw melding en neemt zo snel mogelijk contact met u op.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-017@mail.noorderhaven.example>",
+    "kind": "other",
+    "claim_id": "C-017"
+  },
+  {
+    "message_id": "MSG-ccc086f6",
+    "state": "queued",
+    "to": "r.aalbers@example.net",
+    "subject": "Re: Schade veroorzaakt door uw verzekerde",
+    "body": "Beste Rob Aalbers,\n\nBedankt voor uw bericht. Wij hebben het doorgestuurd naar de juiste afdeling, die uw bericht beoordeelt. Om privacyredenen kunnen wij geen informatie geven over verzekerden of polissen.\n\nMet vriendelijke groet,\n\nTeam Schadebehandeling\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-038@mail.noorderhaven.example>",
+    "kind": "other",
+    "claim_id": "C-038"
+  },
+  {
+    "message_id": "MSG-433fb9c8",
+    "state": "queued",
+    "to": "lotte.degroot@example.com",
+    "subject": "RE: My car was hit",
+    "body": "Dear Lotte de Groot,\n\nThank you for your claim. We have received your message and attachments. A claims handler is reviewing your claim and will get back to you as soon as possible.\n\nKind regards,\n\nClaims Team\nNoorderhaven Verzekeringen",
+    "in_reply_to": "<c-036@mail.noorderhaven.example>",
+    "kind": "other",
+    "claim_id": "C-036"
+  },
+  {
+    "message_id": "MSG-936c221b",
     "state": "queued",
     "to": "willem.dekker@example.com",
     "subject": "Re: Katalysator gestolen",
@@ -290,7 +290,7 @@
     "claim_id": "C-007"
   },
   {
-    "message_id": "MSG-b6fe3810",
+    "message_id": "MSG-0fcc6fd3",
     "state": "queued",
     "to": "gerrit.smeets@example.com",
     "subject": "Re: Stormschade tuinmuur, schuur en dak",
@@ -300,7 +300,7 @@
     "claim_id": "C-039"
   },
   {
-    "message_id": "MSG-8705f324",
+    "message_id": "MSG-0a2a18e3",
     "state": "queued",
     "to": "stefan.jacobs@example.com",
     "subject": "Re: Total loss after collision",
@@ -310,7 +310,7 @@
     "claim_id": "C-028"
   },
   {
-    "message_id": "MSG-1600deab",
+    "message_id": "MSG-d2c5c7d4",
     "state": "queued",
     "to": "m.elamrani@example.com",
     "subject": "Re: Glasschade voorruit",

@@ -19,30 +19,24 @@
   "review_pending": 26,
   "api": {
     "calls": 170,
-    "retries": 40,
+    "retries": 31,
     "failures": 0,
     "by_status": {
       "200": 78,
-      "503": 31,
+      "503": 25,
       "404": 2,
-      "429": 9,
+      "429": 6,
       "201": 90
     }
   },
   "llm": {
-    "calls": 40,
-    "cache_hits": 0,
+    "calls": 0,
+    "cache_hits": 40,
     "failures": 0,
     "retries": 0,
-    "per_model": {
-      "deepseek-v4-1-flash": {
-        "ok": 40,
-        "errors": 0,
-        "credits": 1.1900000000000006
-      }
-    },
-    "credits_consumed": 1.1900000000000006,
-    "latency_s": 134.9822071219096
+    "per_model": {},
+    "credits_consumed": 0.0,
+    "latency_s": 0.0
   },
   "extractors": [
     "llm:deepseek-v4-1-flash"
@@ -50,7 +44,7 @@
   "errors": [],
   "today": "2026-11-02",
   "api_base": "http://localhost:8080",
-  "started": "2026-11-11T15:14:37",
-  "finished": "2026-11-11T15:16:46",
-  "duration_s": 129.43
+  "started": "2026-11-11T15:20:52",
+  "finished": "2026-11-11T15:22:27",
+  "duration_s": 94.85
 }

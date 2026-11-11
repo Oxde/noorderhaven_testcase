@@ -1,265 +1,265 @@
-{"ts": "2026-11-11T15:14:37", "claim_id": null, "step": "health", "ok": true, "detail": {"status": "ok", "chaos": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:14:37", "claim_id": null, "step": "reset", "ok": true, "detail": "POST /admin/reset", "api_attempts": 1}
-{"ts": "2026-11-11T15:14:37", "claim_id": null, "step": "load", "ok": true, "detail": {"emails": 40, "threads": {"C-017": "C-003", "C-027": "C-013", "C-036": "C-023"}}}
-{"ts": "2026-11-11T15:14:41", "claim_id": "C-006", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100232", "loss_date": "2026-10-19", "loss_type": "glass", "injection": false}}
-{"ts": "2026-11-11T15:14:41", "claim_id": "C-004", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100236", "loss_date": "2026-10-22", "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:14:41", "claim_id": "C-025", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100234", "loss_date": "2026-10-25", "loss_type": "glass", "injection": false}}
-{"ts": "2026-11-11T15:14:42", "claim_id": "C-001", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100231", "loss_date": "2026-10-21", "loss_type": "parking_damage", "injection": false}}
-{"ts": "2026-11-11T15:14:44", "claim_id": "C-003", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": null, "loss_date": null, "loss_type": "burglary_theft", "injection": false}}
-{"ts": "2026-11-11T15:14:44", "claim_id": "C-013", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100258", "loss_date": null, "loss_type": "sudden_water", "injection": false}}
-{"ts": "2026-11-11T15:14:44", "claim_id": "C-012", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100237", "loss_date": "2026-10-17", "loss_type": "storm", "injection": false}}
-{"ts": "2026-11-11T15:14:45", "claim_id": "C-022", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100238", "loss_date": "2026-10-23", "loss_type": "theft", "injection": false}}
-{"ts": "2026-11-11T15:14:47", "claim_id": "C-008", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "spam", "policy_number": null, "loss_date": null, "loss_type": null, "injection": false}}
-{"ts": "2026-11-11T15:14:48", "claim_id": "C-011", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100241", "loss_date": "2026-10-17", "loss_type": "burglary_theft", "injection": false}}
-{"ts": "2026-11-11T15:14:48", "claim_id": "C-037", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100242", "loss_date": "2026-10-12", "loss_type": "theft", "injection": false}}
-{"ts": "2026-11-11T15:14:48", "claim_id": "C-009", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100245", "loss_date": "2026-10-29", "loss_type": "sudden_water", "injection": false}}
-{"ts": "2026-11-11T15:14:51", "claim_id": "C-030", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100247", "loss_date": "2026-10-26", "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:14:51", "claim_id": "C-034", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100240", "loss_date": "2026-06-20", "loss_type": "hail", "injection": false}}
-{"ts": "2026-11-11T15:14:51", "claim_id": "C-002", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100239", "loss_date": "2026-10-24", "loss_type": "glass", "injection": false}}
-{"ts": "2026-11-11T15:14:52", "claim_id": "C-031", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100263", "loss_date": "2026-10-26", "loss_type": "lightning", "injection": false}}
-{"ts": "2026-11-11T15:14:54", "claim_id": "C-023", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": null, "loss_date": null, "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:14:54", "claim_id": "C-032", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100249", "loss_date": "2026-10-10", "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:14:54", "claim_id": "C-029", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100244", "loss_date": "2026-10-30", "loss_type": "wildlife", "injection": false}}
-{"ts": "2026-11-11T15:14:55", "claim_id": "C-015", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100520", "loss_date": "2026-10-20", "loss_type": "burglary_theft", "injection": false}}
-{"ts": "2026-11-11T15:14:57", "claim_id": "C-018", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100253", "loss_date": "2026-10-27", "loss_type": "glass", "injection": false}}
-{"ts": "2026-11-11T15:14:57", "claim_id": "C-035", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100256", "loss_date": "2026-10-28", "loss_type": "parking_damage", "injection": false}}
-{"ts": "2026-11-11T15:14:57", "claim_id": "C-014", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100257", "loss_date": "2026-10-27", "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:14:57", "claim_id": "C-010", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100246", "loss_date": null, "loss_type": "glass", "injection": false}}
-{"ts": "2026-11-11T15:15:00", "claim_id": "C-033", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": null, "loss_date": null, "loss_type": null, "injection": false}}
-{"ts": "2026-11-11T15:15:01", "claim_id": "C-020", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100261", "loss_date": "2026-10-29", "loss_type": "parking_damage", "injection": true}}
-{"ts": "2026-11-11T15:15:01", "claim_id": "C-016", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100255", "loss_date": "2026-10-31", "loss_type": "fire", "injection": false}}
-{"ts": "2026-11-11T15:15:01", "claim_id": "C-005", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100235", "loss_date": "2026-10-28", "loss_type": "theft", "injection": true}}
-{"ts": "2026-11-11T15:15:03", "claim_id": "C-017", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "reply_with_info", "policy_number": null, "loss_date": "2026-10-26", "loss_type": "burglary_theft", "injection": false}}
-{"ts": "2026-11-11T15:15:04", "claim_id": "C-024", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100252", "loss_date": null, "loss_type": "sudden_water", "injection": false}}
-{"ts": "2026-11-11T15:15:05", "claim_id": "C-036", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "reply_with_info", "policy_number": null, "loss_date": "2026-10-29", "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:15:05", "claim_id": "C-027", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "reply_with_info", "policy_number": null, "loss_date": "2026-10-24", "loss_type": "sudden_water", "injection": false}}
-{"ts": "2026-11-11T15:15:07", "claim_id": "C-040", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100299", "loss_date": "2026-10-30", "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:15:07", "claim_id": "C-038", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "third_party_liability", "policy_number": null, "loss_date": "2026-10-25", "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:15:08", "claim_id": "C-026", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "complaint_existing_claim", "policy_number": null, "loss_date": "2026-10-06", "loss_type": "sudden_water", "injection": false}}
-{"ts": "2026-11-11T15:15:08", "claim_id": "C-019", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100248", "loss_date": null, "loss_type": "sudden_water", "injection": false}}
-{"ts": "2026-11-11T15:15:10", "claim_id": "C-039", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100259", "loss_date": "2026-10-17", "loss_type": "storm", "injection": false}}
-{"ts": "2026-11-11T15:15:10", "claim_id": "C-007", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100243", "loss_date": "2026-10-27", "loss_type": "theft", "injection": false}}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-028", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100251", "loss_date": "2026-10-29", "loss_type": "collision", "injection": false}}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-021", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100233", "loss_date": "2026-10-03", "loss_type": "glass", "injection": false}}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-017", "step": "thread_merge", "ok": true, "detail": {"parent": "C-003"}}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-027", "step": "thread_merge", "ok": true, "detail": {"parent": "C-013"}}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-036", "step": "thread_merge", "ok": true, "detail": {"parent": "C-023"}}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-013", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100258", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-025", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100234", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-011", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100241", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-006", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100232", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:12", "claim_id": "C-012", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100237", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-030", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100247", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-004", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100236", "number_mismatch": false, "sender_verified": true}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-008", "step": "resolve_policy", "ok": true, "detail": {"how": "none", "policy": null, "number_mismatch": false, "sender_verified": false}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-034", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100240", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-032", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100249", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-009", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100245", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-002", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100239", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-029", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100244", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-031", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100263", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-003", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100254", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-022", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100238", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-010", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100246", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-018", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100253", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:13", "claim_id": "C-035", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100256", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:14", "claim_id": "C-016", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100255", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:14", "claim_id": "C-020", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100261", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:14", "claim_id": "C-001", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100231", "number_mismatch": false, "sender_verified": true}, "api_attempts": 3}
-{"ts": "2026-11-11T15:15:14", "claim_id": "C-014", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100257", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:14", "claim_id": "C-024", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100252", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:14", "claim_id": "C-017", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100254", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:14", "claim_id": "C-038", "step": "resolve_policy", "ok": true, "detail": {"how": "none", "policy": null, "number_mismatch": false, "sender_verified": false}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:15", "claim_id": "C-027", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100258", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:15", "claim_id": "C-037", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100242", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:15", "claim_id": "C-036", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100260", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:16", "claim_id": "C-023", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100260", "number_mismatch": false, "sender_verified": true}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:16", "claim_id": "C-039", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100259", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:16", "claim_id": "C-033", "step": "resolve_policy", "ok": true, "detail": {"how": "none", "policy": null, "number_mismatch": false, "sender_verified": false}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:16", "claim_id": "C-007", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100243", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:17", "claim_id": "C-005", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100235", "number_mismatch": false, "sender_verified": true}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:17", "claim_id": "C-021", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100233", "number_mismatch": false, "sender_verified": true}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:17", "claim_id": "C-040", "step": "resolve_policy", "ok": true, "detail": {"how": "none", "policy": null, "number_mismatch": false, "sender_verified": false}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:18", "claim_id": "C-026", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100262", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:18", "claim_id": "C-019", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100248", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:19", "claim_id": "C-028", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100251", "number_mismatch": false, "sender_verified": true}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:21", "claim_id": "C-015", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100250", "number_mismatch": true, "sender_verified": true}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:22", "claim_id": "C-001", "step": "history", "ok": true, "detail": {"claims": ["CLM-2025-0412"]}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:22", "claim_id": "C-001", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 370.0, "flags": []}}
-{"ts": "2026-11-11T15:15:25", "claim_id": "C-001", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1001"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:25", "claim_id": "C-006", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:25", "claim_id": "C-006", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 337.0, "flags": []}}
-{"ts": "2026-11-11T15:15:25", "claim_id": "C-006", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1002"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:25", "claim_id": "C-025", "step": "history", "ok": true, "detail": {"claims": ["CLM-2024-0977"]}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:25", "claim_id": "C-025", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 340.0, "flags": ["photos_missing"]}}
-{"ts": "2026-11-11T15:15:26", "claim_id": "C-006", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1002", "status": "approved"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:28", "claim_id": "C-001", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1001", "status": "approved"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:28", "claim_id": "C-001", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "jeroen.devries@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:28", "claim_id": "C-025", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1003"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:29", "claim_id": "C-006", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "sanne.bakker@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:29", "claim_id": "C-004", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:29", "claim_id": "C-004", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 530.0, "flags": ["amount_mismatch_email_vs_document", "possible_recourse"]}}
-{"ts": "2026-11-11T15:15:29", "claim_id": "C-004", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1004"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:29", "claim_id": "C-004", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1004", "status": "approved"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:30", "claim_id": "C-022", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:30", "claim_id": "C-022", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 790.0, "flags": []}}
-{"ts": "2026-11-11T15:15:30", "claim_id": "C-022", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1005"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:30", "claim_id": "C-012", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:30", "claim_id": "C-012", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 670.0, "flags": []}}
-{"ts": "2026-11-11T15:15:30", "claim_id": "C-022", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1005", "status": "approved"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:31", "claim_id": "C-022", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "fatima.yilmaz@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:31", "claim_id": "C-025", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1003", "status": "escalated_handler"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:32", "claim_id": "C-004", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "emma.visser@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:32", "claim_id": "C-025", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "lisa.janssen@example.com"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:33", "claim_id": "C-012", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1006"}, "api_attempts": 3}
-{"ts": "2026-11-11T15:15:33", "claim_id": "C-003", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:33", "claim_id": "C-003", "step": "decide", "ok": true, "detail": {"action": "request_info", "net_payout": null, "flags": ["missing_info"]}}
-{"ts": "2026-11-11T15:15:34", "claim_id": "C-003", "step": "mail", "ok": true, "detail": {"kind": "info_request", "to": "eva.brouwer@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:34", "claim_id": "C-013", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:34", "claim_id": "C-013", "step": "decide", "ok": true, "detail": {"action": "request_info", "net_payout": null, "flags": ["missing_info"]}}
-{"ts": "2026-11-11T15:15:34", "claim_id": "C-013", "step": "mail", "ok": true, "detail": {"kind": "info_request", "to": "amber.kuiper@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:35", "claim_id": "C-012", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1006", "status": "approved"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:35", "claim_id": "C-012", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "thomas.smit@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:37", "claim_id": "C-011", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:37", "claim_id": "C-011", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["new_policy_within_30d"]}}
-{"ts": "2026-11-11T15:15:37", "claim_id": "C-011", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1007"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:38", "claim_id": "C-011", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1007", "status": "fraud_review"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:40", "claim_id": "C-037", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:40", "claim_id": "C-037", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["outside_europe"]}}
-{"ts": "2026-11-11T15:15:41", "claim_id": "C-037", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1008"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:41", "claim_id": "C-008", "step": "decide", "ok": true, "detail": {"action": "route_other", "net_payout": null, "flags": ["spam"]}}
-{"ts": "2026-11-11T15:15:41", "claim_id": "C-011", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "daan.meijer@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:41", "claim_id": "C-009", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:41", "claim_id": "C-009", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 560.0, "flags": []}}
-{"ts": "2026-11-11T15:15:42", "claim_id": "C-037", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1008", "status": "rejected_proposed"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:42", "claim_id": "C-037", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
-{"ts": "2026-11-11T15:15:49", "claim_id": "C-009", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1009"}, "api_attempts": 4}
-{"ts": "2026-11-11T15:15:49", "claim_id": "C-009", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1009", "status": "approved"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:49", "claim_id": "C-009", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "bas.kok@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:50", "claim_id": "C-030", "step": "history", "ok": true, "detail": {"claims": ["CLM-2026-0602", "CLM-2026-0731"]}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:50", "claim_id": "C-030", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["repeat_claimant_3_in_12m", "possible_recourse"]}}
-{"ts": "2026-11-11T15:15:51", "claim_id": "C-030", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1010"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:51", "claim_id": "C-034", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:51", "claim_id": "C-034", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1700.0, "flags": ["late_report", "photos_missing"]}}
-{"ts": "2026-11-11T15:15:52", "claim_id": "C-030", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1010", "status": "fraud_review"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:53", "claim_id": "C-034", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1011"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-031", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-031", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 599.0, "flags": ["photos_missing"]}}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-031", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1012"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-031", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1012", "status": "escalated_handler"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-034", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1011", "status": "escalated_handler"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-034", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "karin.deboer@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-002", "step": "history", "ok": true, "detail": {"claims": ["CLM-2026-0310"]}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-002", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["policy_not_active"]}}
-{"ts": "2026-11-11T15:15:54", "claim_id": "C-030", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "kevin.vos@example.com"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:15:57", "claim_id": "C-031", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "maud.willems@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:57", "claim_id": "C-002", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1013"}, "api_attempts": 3}
-{"ts": "2026-11-11T15:15:58", "claim_id": "C-032", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:58", "claim_id": "C-032", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["peril_not_covered", "possible_recourse"]}}
-{"ts": "2026-11-11T15:15:59", "claim_id": "C-032", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1014"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:59", "claim_id": "C-002", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1013", "status": "rejected_proposed"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:59", "claim_id": "C-002", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
-{"ts": "2026-11-11T15:15:59", "claim_id": "C-032", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1014", "status": "rejected_proposed"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:15:59", "claim_id": "C-032", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
-{"ts": "2026-11-11T15:16:02", "claim_id": "C-023", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:02", "claim_id": "C-023", "step": "decide", "ok": true, "detail": {"action": "request_info", "net_payout": null, "flags": ["missing_info"]}}
-{"ts": "2026-11-11T15:16:02", "claim_id": "C-029", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:02", "claim_id": "C-029", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 690.0, "flags": []}}
-{"ts": "2026-11-11T15:16:02", "claim_id": "C-029", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1015"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:02", "claim_id": "C-029", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1015", "status": "approved"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:03", "claim_id": "C-023", "step": "mail", "ok": true, "detail": {"kind": "info_request", "to": "lotte.degroot@example.com"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:04", "claim_id": "C-029", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "sophie.vandijk@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:06", "claim_id": "C-015", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:06", "claim_id": "C-015", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 600.0, "flags": ["policy_resolved_by_email", "policy_number_mismatch"]}}
-{"ts": "2026-11-11T15:16:06", "claim_id": "C-015", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1016"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:06", "claim_id": "C-015", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1016", "status": "escalated_handler"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:07", "claim_id": "C-018", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:07", "claim_id": "C-018", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 215.0, "flags": []}}
-{"ts": "2026-11-11T15:16:07", "claim_id": "C-018", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1017"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:07", "claim_id": "C-035", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:07", "claim_id": "C-035", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 205.0, "flags": []}}
-{"ts": "2026-11-11T15:16:07", "claim_id": "C-015", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "yara.hoekstra@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:08", "claim_id": "C-018", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1017", "status": "approved"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:08", "claim_id": "C-018", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "rik.verhoeven@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:12", "claim_id": "C-035", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1018"}, "api_attempts": 3}
-{"ts": "2026-11-11T15:16:12", "claim_id": "C-014", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:12", "claim_id": "C-014", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["peril_not_covered"]}}
-{"ts": "2026-11-11T15:16:13", "claim_id": "C-035", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1018", "status": "approved"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:13", "claim_id": "C-014", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1019"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:13", "claim_id": "C-035", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "tess.vanleeuwen@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:14", "claim_id": "C-014", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1019", "status": "rejected_proposed"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:14", "claim_id": "C-014", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
-{"ts": "2026-11-11T15:16:14", "claim_id": "C-010", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:14", "claim_id": "C-010", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["peril_not_covered"]}}
-{"ts": "2026-11-11T15:16:14", "claim_id": "C-033", "step": "decide", "ok": true, "detail": {"action": "request_info", "net_payout": null, "flags": ["no_policy_found", "urgent"]}}
-{"ts": "2026-11-11T15:16:14", "claim_id": "C-010", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
-{"ts": "2026-11-11T15:16:14", "claim_id": "C-005", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:14", "claim_id": "C-005", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["injection"]}}
-{"ts": "2026-11-11T15:16:15", "claim_id": "C-005", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1020"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:15", "claim_id": "C-016", "step": "history", "ok": true, "detail": {"claims": ["CLM-2025-0120"]}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:15", "claim_id": "C-016", "step": "decide", "ok": true, "detail": {"action": "escalate_senior", "net_payout": 37800.0, "flags": ["urgent", "callback_requested"]}}
-{"ts": "2026-11-11T15:16:16", "claim_id": "C-033", "step": "mail", "ok": true, "detail": {"kind": "identity_request", "to": "h.aalders@example.net"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:18", "claim_id": "C-005", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1020", "status": "fraud_review"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:18", "claim_id": "C-005", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "pieter.vdberg@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:19", "claim_id": "C-016", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1021"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:19", "claim_id": "C-016", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1021", "status": "escalated_senior"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:19", "claim_id": "C-016", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "jw.postma@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:20", "claim_id": "C-020", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:20", "claim_id": "C-020", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["injection"]}}
-{"ts": "2026-11-11T15:16:20", "claim_id": "C-020", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1022"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:20", "claim_id": "C-020", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1022", "status": "fraud_review"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:22", "claim_id": "C-017", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:22", "claim_id": "C-017", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1100.0, "flags": ["policy_resolved_by_email", "thread_parent"]}}
-{"ts": "2026-11-11T15:16:23", "claim_id": "C-017", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1023"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:23", "claim_id": "C-017", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1023", "status": "escalated_handler"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:23", "claim_id": "C-027", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:23", "claim_id": "C-027", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1750.0, "flags": ["possible_recourse", "thread_parent"]}}
-{"ts": "2026-11-11T15:16:23", "claim_id": "C-027", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1024"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:24", "claim_id": "C-020", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "joris.wouters@example.com"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:24", "claim_id": "C-024", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:24", "claim_id": "C-024", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["gradual_damage"]}}
-{"ts": "2026-11-11T15:16:24", "claim_id": "C-024", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
-{"ts": "2026-11-11T15:16:24", "claim_id": "C-017", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "eva.brouwer@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:24", "claim_id": "C-036", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:24", "claim_id": "C-036", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1070.0, "flags": ["policy_resolved_by_email", "possible_recourse", "thread_parent"]}}
-{"ts": "2026-11-11T15:16:24", "claim_id": "C-027", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1024", "status": "escalated_handler"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-027", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "amber.kuiper@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-036", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1025"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-038", "step": "decide", "ok": true, "detail": {"action": "route_other", "net_payout": null, "flags": ["third_party_claim", "privacy_no_disclosure"]}}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-040", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["other_bank_account", "no_policy_found"]}}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-038", "step": "mail", "ok": true, "detail": {"kind": "third_party_ack", "to": "r.aalbers@example.net"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-026", "step": "history", "ok": true, "detail": {"claims": ["CLM-2026-0881"]}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-026", "step": "decide", "ok": true, "detail": {"action": "route_other", "net_payout": null, "flags": ["complaint", "existing_claim:CLM-2026-0881", "urgent"]}}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-036", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1025", "status": "escalated_handler"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:25", "claim_id": "C-036", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "lotte.degroot@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:28", "claim_id": "C-026", "step": "mail", "ok": true, "detail": {"kind": "complaint_ack", "to": "carla.hermans@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:28", "claim_id": "C-019", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 3}
-{"ts": "2026-11-11T15:16:28", "claim_id": "C-019", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["gradual_damage"]}}
-{"ts": "2026-11-11T15:16:28", "claim_id": "C-019", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
-{"ts": "2026-11-11T15:16:28", "claim_id": "C-007", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:28", "claim_id": "C-007", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1400.0, "flags": []}}
-{"ts": "2026-11-11T15:16:29", "claim_id": "C-040", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "marco.peeters@example.net"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:31", "claim_id": "C-007", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1026"}, "api_attempts": 3}
-{"ts": "2026-11-11T15:16:32", "claim_id": "C-039", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:32", "claim_id": "C-039", "step": "decide", "ok": true, "detail": {"action": "escalate_senior", "net_payout": 7600.0, "flags": []}}
-{"ts": "2026-11-11T15:16:32", "claim_id": "C-007", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1026", "status": "escalated_handler"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:32", "claim_id": "C-007", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "willem.dekker@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:33", "claim_id": "C-039", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1027"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:34", "claim_id": "C-028", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:34", "claim_id": "C-039", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1027", "status": "escalated_senior"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:34", "claim_id": "C-028", "step": "decide", "ok": true, "detail": {"action": "escalate_senior", "net_payout": 14250.0, "flags": ["possible_recourse"]}}
-{"ts": "2026-11-11T15:16:34", "claim_id": "C-028", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1028"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:34", "claim_id": "C-028", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1028", "status": "escalated_senior"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:34", "claim_id": "C-039", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "gerrit.smeets@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:34", "claim_id": "C-028", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "stefan.jacobs@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:37", "claim_id": "C-021", "step": "history", "ok": true, "detail": {"claims": ["CLM-2026-0944"]}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:37", "claim_id": "C-021", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["duplicate_invoice"]}}
-{"ts": "2026-11-11T15:16:37", "claim_id": "C-021", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1029"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:45", "claim_id": "C-021", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1029", "status": "fraud_review"}, "api_attempts": 2}
-{"ts": "2026-11-11T15:16:46", "claim_id": "C-021", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "m.elamrani@example.com"}, "api_attempts": 1}
-{"ts": "2026-11-11T15:16:46", "claim_id": "C-017", "step": "thread_closed", "ok": true, "detail": {"parent": "C-003", "api_claim_id": null, "parent_registered": false, "reply_api_claim_id": "CLM-2026-1023", "action": "escalate_handler"}}
-{"ts": "2026-11-11T15:16:46", "claim_id": "C-027", "step": "thread_closed", "ok": true, "detail": {"parent": "C-013", "api_claim_id": null, "parent_registered": false, "reply_api_claim_id": "CLM-2026-1024", "action": "escalate_handler"}}
-{"ts": "2026-11-11T15:16:46", "claim_id": "C-036", "step": "thread_closed", "ok": true, "detail": {"parent": "C-023", "api_claim_id": null, "parent_registered": false, "reply_api_claim_id": "CLM-2026-1025", "action": "escalate_handler"}}
-{"ts": "2026-11-11T15:16:47", "claim_id": null, "step": "open_info_requests", "ok": true, "detail": {"open": 1, "answered": 3, "reminder_due": 0}}
-{"ts": "2026-11-11T15:16:47", "claim_id": null, "step": "metrics", "ok": true, "detail": {"out_dir": "/Users/nikmarf/gaide_test/claims-agent/output"}}
-{"ts": "2026-11-11T15:16:47", "claim_id": null, "step": "run_end", "ok": true, "detail": {"actions": {"auto_approve": 9, "request_info": 4, "escalate_handler": 8, "escalate_senior": 3, "reject_draft": 7, "fraud_review": 6, "route_other": 3}, "errors": 0}}
+{"ts": "2026-11-11T15:20:52", "claim_id": null, "step": "health", "ok": true, "detail": {"status": "ok", "chaos": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:52", "claim_id": null, "step": "reset", "ok": true, "detail": "POST /admin/reset", "api_attempts": 1}
+{"ts": "2026-11-11T15:20:52", "claim_id": null, "step": "load", "ok": true, "detail": {"emails": 40, "threads": {"C-017": "C-003", "C-027": "C-013", "C-036": "C-023"}}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-001", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100231", "loss_date": "2026-10-21", "loss_type": "parking_damage", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-025", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100234", "loss_date": "2026-10-25", "loss_type": "glass", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-006", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100232", "loss_date": "2026-10-19", "loss_type": "glass", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-022", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100238", "loss_date": "2026-10-23", "loss_type": "theft", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-004", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100236", "loss_date": "2026-10-22", "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-012", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100237", "loss_date": "2026-10-17", "loss_type": "storm", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-013", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100258", "loss_date": null, "loss_type": "sudden_water", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-003", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": null, "loss_date": null, "loss_type": "burglary_theft", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-037", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100242", "loss_date": "2026-10-12", "loss_type": "theft", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-011", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100241", "loss_date": "2026-10-17", "loss_type": "burglary_theft", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-008", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "spam", "policy_number": null, "loss_date": null, "loss_type": null, "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-009", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100245", "loss_date": "2026-10-29", "loss_type": "sudden_water", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-030", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100247", "loss_date": "2026-10-26", "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-034", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100240", "loss_date": "2026-06-20", "loss_type": "hail", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-031", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100263", "loss_date": "2026-10-26", "loss_type": "lightning", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-002", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100239", "loss_date": "2026-10-24", "loss_type": "glass", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-032", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100249", "loss_date": "2026-10-10", "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-023", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": null, "loss_date": null, "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-029", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100244", "loss_date": "2026-10-30", "loss_type": "wildlife", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-015", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100520", "loss_date": "2026-10-20", "loss_type": "burglary_theft", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-018", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100253", "loss_date": "2026-10-27", "loss_type": "glass", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-035", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100256", "loss_date": "2026-10-28", "loss_type": "parking_damage", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-014", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100257", "loss_date": "2026-10-27", "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-010", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100246", "loss_date": null, "loss_type": "glass", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-005", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100235", "loss_date": "2026-10-28", "loss_type": "theft", "injection": true}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-033", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": null, "loss_date": null, "loss_type": null, "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-020", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100261", "loss_date": "2026-10-29", "loss_type": "parking_damage", "injection": true}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-016", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100255", "loss_date": "2026-10-31", "loss_type": "fire", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-017", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "reply_with_info", "policy_number": null, "loss_date": "2026-10-26", "loss_type": "burglary_theft", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-027", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "reply_with_info", "policy_number": null, "loss_date": "2026-10-24", "loss_type": "sudden_water", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-024", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100252", "loss_date": null, "loss_type": "sudden_water", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-036", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "reply_with_info", "policy_number": null, "loss_date": "2026-10-29", "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-038", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "third_party_liability", "policy_number": null, "loss_date": "2026-10-25", "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-040", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100299", "loss_date": "2026-10-30", "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-026", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "complaint_existing_claim", "policy_number": null, "loss_date": "2026-10-06", "loss_type": "sudden_water", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-019", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100248", "loss_date": null, "loss_type": "sudden_water", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-007", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100243", "loss_date": "2026-10-27", "loss_type": "theft", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-039", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100259", "loss_date": "2026-10-17", "loss_type": "storm", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-028", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100251", "loss_date": "2026-10-29", "loss_type": "collision", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-021", "step": "extract", "ok": true, "detail": {"extractor": "llm:deepseek-v4-1-flash", "intent": "new_claim", "policy_number": "POL-100233", "loss_date": "2026-10-03", "loss_type": "glass", "injection": false}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-017", "step": "thread_merge", "ok": true, "detail": {"parent": "C-003"}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-027", "step": "thread_merge", "ok": true, "detail": {"parent": "C-013"}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-036", "step": "thread_merge", "ok": true, "detail": {"parent": "C-023"}}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-012", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100237", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-006", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100232", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-003", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100254", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-037", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100242", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:52", "claim_id": "C-008", "step": "resolve_policy", "ok": true, "detail": {"how": "none", "policy": null, "number_mismatch": false, "sender_verified": false}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-009", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100245", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-001", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100231", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-025", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100234", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-011", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100241", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-002", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100239", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-023", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100260", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-032", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100249", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-031", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100263", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-018", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100253", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-004", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100236", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:53", "claim_id": "C-013", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100258", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:54", "claim_id": "C-015", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100250", "number_mismatch": true, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:54", "claim_id": "C-033", "step": "resolve_policy", "ok": true, "detail": {"how": "none", "policy": null, "number_mismatch": false, "sender_verified": false}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:54", "claim_id": "C-035", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100256", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:54", "claim_id": "C-016", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100255", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:54", "claim_id": "C-020", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100261", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:54", "claim_id": "C-017", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100254", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:54", "claim_id": "C-014", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100257", "number_mismatch": false, "sender_verified": true}, "api_attempts": 2}
+{"ts": "2026-11-11T15:20:55", "claim_id": "C-024", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100252", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:55", "claim_id": "C-022", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100238", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:55", "claim_id": "C-038", "step": "resolve_policy", "ok": true, "detail": {"how": "none", "policy": null, "number_mismatch": false, "sender_verified": false}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:55", "claim_id": "C-030", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100247", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-026", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100262", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-034", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100240", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-040", "step": "resolve_policy", "ok": true, "detail": {"how": "none", "policy": null, "number_mismatch": false, "sender_verified": false}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-029", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100244", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-007", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100243", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-028", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100251", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-039", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100259", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-036", "step": "resolve_policy", "ok": true, "detail": {"how": "email", "policy": "POL-100260", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:56", "claim_id": "C-010", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100246", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:57", "claim_id": "C-005", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100235", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:57", "claim_id": "C-027", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100258", "number_mismatch": false, "sender_verified": true}, "api_attempts": 1}
+{"ts": "2026-11-11T15:20:58", "claim_id": "C-019", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100248", "number_mismatch": false, "sender_verified": true}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:01", "claim_id": "C-021", "step": "resolve_policy", "ok": true, "detail": {"how": "number", "policy": "POL-100233", "number_mismatch": false, "sender_verified": true}, "api_attempts": 3}
+{"ts": "2026-11-11T15:21:01", "claim_id": "C-001", "step": "history", "ok": true, "detail": {"claims": ["CLM-2025-0412"]}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:01", "claim_id": "C-001", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 370.0, "flags": []}}
+{"ts": "2026-11-11T15:21:02", "claim_id": "C-001", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1001"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:04", "claim_id": "C-001", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1001", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:04", "claim_id": "C-001", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "jeroen.devries@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:06", "claim_id": "C-006", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:06", "claim_id": "C-006", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 337.0, "flags": []}}
+{"ts": "2026-11-11T15:21:07", "claim_id": "C-006", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1002"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:07", "claim_id": "C-006", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1002", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:09", "claim_id": "C-025", "step": "history", "ok": true, "detail": {"claims": ["CLM-2024-0977"]}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:09", "claim_id": "C-025", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 340.0, "flags": ["photos_missing"]}}
+{"ts": "2026-11-11T15:21:11", "claim_id": "C-006", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "sanne.bakker@example.com"}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:12", "claim_id": "C-025", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1003"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:12", "claim_id": "C-004", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:12", "claim_id": "C-004", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 530.0, "flags": ["amount_mismatch_email_vs_document", "possible_recourse"]}}
+{"ts": "2026-11-11T15:21:13", "claim_id": "C-025", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1003", "status": "escalated_handler"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:14", "claim_id": "C-025", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "lisa.janssen@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:15", "claim_id": "C-004", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1004"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:15", "claim_id": "C-004", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1004", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:16", "claim_id": "C-004", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "emma.visser@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:18", "claim_id": "C-022", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:18", "claim_id": "C-022", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 790.0, "flags": []}}
+{"ts": "2026-11-11T15:21:21", "claim_id": "C-022", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1005"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:21", "claim_id": "C-022", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1005", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:21", "claim_id": "C-022", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "fatima.yilmaz@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:22", "claim_id": "C-012", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:22", "claim_id": "C-012", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 670.0, "flags": []}}
+{"ts": "2026-11-11T15:21:23", "claim_id": "C-012", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1006"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:23", "claim_id": "C-003", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:23", "claim_id": "C-003", "step": "decide", "ok": true, "detail": {"action": "request_info", "net_payout": null, "flags": ["missing_info"]}}
+{"ts": "2026-11-11T15:21:23", "claim_id": "C-013", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:23", "claim_id": "C-013", "step": "decide", "ok": true, "detail": {"action": "request_info", "net_payout": null, "flags": ["missing_info"]}}
+{"ts": "2026-11-11T15:21:23", "claim_id": "C-012", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1006", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:23", "claim_id": "C-011", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:23", "claim_id": "C-011", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["new_policy_within_30d"]}}
+{"ts": "2026-11-11T15:21:25", "claim_id": "C-013", "step": "mail", "ok": true, "detail": {"kind": "info_request", "to": "amber.kuiper@example.com"}, "api_attempts": 3}
+{"ts": "2026-11-11T15:21:26", "claim_id": "C-003", "step": "mail", "ok": true, "detail": {"kind": "info_request", "to": "eva.brouwer@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:26", "claim_id": "C-011", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1007"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:26", "claim_id": "C-037", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:26", "claim_id": "C-011", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1007", "status": "fraud_review"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:26", "claim_id": "C-037", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["outside_europe"]}}
+{"ts": "2026-11-11T15:21:26", "claim_id": "C-011", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "daan.meijer@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:27", "claim_id": "C-012", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "thomas.smit@example.com"}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:31", "claim_id": "C-037", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1008"}, "api_attempts": 3}
+{"ts": "2026-11-11T15:21:31", "claim_id": "C-008", "step": "decide", "ok": true, "detail": {"action": "route_other", "net_payout": null, "flags": ["spam"]}}
+{"ts": "2026-11-11T15:21:32", "claim_id": "C-037", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1008", "status": "rejected_proposed"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:32", "claim_id": "C-037", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
+{"ts": "2026-11-11T15:21:33", "claim_id": "C-009", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:33", "claim_id": "C-009", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 560.0, "flags": []}}
+{"ts": "2026-11-11T15:21:33", "claim_id": "C-009", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1009"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:34", "claim_id": "C-030", "step": "history", "ok": true, "detail": {"claims": ["CLM-2026-0602", "CLM-2026-0731"]}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:34", "claim_id": "C-030", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["repeat_claimant_3_in_12m", "possible_recourse"]}}
+{"ts": "2026-11-11T15:21:34", "claim_id": "C-009", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1009", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:34", "claim_id": "C-030", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1010"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:34", "claim_id": "C-034", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:34", "claim_id": "C-034", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1700.0, "flags": ["late_report", "photos_missing"]}}
+{"ts": "2026-11-11T15:21:35", "claim_id": "C-009", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "bas.kok@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:37", "claim_id": "C-034", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1011"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:38", "claim_id": "C-031", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:38", "claim_id": "C-031", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 599.0, "flags": ["photos_missing"]}}
+{"ts": "2026-11-11T15:21:38", "claim_id": "C-031", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1012"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:38", "claim_id": "C-030", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1010", "status": "fraud_review"}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:39", "claim_id": "C-030", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "kevin.vos@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:39", "claim_id": "C-002", "step": "history", "ok": true, "detail": {"claims": ["CLM-2026-0310"]}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:39", "claim_id": "C-002", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["policy_not_active"]}}
+{"ts": "2026-11-11T15:21:39", "claim_id": "C-031", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1012", "status": "escalated_handler"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:39", "claim_id": "C-002", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1013"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:40", "claim_id": "C-032", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:40", "claim_id": "C-032", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["peril_not_covered", "possible_recourse"]}}
+{"ts": "2026-11-11T15:21:40", "claim_id": "C-032", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1014"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:40", "claim_id": "C-034", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1011", "status": "escalated_handler"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:41", "claim_id": "C-002", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1013", "status": "rejected_proposed"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:41", "claim_id": "C-002", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
+{"ts": "2026-11-11T15:21:41", "claim_id": "C-032", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1014", "status": "rejected_proposed"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:41", "claim_id": "C-032", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
+{"ts": "2026-11-11T15:21:41", "claim_id": "C-031", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "maud.willems@example.com"}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:43", "claim_id": "C-023", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:43", "claim_id": "C-023", "step": "decide", "ok": true, "detail": {"action": "request_info", "net_payout": null, "flags": ["missing_info"]}}
+{"ts": "2026-11-11T15:21:44", "claim_id": "C-034", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "karin.deboer@example.com"}, "api_attempts": 3}
+{"ts": "2026-11-11T15:21:45", "claim_id": "C-029", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:45", "claim_id": "C-029", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 690.0, "flags": []}}
+{"ts": "2026-11-11T15:21:45", "claim_id": "C-023", "step": "mail", "ok": true, "detail": {"kind": "info_request", "to": "lotte.degroot@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:46", "claim_id": "C-029", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1015"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:46", "claim_id": "C-029", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1015", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:47", "claim_id": "C-029", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "sophie.vandijk@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:47", "claim_id": "C-015", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:47", "claim_id": "C-015", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 600.0, "flags": ["policy_resolved_by_email", "policy_number_mismatch"]}}
+{"ts": "2026-11-11T15:21:49", "claim_id": "C-015", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1016"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:50", "claim_id": "C-015", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1016", "status": "escalated_handler"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:50", "claim_id": "C-018", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:50", "claim_id": "C-018", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 215.0, "flags": []}}
+{"ts": "2026-11-11T15:21:50", "claim_id": "C-018", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1017"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:50", "claim_id": "C-035", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:50", "claim_id": "C-035", "step": "decide", "ok": true, "detail": {"action": "auto_approve", "net_payout": 205.0, "flags": []}}
+{"ts": "2026-11-11T15:21:50", "claim_id": "C-015", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "yara.hoekstra@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:51", "claim_id": "C-035", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1018"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:51", "claim_id": "C-035", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1018", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:51", "claim_id": "C-014", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:51", "claim_id": "C-014", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["peril_not_covered"]}}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-035", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "tess.vanleeuwen@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-014", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1019"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-018", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1017", "status": "approved"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-014", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1019", "status": "rejected_proposed"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-014", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-010", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-010", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["peril_not_covered"]}}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-033", "step": "decide", "ok": true, "detail": {"action": "request_info", "net_payout": null, "flags": ["no_policy_found", "urgent"]}}
+{"ts": "2026-11-11T15:21:53", "claim_id": "C-010", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
+{"ts": "2026-11-11T15:21:54", "claim_id": "C-018", "step": "mail", "ok": true, "detail": {"kind": "approval", "to": "rik.verhoeven@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:54", "claim_id": "C-033", "step": "mail", "ok": true, "detail": {"kind": "identity_request", "to": "h.aalders@example.net"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:57", "claim_id": "C-005", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:57", "claim_id": "C-005", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["injection"]}}
+{"ts": "2026-11-11T15:21:58", "claim_id": "C-005", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1020"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:58", "claim_id": "C-005", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1020", "status": "fraud_review"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:58", "claim_id": "C-005", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "pieter.vdberg@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:21:58", "claim_id": "C-016", "step": "history", "ok": true, "detail": {"claims": ["CLM-2025-0120"]}, "api_attempts": 2}
+{"ts": "2026-11-11T15:21:58", "claim_id": "C-016", "step": "decide", "ok": true, "detail": {"action": "escalate_senior", "net_payout": 37800.0, "flags": ["urgent", "callback_requested"]}}
+{"ts": "2026-11-11T15:21:59", "claim_id": "C-016", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1021"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:00", "claim_id": "C-020", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:00", "claim_id": "C-020", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["injection"]}}
+{"ts": "2026-11-11T15:22:00", "claim_id": "C-020", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1022"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:01", "claim_id": "C-020", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1022", "status": "fraud_review"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:01", "claim_id": "C-017", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:01", "claim_id": "C-017", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1100.0, "flags": ["policy_resolved_by_email", "thread_parent"]}}
+{"ts": "2026-11-11T15:22:01", "claim_id": "C-020", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "joris.wouters@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:01", "claim_id": "C-017", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1023"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:01", "claim_id": "C-027", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:01", "claim_id": "C-027", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1750.0, "flags": ["possible_recourse", "thread_parent"]}}
+{"ts": "2026-11-11T15:22:02", "claim_id": "C-016", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1021", "status": "escalated_senior"}, "api_attempts": 2}
+{"ts": "2026-11-11T15:22:02", "claim_id": "C-016", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "jw.postma@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-027", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1024"}, "api_attempts": 3}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-024", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-024", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["gradual_damage"]}}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-024", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-036", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-036", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1070.0, "flags": ["policy_resolved_by_email", "possible_recourse", "thread_parent"]}}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-036", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1025"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-038", "step": "decide", "ok": true, "detail": {"action": "route_other", "net_payout": null, "flags": ["third_party_claim", "privacy_no_disclosure"]}}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-040", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["other_bank_account", "no_policy_found"]}}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-040", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "marco.peeters@example.net"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-026", "step": "history", "ok": true, "detail": {"claims": ["CLM-2026-0881"]}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-026", "step": "decide", "ok": true, "detail": {"action": "route_other", "net_payout": null, "flags": ["complaint", "existing_claim:CLM-2026-0881", "urgent"]}}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-019", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-019", "step": "decide", "ok": true, "detail": {"action": "reject_draft", "net_payout": null, "flags": ["gradual_damage"]}}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-019", "step": "mail", "ok": true, "detail": {"kind": "rejection_draft", "held_for_review": true}}
+{"ts": "2026-11-11T15:22:07", "claim_id": "C-026", "step": "mail", "ok": true, "detail": {"kind": "complaint_ack", "to": "carla.hermans@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:08", "claim_id": "C-017", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1023", "status": "escalated_handler"}, "api_attempts": 3}
+{"ts": "2026-11-11T15:22:08", "claim_id": "C-027", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1024", "status": "escalated_handler"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:08", "claim_id": "C-027", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "amber.kuiper@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:08", "claim_id": "C-017", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "eva.brouwer@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:10", "claim_id": "C-007", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
+{"ts": "2026-11-11T15:22:10", "claim_id": "C-007", "step": "decide", "ok": true, "detail": {"action": "escalate_handler", "net_payout": 1400.0, "flags": []}}
+{"ts": "2026-11-11T15:22:10", "claim_id": "C-036", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1025", "status": "escalated_handler"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:11", "claim_id": "C-038", "step": "mail", "ok": true, "detail": {"kind": "third_party_ack", "to": "r.aalbers@example.net"}, "api_attempts": 2}
+{"ts": "2026-11-11T15:22:12", "claim_id": "C-036", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "lotte.degroot@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:13", "claim_id": "C-007", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1026"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:14", "claim_id": "C-007", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1026", "status": "escalated_handler"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:14", "claim_id": "C-007", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "willem.dekker@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:15", "claim_id": "C-039", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 2}
+{"ts": "2026-11-11T15:22:15", "claim_id": "C-039", "step": "decide", "ok": true, "detail": {"action": "escalate_senior", "net_payout": 7600.0, "flags": []}}
+{"ts": "2026-11-11T15:22:18", "claim_id": "C-039", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1027"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:19", "claim_id": "C-028", "step": "history", "ok": true, "detail": {"claims": []}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:19", "claim_id": "C-028", "step": "decide", "ok": true, "detail": {"action": "escalate_senior", "net_payout": 14250.0, "flags": ["possible_recourse"]}}
+{"ts": "2026-11-11T15:22:21", "claim_id": "C-039", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1027", "status": "escalated_senior"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:21", "claim_id": "C-028", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1028"}, "api_attempts": 2}
+{"ts": "2026-11-11T15:22:22", "claim_id": "C-039", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "gerrit.smeets@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:23", "claim_id": "C-021", "step": "history", "ok": true, "detail": {"claims": ["CLM-2026-0944"]}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:23", "claim_id": "C-021", "step": "decide", "ok": true, "detail": {"action": "fraud_review", "net_payout": null, "flags": ["duplicate_invoice"]}}
+{"ts": "2026-11-11T15:22:24", "claim_id": "C-028", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1028", "status": "escalated_senior"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:25", "claim_id": "C-028", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "stefan.jacobs@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:26", "claim_id": "C-021", "step": "register", "ok": true, "detail": {"api_claim_id": "CLM-2026-1029"}, "api_attempts": 2}
+{"ts": "2026-11-11T15:22:27", "claim_id": "C-021", "step": "decision_post", "ok": true, "detail": {"api_claim_id": "CLM-2026-1029", "status": "fraud_review"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:27", "claim_id": "C-021", "step": "mail", "ok": true, "detail": {"kind": "acknowledgement", "to": "m.elamrani@example.com"}, "api_attempts": 1}
+{"ts": "2026-11-11T15:22:27", "claim_id": "C-017", "step": "thread_closed", "ok": true, "detail": {"parent": "C-003", "api_claim_id": null, "parent_registered": false, "reply_api_claim_id": "CLM-2026-1023", "action": "escalate_handler"}}
+{"ts": "2026-11-11T15:22:27", "claim_id": "C-027", "step": "thread_closed", "ok": true, "detail": {"parent": "C-013", "api_claim_id": null, "parent_registered": false, "reply_api_claim_id": "CLM-2026-1024", "action": "escalate_handler"}}
+{"ts": "2026-11-11T15:22:27", "claim_id": "C-036", "step": "thread_closed", "ok": true, "detail": {"parent": "C-023", "api_claim_id": null, "parent_registered": false, "reply_api_claim_id": "CLM-2026-1025", "action": "escalate_handler"}}
+{"ts": "2026-11-11T15:22:27", "claim_id": null, "step": "open_info_requests", "ok": true, "detail": {"open": 1, "answered": 3, "reminder_due": 0}}
+{"ts": "2026-11-11T15:22:27", "claim_id": null, "step": "metrics", "ok": true, "detail": {"out_dir": "/Users/nikmarf/gaide_test/claims-agent/output"}}
+{"ts": "2026-11-11T15:22:27", "claim_id": null, "step": "run_end", "ok": true, "detail": {"actions": {"auto_approve": 9, "request_info": 4, "escalate_handler": 8, "escalate_senior": 3, "reject_draft": 7, "fraud_review": 6, "route_other": 3}, "errors": 0}}

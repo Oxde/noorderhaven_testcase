@@ -84,7 +84,7 @@ python3 review/server.py
 ```
 
 Other options:
-- `python3 -m agent.run --no-llm` is a developer/test mode: the keyword fallback extractor makes decisions so the pipeline can be tested without a key. In normal mode, any claim not read by the LLM (no key, all models failed, extraction error) goes to manual review.
+- `python3 -m agent.run --no-llm` is a developer/test mode, **not safe for real claims** (on unseen emails the keyword reader auto-approved an injection and an IBAN change that the LLM catches): the keyword fallback extractor makes decisions so the pipeline can be tested without a key. In normal mode, any claim not read by the LLM (no key, all models failed, extraction error) goes to manual review.
 - `python3 -m agent.run --only C-001,C-005` processes a subset.
 - Environment variables: `LLM_MODELS` (model chain, default `deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash,claude-sonnet-5-5`; the stronger Sonnet is only paid for when the cheap models fail), `LLM_CONCURRENCY` (default 4), `CLAIMS_API_BASE` (default `http://localhost:8080`).
 

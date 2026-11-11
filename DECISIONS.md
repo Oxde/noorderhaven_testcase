@@ -14,9 +14,9 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 | 06 Human review | local web page: queue, filters, rule trace, facts, email, draft letter; approve / edit / reject; releases held letters; every action logged | medium–strong |
 | 07 Monitoring | audit trail per step, run summary, `metrics.json` + Monitoring view (automation rate, API retry rate, LLM-vs-keyword agreement, handler override rate, open requests, alerts), eval with 5 safety checks, blind holdout, robustness runs | medium–strong |
 
-**Final run** (15:16, chaos on, 40 live KIE calls with deepseek-v4-1-flash for 1.19 credits, 40 claims):
+**Final run** (15:20:52–15:22:27, chaos on, final code; this is the run the `mock_api/runtime/` files and `output/` come from, and the server was not reset or restarted afterwards). LLM answers were replayed from the cache recorded by the live run at 15:14–15:16 (40 real KIE calls with deepseek-v4-1-flash, 1.19 credits, same prompt and model chain), because the code changes in between did not touch extraction:
 - Actions: auto_approve 9, request_info 4, escalate_handler 8, escalate_senior 3, reject_draft 7, fraud_review 6, route_other 3.
-- Mock API: 170 calls, 40 retries, **0 failed writes**, no duplicate records.
+- Mock API: 170 calls, 31 retries, **0 failed writes**, no duplicate records.
 - Eval on the 40 case claims: **100% action match, 100% payout match, all 5 safety checks at 0**.
 - Read that 100% carefully. The key was written before the code, but two rules were adjusted after the first eval on these same 40 claims (C-033 and the exclusion order, see below). The first untuned run scored 97.5%.
 - **That is why a blind holdout was added:** 12 new, deliberately tricky claims written by an agent that never saw the code, with expected answers from the rulebook alone (`eval/holdout/`). Result: **91.7% strict (11/12), 100% counting the author's accepted alternatives, payouts 5/5, safety 0.** The one strict miss (H-009, no photos above €500) went to a handler where the author preferred asking the customer for photos. A reworded Dutch injection, a reused invoice number, an identity mismatch and a loss abroad were all caught.
@@ -65,7 +65,8 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 - **Untested live:** the chain reaching `gemini-3-7-flash` or `claude-sonnet-5-5` (the deepseek → gpt switch was tested live; the retry-then-next-model logic, including schema failures, is unit tested).
 - **KIE down:** every claim goes to manual review by design (see the assumptions table); tested in docs/robustness.md.
 - **Known edge:** if a decision is posted as `approved` but a later write for that claim fails, `decisions.json` downgrades to escalate_handler while the API record stays `approved`. No corrected decision is posted. This did not happen in the final run (0 failed writes).
-- **LLM cache:** responses are cached in `.cache/llm/` (not committed). The final run made fresh calls (the cache key includes the model chain, which changed). A fresh clone always makes real KIE calls.
+- **LLM cache:** responses are cached in `.cache/llm/` (not committed). The final run replayed answers recorded live 6 minutes earlier with the same prompt and chain. A fresh clone always makes real KIE calls.
+- **Cost of the last-resort model:** `claude-sonnet-5-5` costs about 0.75 credits per extraction (the prompt is long), about 25x deepseek's 0.03. It is only reached when the three cheap models fail; failed calls are not charged. The reviewer saw transient HTTP 500s from Sonnet on KIE that succeeded on a later retry.
 
 ## Where this could cause harm, and how it is limited
 
@@ -100,7 +101,7 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 4. An LLM second-opinion check on the "gradual" and "outside Europe" judgments where evidence is thin, shown to the handler, never deciding.
 5. A vision check on real photos (damage present, matches description).
 
-## Time log (14:04 → 16:04)
+## Time log (case received 14:04, due 16:04)
 
 | Time | What |
 |---|---|
@@ -112,8 +113,9 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 | 14:50–14:52 | Documentation (README, DECISIONS, PROMPTS, PROCESS), first zip |
 | 14:52–15:10 | Strengthening (Nikita's choice), 4 more agents in parallel: blind holdout set, robustness runs, part 05 thread closing + open requests, part 07 metrics + monitoring view. Nikita's rule: AI down → manual review. Review page end-to-end test |
 | 15:10–15:16 | Independent reviewer findings fixed (fallback could still decide on no key or extraction errors; validation inside the retry loop + Sonnet as last model; thread provenance; cross-type duplicates; Dutch rejection reasons). Fresh final run with live KIE calls |
-| 15:16–15:40 | Holdout re-run on final code, docs update, final checks |
-| 15:40–16:04 | Packaging: zip and push to GitHub (Oxde) once the repo exists |
+| 15:16–15:22 | Holdout re-run on final code (unchanged result); robustness results; fixed 2 robustness bugs plus a replay-mismatch guard; final run 15:20:52–15:22:27 |
+| 15:22–15:40 | *(plan)* docs update, final checks |
+| 15:40–16:04 | *(plan)* zip, and push to GitHub (Oxde) once the repo exists |
 
 ## Independent review
 
