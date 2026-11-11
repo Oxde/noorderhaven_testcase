@@ -1,5 +1,5 @@
 {
-  "mode": "llm:deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash",
+  "mode": "llm:deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash,claude-sonnet-5-5",
   "total_claims": 12,
   "actions": {
     "auto_approve": 3,
@@ -19,13 +19,12 @@
   "review_pending": 7,
   "api": {
     "calls": 55,
-    "retries": 17,
+    "retries": 3,
     "failures": 0,
     "by_status": {
       "200": 26,
-      "503": 15,
-      "201": 29,
-      "429": 2
+      "503": 3,
+      "201": 29
     }
   },
   "llm": {
@@ -37,19 +36,19 @@
       "deepseek-v4-1-flash": {
         "ok": 12,
         "errors": 0,
-        "credits": 0.45999999999999996
+        "credits": 0.40000000000000013
       }
     },
-    "credits_consumed": 0.45999999999999996,
-    "latency_s": 50.9000917498488
+    "credits_consumed": 0.40000000000000013,
+    "latency_s": 53.841819832101464
   },
   "extractors": [
     "llm:deepseek-v4-1-flash"
   ],
   "errors": [],
   "today": "2026-11-02",
-  "api_base": "http://localhost:8095",
-  "started": "2026-11-11T15:03:20",
-  "finished": "2026-11-11T15:04:25",
-  "duration_s": 64.73
+  "api_base": "http://localhost:8097",
+  "started": "2026-11-11T15:17:10",
+  "finished": "2026-11-11T15:17:48",
+  "duration_s": 38.09
 }

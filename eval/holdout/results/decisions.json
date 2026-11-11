@@ -77,7 +77,8 @@
     "net_payout": 990,
     "reason": "Covered collision on 2026-10-31: invoice EUR 1,240.00 minus deductible EUR 250.00 = EUR 990.00; net EUR 990.00 is within the automatic limit, but automatic approval is blocked. Flags: no photos for damage of EUR 1,240.00 (§2.5 expects photos above EUR 500).",
     "flags": [
-      "photos_missing"
+      "photos_missing",
+      "answered_in:H-010"
     ]
   },
   {

@@ -10,15 +10,17 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 | 02 Validation | policy by number, else by sender email; active on loss date; peril covered; missing info; identity check | strong |
 | 03 Fraud signals | duplicate invoice or event, 3+ claims in 12 months, loss within 30 days of start, other IBAN, instructions to the system | strong for the listed indicators only |
 | 04 Decision | net payout, auto / handler / senior bands, reason citing the rulebook section, rule-by-rule trace | strong |
-| 05 Communication | NL/EN templates; info requests and auto-approval letters sent; neutral acknowledgements; rejections held; replies merged into their thread | medium |
+| 05 Communication | NL/EN templates; info requests and auto-approval letters sent; neutral acknowledgements; rejections held (customer-facing reason in the customer's language); replies merged and the original request marked answered; open info requests listed with reminder drafts | medium |
 | 06 Human review | local web page: queue, filters, rule trace, facts, email, draft letter; approve / edit / reject; releases held letters; every action logged | medium–strong |
-| 07 Monitoring | `output/audit.jsonl` per step, `run_summary.json`, eval against a hand-made key with 5 safety checks | medium |
+| 07 Monitoring | audit trail per step, run summary, `metrics.json` + Monitoring view (automation rate, API retry rate, LLM-vs-keyword agreement, handler override rate, open requests, alerts), eval with 5 safety checks, blind holdout, robustness runs | medium–strong |
 
-**Final run** (chaos on, real LLM, 40 claims):
+**Final run** (15:16, chaos on, 40 live KIE calls with deepseek-v4-1-flash for 1.19 credits, 40 claims):
 - Actions: auto_approve 9, request_info 4, escalate_handler 8, escalate_senior 3, reject_draft 7, fraud_review 6, route_other 3.
-- Mock API: about 170 calls, about 40 retries, **0 failed writes**, no duplicate records.
-- Eval: **100% action match and 100% payout match** against the answer key; **all 5 safety checks at 0**.
-- Read that 100% carefully. The key was written before the code, but two rules were adjusted after the first eval on these same 40 claims (C-033 and the exclusion order, see below). The first untuned run scored 97.5%. New emails would score lower; the eval only proves the pipeline does what the key says on known cases.
+- Mock API: 170 calls, 40 retries, **0 failed writes**, no duplicate records.
+- Eval on the 40 case claims: **100% action match, 100% payout match, all 5 safety checks at 0**.
+- Read that 100% carefully. The key was written before the code, but two rules were adjusted after the first eval on these same 40 claims (C-033 and the exclusion order, see below). The first untuned run scored 97.5%.
+- **That is why a blind holdout was added:** 12 new, deliberately tricky claims written by an agent that never saw the code, with expected answers from the rulebook alone (`eval/holdout/`). Result: **91.7% strict (11/12), 100% counting the author's accepted alternatives, payouts 5/5, safety 0.** The one strict miss (H-009, no photos above €500) went to a handler where the author preferred asking the customer for photos. A reworded Dutch injection, a reused invoice number, an identity mismatch and a loss abroad were all caught.
+- **Robustness** (heavy API failure, KIE down, idempotent re-run, no-LLM mode): see `docs/robustness.md`.
 
 ## Core design choice
 
@@ -50,7 +52,7 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 ## What was cut, and why
 
 - **Vision on photos.** The photos are captioned placeholders, so we only count them. A vision model would add cost and risk for no signal on this data.
-- **A real mailbox, reminders and multi-turn conversations.** Replies in the data are merged, but there is no inbox polling and no "you still haven't sent X" reminders. This is the weakest part (05).
+- **A real mailbox and automatic reminders.** Replies are merged and the original request is marked answered; open requests are listed with reminder letters *drafted*, but nothing polls an inbox and reminders are not sent automatically (the reminder cadence is a business decision). Still the weakest part (05).
 - **LLM-written letters.** A deliberate choice: templates cannot promise money or leak data.
 - **Logins and multiple handlers.** The review page is single-user and local. Fine for a demo, not for production.
 - **A database.** State is in JSON files; the API's in-memory store is the system of record.
@@ -59,11 +61,11 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 ## What is fake, stubbed or untested
 
 - **Fake by design:** no email is really sent (mock outbox). No money moves. Policies and claims are the mock API's.
-- **Untested:** the review page has had no automated browser test. It was checked by hand in a browser and its API was checked with curl. The CSRF guard and the recipient check were tested with curl.
-- **Untested:** the LLM chain falling back to `gemini-3-7-flash` (the deepseek → gpt switch *was* tested live).
+- **Review page:** no automated browser test. Checked by hand in a browser; its API, CSRF guard and recipient check were tested with curl; an end-to-end test on an isolated copy approved a held rejection (exactly one mail queued, to the original sender) and posted a handler's edit to the API (recorded as `decided_by: human:…`).
+- **Untested live:** the chain reaching `gemini-3-7-flash` or `claude-sonnet-5-5` (the deepseek → gpt switch was tested live; the retry-then-next-model logic, including schema failures, is unit tested).
 - **KIE down:** every claim goes to manual review by design (see the assumptions table); tested in docs/robustness.md.
 - **Known edge:** if a decision is posted as `approved` but a later write for that claim fails, `decisions.json` downgrades to escalate_handler while the API record stays `approved`. No corrected decision is posted. This did not happen in the final run (0 failed writes).
-- **LLM cache:** responses are cached in `.cache/llm/` (not committed). Re-runs on this machine replay the same extraction. A fresh clone makes real KIE calls.
+- **LLM cache:** responses are cached in `.cache/llm/` (not committed). The final run made fresh calls (the cache key includes the model chain, which changed). A fresh clone always makes real KIE calls.
 
 ## Where this could cause harm, and how it is limited
 
@@ -105,8 +107,15 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 | 14:25–14:30 | Shared contract (`models.py`), build plan |
 | 14:30–14:43 | Five parallel builder agents; lead verified, committed and relayed interfaces; fixed 2 security findings and 1 rule-order issue |
 | 14:43–14:50 | Integration: full run on KIE with chaos (97.5%), fixed C-033, rerun (100%), checked the review page in a browser |
-| 14:50–15:40 | Documentation, final checks, final run |
-| 15:40–16:04 | Packaging: zip, push |
+| 14:50–14:52 | Documentation (README, DECISIONS, PROMPTS, PROCESS), first zip |
+| 14:52–15:10 | Strengthening (Nikita's choice), 4 more agents in parallel: blind holdout set, robustness runs, part 05 thread closing + open requests, part 07 metrics + monitoring view. Nikita's rule: AI down → manual review. Review page end-to-end test |
+| 15:10–15:16 | Independent reviewer findings fixed (fallback could still decide on no key or extraction errors; validation inside the retry loop + Sonnet as last model; thread provenance; cross-type duplicates; Dutch rejection reasons). Fresh final run with live KIE calls |
+| 15:16–15:40 | Holdout re-run on final code, docs update, final checks |
+| 15:40–16:04 | Packaging: zip and push to GitHub (Oxde) once the repo exists |
+
+## Independent review
+
+A separate Claude session reviewed the code and the holdout behaviour, and found that the keyword fallback could still make automatic decisions on two paths: a missing API key, and an extraction error outside the LLM retry loop. On unseen emails the fallback had auto-approved a reworded Dutch injection and an IBAN-change request that the LLM correctly sent to fraud review. Fixed (commit `193a1ac`): any claim not read by the LLM is escalated in normal mode; schema validation runs inside the retry loop, with `claude-sonnet-5-5` as a stronger last model (Nikita's idea); merged threads keep the weaker provenance; duplicate events match policy + date regardless of loss type; rejection letters give the customer a reason in their own language. Each fix has a test (`tests/test_fallback_safety.py`).
 
 ## How AI tools were used
 
