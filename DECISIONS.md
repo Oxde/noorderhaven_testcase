@@ -44,6 +44,7 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 | Auto-approval letter | Sent immediately (§6: handlers sample next morning). | 9 claims |
 | Third-party liability claim (C-038) | route_other, neutral acknowledgement confirming nothing about the insured (§5). | C-038 |
 | Complaint about an existing claim (C-026) | route_other with `complaint` and `urgent` (Kifid threat); acknowledgement sent; no new claim registered. | C-026 |
+| The LLM is down (all models fail) | **Nikita's decision:** no automatic decision at all. Every claim goes to escalate_handler with `llm_unavailable` and `facts_unverified`, no payout, no letter; the keyword fallback's facts are only a pre-fill for the handler. A keyword reader can misread a fact silently, and acting on it would be misleading. (`--no-llm` remains a labelled developer/test mode that does decide.) | any, when KIE fails |
 | A reply from a different sender than the original | Not linked to that thread (an In-Reply-To header is trivially forged); processed on its own. | — |
 
 ## What was cut, and why
@@ -60,7 +61,7 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 - **Fake by design:** no email is really sent (mock outbox). No money moves. Policies and claims are the mock API's.
 - **Untested:** the review page has had no automated browser test. It was checked by hand in a browser and its API was checked with curl. The CSRF guard and the recipient check were tested with curl.
 - **Untested:** the LLM chain falling back to `gemini-3-7-flash` (the deepseek → gpt switch *was* tested live).
-- **Untested:** a full run where KIE is down. The fallback extractor alone handles the 40 claims; that path was smoke-tested without a key.
+- **KIE down:** every claim goes to manual review by design (see the assumptions table); tested in docs/robustness.md.
 - **Known edge:** if a decision is posted as `approved` but a later write for that claim fails, `decisions.json` downgrades to escalate_handler while the API record stays `approved`. No corrected decision is posted. This did not happen in the final run (0 failed writes).
 - **LLM cache:** responses are cached in `.cache/llm/` (not committed). Re-runs on this machine replay the same extraction. A fresh clone makes real KIE calls.
 

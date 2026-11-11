@@ -53,6 +53,31 @@ Skipped: FastAPI skills (we use the stdlib), a PDF skill (one was already availa
 | D | Human review web page | `review/server.py`, `review/index.html` |
 | E | Evaluation harness and answer key | `eval/expected.json`, `eval/run_eval.py` |
 
+## Decisions made by Nikita (the human in charge)
+
+| When | Decision | Effect |
+|---|---|---|
+| 14:15 | Aim for all 7 parts and test them, not just a thin slice | Scope of design.md |
+| 14:18 | Build a frontend for human review | `review/` web page |
+| 14:18 | Python; KIE.ai as LLM provider (OpenAI-compatible); a separate session tests KIE models live | `agent/llm.py`, `docs/kie-llm-api.md`, model chain deepseek → gpt → gemini |
+| 14:18 | Hand in as a GitHub repo (Oxde) plus a zip; stop building at 15:40 | Plan and time box |
+| 14:19 | Search skills.sh and install useful skills | 3 skills installed after reading them |
+| 14:27 | Approved the design and architecture; build with parallel agents | `docs/plan.md`, 5 builders |
+| 14:52 | Use the spare time for more testing and to strengthen the weakest parts (05 communication, 07 monitoring) rather than stop early | Holdout set, robustness runs, thread closing, monitoring panel |
+| 14:58 | **If the AI is down, do not let the keyword fallback decide; send every claim to manual review with the reason** | Rule 0 in `agent/rules.py`: `fallback(llm_failed)` → escalate_handler, flags `llm_unavailable`, `facts_unverified`, no payout, no letter |
+
+The last decision overrode Claude's original design. That design let the keyword fallback make full decisions when the LLM failed. Nikita's reasoning: a keyword reader can misread a fact without knowing it, and the rules would then act on it with full confidence, which is misleading. With the AI down, the honest output is "a human must read this". The fallback's facts are still shown to the handler as an unverified pre-fill. The explicit `--no-llm` developer mode still decides, so the pipeline can be tested without a key, and is labelled as a test mode.
+
+## How Nikita evaluated the AI's work
+
+- **Understanding before building.** Before any code, asked Claude to explain the case and list the insights needed to show it was understood. Checked the claim-by-claim answer key, the traps (prompt injection, flaky API, replies, privacy) and the rule interpretations.
+- **Explanation before approval.** Asked for the task, plan and architecture to be explained and illustrated, including which of the 7 parts would be weak and why, before approving the design.
+- **Asked "did we really do all 7, and which are weak?"** after the first complete run. That surfaced 05 (communication) and 07 (monitoring) as medium, which then got strengthened.
+- **Questioned a design choice and overrode it:** the fallback-on-AI-failure behaviour (above).
+- **Required a written trail:** the process log, the number of subagents and how they were orchestrated, the architecture in the README, and the decisions with their reasons. The work can be audited afterwards, not just demoed.
+- **Kept the human gate on outward actions:** commits and pushes only on request; creating the GitHub repo is Nikita's step.
+- **Did not accept the 100% eval at face value:** chose more testing over stopping. That produced a blind holdout set written by an agent that never saw the code, plus robustness runs under heavy API failure and with the LLM down.
+
 ## How the agents were orchestrated
 
 **Subagents used so far: 6.**
