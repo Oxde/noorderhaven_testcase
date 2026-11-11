@@ -1,0 +1,23 @@
+{
+  "claim_id": "H-003",
+  "message_id": "<h-003@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Joris Wouters",
+    "email": "joris.wouters@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Krassen op portier (vandalisme)",
+  "received_at": "2026-11-01T19:05:00",
+  "body": "Hoi,\n\nIn de nacht van 27 op 28 oktober heeft iemand met een sleutel over de hele linkerkant van mijn auto gekrast, hij stond voor de deur geparkeerd. Ik heb het laten spuiten bij Carrosserie De Wit, factuur en foto in de bijlage.\n\nPolisnummer POL-100261.\n\nGroeten,\nJoris Wouters",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

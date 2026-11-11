@@ -1,0 +1,19 @@
+{
+  "claim_id": "H-006",
+  "message_id": "<h-006@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Yara Hoekstra",
+    "email": "yara.hoekstra@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Laptop gestolen tijdens vakantie / stolen laptop",
+  "received_at": "2026-11-02T11:42:00",
+  "body": "Beste Noorderhaven,\n\nTijdens mijn vakantie is op 20 oktober mijn laptop uit mijn hotelkamer in Bangkok gestolen terwijl ik aan het ontbijt zat. Ik heb meteen aangifte gedaan bij de Tourist Police, the report number is TP-BKK-2026-55813. Inmiddels heb ik thuis een vervangende laptop gekocht, de factuur stuur ik mee.\n\nMijn polis is POL-100250 (inboedel).\n\nMet vriendelijke groet,\nYara Hoekstra",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

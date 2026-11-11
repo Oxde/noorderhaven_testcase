@@ -1,0 +1,19 @@
+{
+  "claim_id": "H-009",
+  "message_id": "<h-009@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Lotte de Groot",
+    "email": "lotte.degroot@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Paaltje geraakt bij het achteruit inparkeren",
+  "received_at": "2026-11-02T20:31:00",
+  "body": "Beste,\n\nZaterdag 31 oktober ben ik bij het achteruit inparkeren in de parkeergarage tegen een betonnen paal gereden. De achterklep en de bumper zijn beschadigd. Autoschade Hendriks heeft het inmiddels gerepareerd, de factuur stuur ik mee.\n\nMijn polisnummer is POL-100260.\n\nMet vriendelijke groet,\nLotte de Groot",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

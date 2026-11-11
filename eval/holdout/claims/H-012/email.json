@@ -1,0 +1,14 @@
+{
+  "claim_id": "H-012",
+  "message_id": "<h-012@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Pieter van den Berg",
+    "email": "pieter.vdberg@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Verhuizing per 1 december - inboedel",
+  "received_at": "2026-11-03T15:10:00",
+  "body": "Beste mensen,\n\nGeen schade te melden gelukkig! Wij verhuizen per 1 december van Zwolle naar Kampen. Willen jullie het adres op mijn inboedelverzekering (POL-100235) aanpassen naar Oudestraat 41, 8261 CK Kampen? En is mijn inboedel tijdens de verhuisdag zelf ook gedekt als de verhuizer iets laat vallen, of moet ik daar iets extra voor regelen?\n\nAlvast bedankt,\nPieter van den Berg",
+  "attachments": []
+}

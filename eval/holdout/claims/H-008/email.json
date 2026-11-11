@@ -1,0 +1,23 @@
+{
+  "claim_id": "H-008",
+  "message_id": "<h-008@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Sophie van Dijk",
+    "email": "sophie.vandijk@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Katalysator gestolen",
+  "received_at": "2026-11-02T18:03:00",
+  "body": "Hallo,\n\nToen ik op dinsdag 27 oktober 's ochtends mijn auto startte maakte die een enorm lawaai. Bij de garage bleek dat iemand 's nachts de katalysator eronder had weggezaagd, hij stond gewoon in onze straat. De garage heeft een nieuwe gemonteerd, factuur en foto zitten erbij. Naar de politie ben ik nog niet geweest, dat leek me voor een onderdeel een beetje overdreven.\n\nPolis POL-100244, kenteken RP-308-K.\n\nGroet,\nSophie van Dijk",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

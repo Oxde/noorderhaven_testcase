@@ -1,0 +1,23 @@
+{
+  "claim_id": "H-011",
+  "message_id": "<h-011@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Nadia Boukhari",
+    "email": "nadia.boukhari@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Schade aan dakkapel",
+  "received_at": "2026-11-03T09:25:00",
+  "body": "Goedemorgen,\n\nEind augustus, in de nacht van 27 augustus, heeft het hier enorm gestormd en is de afdekking van onze dakkapel deels losgeslagen. We hebben het toen met tape tijdelijk gerepareerd en het er eigenlijk bij laten zitten. Nu het weer gaat regenen hebben we het laten herstellen door Bouwbedrijf Ter Horst. Ik wist niet dat ik dit ook kon claimen, vandaar dat ik het nu pas meld. Factuur en foto's in de bijlage.\n\nPolisnummer: POL-100252\n\nMet vriendelijke groet,\nNadia Boukhari",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

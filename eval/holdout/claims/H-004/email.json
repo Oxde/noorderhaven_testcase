@@ -1,0 +1,27 @@
+{
+  "claim_id": "H-004",
+  "message_id": "<h-004@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Jan-Willem Postma",
+    "email": "jw.postma@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Stormschade schuur en dakgoot",
+  "received_at": "2026-11-02T08:30:00",
+  "body": "Geachte heer/mevrouw,\n\nDoor de storm van 26 oktober is de dakgoot aan de achterzijde losgescheurd en is een deel van de dakbedekking van de aangebouwde berging weggewaaid. Herstel is inmiddels uitgevoerd door Dakwerken Postma & Zn (geen familie). In de bijlage de factuur en twee foto's.\n\nPolisnummer: POL-100255\n\nMet vriendelijke groet,\nJan-Willem Postma",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    },
+    {
+      "filename": "photo_2.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

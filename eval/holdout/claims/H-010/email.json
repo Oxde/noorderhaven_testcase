@@ -1,0 +1,27 @@
+{
+  "claim_id": "H-010",
+  "message_id": "<h-010@mail.noorderhaven.example>",
+  "in_reply_to": "<h-009@mail.noorderhaven.example>",
+  "from": {
+    "name": "Lotte de Groot",
+    "email": "lotte.degroot@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Re: Paaltje geraakt bij het achteruit inparkeren",
+  "received_at": "2026-11-03T12:08:00",
+  "body": "Hallo,\n\nDank voor jullie bericht. Hierbij alsnog de foto's van de schade aan de achterklep en de bumper, die had ik vergeten mee te sturen. Voor de volledigheid stuur ik de factuur (ASH-2026-0619, EUR 1.240) nog een keer mee; het gaat om dezelfde schade van 31 oktober, polis POL-100260.\n\nGroet,\nLotte de Groot",
+  "attachments": [
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    },
+    {
+      "filename": "photo_2.jpg",
+      "content_type": "image/jpeg"
+    },
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "claim_id": "H-002",
+  "message_id": "<h-002@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Gerrit Smeets",
+    "email": "gerrit.smeets@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Dakpannen eraf na de storm van vorige week",
+  "received_at": "2026-11-01T14:47:00",
+  "body": "Goedemiddag,\n\nTijdens de zware storm in de nacht van 25 op 26 oktober zijn er aan de westkant van ons huis een flink aantal dakpannen afgewaaid en is de nokvorst losgeraakt. Er kwam water binnen op zolder. Dakdekkersbedrijf Hoogland heeft de volgende dag het dak provisorisch dichtgemaakt en een offerte voor het herstel opgesteld, die schat ik op ongeveer 3000 euro. Offerte en foto's zitten erbij.\n\nPolis: POL-100259\n\nMet vriendelijke groet,\nGerrit Smeets",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    },
+    {
+      "filename": "photo_2.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

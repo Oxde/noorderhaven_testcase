@@ -1,0 +1,19 @@
+{
+  "claim_id": "H-001",
+  "message_id": "<h-001@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Sanne Bakker",
+    "email": "sanne.bakker@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Windscreen chip turned into a crack",
+  "received_at": "2026-11-01T09:12:00",
+  "body": "Hello,\n\nI'm writing in English as my Dutch is still a work in progress, I hope that's fine. On Thursday 29 October a lorry in front of me on the A28 threw up a stone and it left a chip in my windscreen. By the next morning it had spread into a crack right across the driver's side, so I had the windscreen replaced at Glasgarage Noord on 30 October. The invoice is attached.\n\nPolicy number: POL-100232, car H-210-BZ.\n\nKind regards,\nSanne Bakker",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}

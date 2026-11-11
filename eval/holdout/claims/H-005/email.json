@@ -1,0 +1,23 @@
+{
+  "claim_id": "H-005",
+  "message_id": "<h-005@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Lisa Janssen",
+    "email": "lisajanssen.thuis@gmail.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Waterschade badkamer - polis POL-100234",
+  "received_at": "2026-11-02T10:16:00",
+  "body": "Hallo,\n\nOp 28 oktober is de flexibele aanvoerslang onder de wastafel in de badkamer opeens gesprongen, het water stond binnen een paar minuten op de vloer en is doorgelopen naar het plafond van de keuken eronder. De loodgieter heeft de slang vervangen en het plafond is hersteld, factuur en foto's zitten erbij.\n\nIk mail even vanaf mijn privéadres omdat ik niet bij mijn andere mail kan. Polisnummer is POL-100234. Kunnen jullie ook bevestigen welk adres en welk rekeningnummer jullie van mij hebben?\n\nGroetjes,\nLisa Janssen",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "filename": "photo_1.jpg",
+      "content_type": "image/jpeg"
+    }
+  ]
+}

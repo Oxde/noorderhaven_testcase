@@ -1,0 +1,19 @@
+{
+  "claim_id": "H-007",
+  "message_id": "<h-007@mail.noorderhaven.example>",
+  "in_reply_to": null,
+  "from": {
+    "name": "Marloes Peters",
+    "email": "marloes.peters@example.com"
+  },
+  "to": "schade@noorderhaven.example",
+  "subject": "Gebarsten dubbel glas woonkamer",
+  "received_at": "2026-11-02T16:20:00",
+  "body": "Beste,\n\nAfgelopen zaterdag 31 oktober is er tijdens het voetballen van de buurjongens een bal tegen ons woonkamerraam geknald en is het binnenste blad van het dubbele glas gebarsten. Glaszetter Van Dam heeft het raam op 2 november vervangen. Hierbij de factuur.\n\nPolisnummer POL-100248.\n\nVriendelijke groet,\nMarloes Peters",
+  "attachments": [
+    {
+      "filename": "document_1.pdf",
+      "content_type": "application/pdf"
+    }
+  ]
+}
