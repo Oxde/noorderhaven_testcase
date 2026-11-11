@@ -216,6 +216,55 @@ table.kv tr + tr th, table.kv tr + tr td { border-top: 1px solid var(--line-2); 
 @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 
+/* View toggle + thread chip */
+.views { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; padding: 2px; background: var(--panel-2); }
+.views button {
+  border: 0; background: none; border-radius: 6px; padding: 4px 12px; font-size: 12.5px; font-weight: 600; color: var(--muted); cursor: pointer;
+  transition: background-color .15s ease-out, color .15s ease-out;
+}
+.views button:hover { color: var(--text); }
+.views button[aria-pressed="true"] { background: var(--panel); color: var(--text); box-shadow: var(--shadow); }
+.views .dot { display: inline-block; min-width: 16px; margin-left: 5px; padding: 0 5px; border-radius: 999px; font-size: 11px; background: var(--amber-bg); color: var(--amber); font-variant-numeric: tabular-nums; }
+.thread { font-size: 11.5px; padding: 1px 7px; border-radius: 5px; color: var(--blue); background: var(--blue-bg); }
+[hidden] { display: none !important; }
+
+/* Monitoring */
+#monitor { flex: 1; overflow-y: auto; min-height: 0; }
+#monitor .wrap { max-width: 1120px; }
+.mon-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.mon-head h1 { margin: 0; font-size: 18px; letter-spacing: -.01em; }
+.mon-head .meta { color: var(--muted); font-size: 12.5px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 12px 14px; }
+.kpi .v { font-size: 22px; font-weight: 650; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.kpi .k { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.kpi .s { font-size: 12px; color: var(--faint); font-variant-numeric: tabular-nums; }
+.kpi.t-warn .v { color: var(--amber); }
+.kpi.t-bad .v { color: var(--red); }
+.kpi.t-good .v { color: var(--green); }
+.alerts { list-style: none; margin: 0; padding: 0; }
+.alerts li { display: flex; gap: 10px; padding: 9px 16px; border-top: 1px solid var(--line-2); font-size: 13.5px; align-items: baseline; }
+.alerts li:first-child { border-top: 0; }
+.alerts .sev { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; padding: 1px 7px; border-radius: 5px; flex-shrink: 0; }
+.alerts .amber .sev { color: var(--amber); background: var(--amber-bg); }
+.alerts .red .sev { color: #fff; background: var(--red); }
+.alerts .none { color: var(--green); }
+.bars { display: grid; gap: 8px; padding: 14px 16px; }
+.bar-row { display: grid; grid-template-columns: 150px 1fr 44px; gap: 10px; align-items: center; font-size: 13px; }
+.bar-row .track { height: 10px; border-radius: 5px; background: var(--line-2); overflow: hidden; }
+.bar-row .fill { height: 100%; border-radius: 5px; background: currentColor; }
+.bar-row .n { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+table.grid { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.grid th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12px; padding: 7px 16px 7px 0; border-bottom: 1px solid var(--line-2); }
+table.grid td { padding: 7px 16px 7px 0; border-top: 1px solid var(--line-2); overflow-wrap: anywhere; vertical-align: top; }
+table.grid th:first-child, table.grid td:first-child { padding-left: 16px; }
+table.grid tr:first-child td { border-top: 0; }
+table.grid .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; }
+.tag { font-size: 11.5px; font-weight: 600; padding: 1px 7px; border-radius: 5px; white-space: nowrap; }
+.tag.answered { color: var(--green); background: var(--green-bg); }
+.tag.open { color: var(--blue); background: var(--blue-bg); }
+.tag.due { color: var(--amber); background: var(--amber-bg); margin-left: 4px; }
+
 @media (max-width: 1100px) {
   main { grid-template-columns: 300px 1fr; }
   .cols { grid-template-columns: 1fr; }
@@ -233,10 +282,15 @@ table.kv tr + tr th, table.kv tr + tr td { border-top: 1px solid var(--line-2); 
 <body>
 <header class="top">
   <div class="brand"><b>Noorderhaven Claims</b><span>Human review queue</span></div>
+  <div class="views" role="group" aria-label="View">
+    <button id="v-queue" aria-pressed="true">Queue</button>
+    <button id="v-monitor" aria-pressed="false">Monitoring</button>
+  </div>
   <div class="stats" id="stats" aria-label="Run statistics"></div>
   <label class="reviewer">Reviewer <input id="reviewer" autocomplete="off" spellcheck="false"></label>
 </header>
-<main>
+<section id="monitor" aria-live="polite" hidden></section>
+<main id="queue-view">
   <aside>
     <div class="filters" id="filters" role="toolbar" aria-label="Filter claims"></div>
     <div class="list" id="list" role="list"></div>
@@ -348,6 +402,13 @@ function renderFilters() {
       label, el("span", { class: "c", text: n }));
   }).filter(Boolean));
 }
+function threadChip(it) {
+  const t = it.thread;
+  if (!t || typeof t !== "object") return null;
+  if (t.answered_by) return el("span", { class: "thread", title: "The customer replied with the requested information", text: "answered by " + t.answered_by });
+  if (t.answers) return el("span", { class: "thread", title: "This email answers an earlier info request", text: "answers " + t.answers });
+  return null;
+}
 function renderList() {
   const items = state.data.items.filter(i => matches(i, state.filter));
   const box = document.getElementById("list");
@@ -358,7 +419,7 @@ function renderList() {
       el("div", { class: "l1" }, el("span", { class: "id", text: it.claim_id }), el("span", { class: "rs " + (it.review_status || ""), text: REVIEW_LABEL[it.review_status] || it.review_status || "" })),
       el("div", { class: "who", text: (it.from_name || "") + " · " + (it.from_email || "") }),
       el("div", { class: "subj", text: it.subject || "(no subject)" }),
-      el("div", { class: "l3" }, badge(d.action), ...flags.slice(0, 3).map(flagChip),
+      el("div", { class: "l3" }, badge(d.action), threadChip(it), ...flags.slice(0, 3).map(flagChip),
         flags.length > 3 ? el("span", { class: "flag", text: "+" + (flags.length - 3) }) : null,
         el("span", { class: "pay", text: eur(d.net_payout) || "" })));
   }));
@@ -564,8 +625,120 @@ async function refresh(first) {
   }
 }
 
+/* ---------- monitoring ---------- */
+const pct = v => (typeof v === "number" && isFinite(v)) ? (v * 100).toFixed(v > 0 && v < 0.1 ? 1 : 0) + "%" : "-";
+const show = v => (v === null || v === undefined || v === "") ? "-" : (typeof v === "boolean" ? (v ? "yes" : "no") : String(v));
+const RED_ALERT = /safety|failed after retries/i;
+
+function setView(v) {
+  state.view = v;
+  store("view", v);
+  document.getElementById("v-queue").setAttribute("aria-pressed", String(v === "queue"));
+  document.getElementById("v-monitor").setAttribute("aria-pressed", String(v === "monitor"));
+  document.getElementById("queue-view").hidden = v !== "queue";
+  document.getElementById("monitor").hidden = v !== "monitor";
+  if (v === "monitor") loadMonitor();
+}
+
+function kpi(label, value, sub, tone) {
+  return el("div", { class: "kpi" + (tone ? " t-" + tone : "") }, el("div", { class: "k", text: label }),
+    el("div", { class: "v", text: value }), sub ? el("div", { class: "s", text: sub }) : null);
+}
+
+function card(title, extra, body) {
+  return el("div", { class: "card" }, el("h2", null, title, extra ? el("span", { class: "trace-sum", text: extra }) : null), body);
+}
+
+function daysOpen(r) {
+  if (typeof r.days_open === "number") return r.days_open;
+  const s = r.requested_on || r.requested_at;
+  const d = s ? new Date(s) : null;
+  return d && !isNaN(d) ? Math.max(0, Math.floor((Date.now() - d) / 86400000)) : null;
+}
+
+function renderMonitor(m, reqs) {
+  const a = m.automation || {}, api = m.api || {}, ag = m.extraction_agreement || {}, rv = m.reviews || {}, ev = m.eval || null, llm = m.llm || {};
+  const tiles = el("div", { class: "kpis" },
+    kpi("Auto rate", pct(a.auto_rate), `${show(a.auto_handled)} of ${show(m.claims)} claims`),
+    kpi("Needs human", show(a.needs_human), "escalated, fraud or draft", a.needs_human > 0 ? "warn" : null),
+    kpi("API retry rate", pct(api.retry_rate), `${show(api.retries)} retries · ${show(api.failures)} failed / ${show(api.calls)}`,
+      api.failures > 0 ? "bad" : (api.retry_rate > 0.3 ? "warn" : null)),
+    kpi("LLM agreement", pct(ag.agreement_rate), ag.claims_compared ? `${ag.claims_compared} claims vs regex reader` : "no LLM extractions",
+      ag.agreement_rate === null || ag.agreement_rate === undefined ? null : (ag.agreement_rate < 0.8 ? "warn" : "good")),
+    kpi("Override rate", pct(rv.override_rate), `${show(rv.edit)} edits · ${show(rv.reject)} rejects / ${show(rv.total)}`,
+      rv.override_rate > 0.2 && rv.total >= 5 ? "warn" : null),
+    kpi("Eval accuracy", ev ? pct(ev.strict_accuracy) : "-", ev ? `payout match ${pct(ev.payout_match)}` : "no eval run"),
+    kpi("Safety", ev ? show(ev.safety_total) : "-", "violations, must be 0", ev ? (ev.safety_total > 0 ? "bad" : "good") : null));
+
+  const alerts = m.alerts || [];
+  const alertCard = card("Alerts", alerts.length ? `${alerts.length} active` : "none",
+    el("ul", { class: "alerts" }, alerts.length ? alerts.map(t => {
+      const red = RED_ALERT.test(t);
+      return el("li", { class: red ? "red" : "amber" }, el("span", { class: "sev", text: red ? "critical" : "warning" }), el("span", { text: t }));
+    }) : el("li", null, el("span", { class: "none", text: "All monitored signals are within thresholds." }))));
+
+  const acts = Object.entries(m.actions || {}).sort((x, y) => y[1] - x[1]);
+  const maxN = Math.max(1, ...acts.map(x => x[1]));
+  const barCard = card("Decisions by action", `${show(m.claims)} claims · LLM ${show(llm.mode).replace(/^llm:/, "")}`,
+    el("div", { class: "bars" }, acts.length ? acts.map(([act, n]) => el("div", { class: "bar-row" },
+      el("span", null, badge(act)),
+      el("div", { class: "track" }, el("div", { class: "fill a-" + (ACTIONS.includes(act) ? act : "reject_draft"), style: `width:${(n / maxN * 100).toFixed(1)}%;background:currentColor` })),
+      el("span", { class: "n", text: n }))) : el("div", { class: "nil", text: "No decisions." })));
+
+  const dis = ag.disagreements || [];
+  const perField = Object.entries(ag.per_field || {}).map(([f, r]) => `${f} ${pct(r)}`).join(" · ");
+  const disCard = card("Extraction disagreements: LLM vs regex reader", dis.length ? `${dis.length} field${dis.length > 1 ? "s" : ""}` : "",
+    el("div", null,
+      perField ? el("div", { class: "body done-note", text: perField }) : null,
+      dis.length ? el("table", { class: "grid" },
+        el("thead", null, el("tr", null, ["Claim", "Field", "LLM", "Regex reader"].map(h => el("th", { text: h })))),
+        el("tbody", null, dis.map(x => el("tr", null,
+          el("td", null, el("button", { class: "chip-btn", onclick: () => { setView("queue"); state.filter = "all"; renderFilters(); select(x.claim_id); } }, x.claim_id)),
+          el("td", { class: "mono", text: x.field }), el("td", { text: show(x.llm) }), el("td", { text: show(x.fallback) })))))
+        : el("div", { class: "body nil", text: ag.claims_compared ? "The LLM and the regex reader agree on every compared field." : "No LLM-extracted claims to compare." })));
+
+  const items = (reqs && reqs.items) || [];
+  const oir = m.open_info_requests;
+  const reqCard = card("Open info requests", oir ? `${oir.open} open · ${oir.answered} answered · ${oir.reminder_due} reminder due` : "",
+    items.length ? el("table", { class: "grid" },
+      el("thead", null, el("tr", null, ["Claim", "Sender", "Requested on", "Days open", "Missing", "Status"].map(h => el("th", { text: h })))),
+      el("tbody", null, items.map(r => {
+        const answered = String(r.status || "").toLowerCase() === "answered";
+        const missing = r.missing || r.missing_items || [];
+        return el("tr", null,
+          el("td", { class: "num", text: show(r.claim_id) }),
+          el("td", { text: show(r.sender || r.from_email || r.to) }),
+          el("td", { class: "num", text: show(r.requested_on || r.requested_at) }),
+          el("td", { class: "num", text: show(daysOpen(r)) }),
+          el("td", { text: Array.isArray(missing) ? (missing.join(", ") || "-") : show(missing) }),
+          el("td", null, el("span", { class: "tag " + (answered ? "answered" : "open"), text: answered ? ("answered" + (r.answered_by ? " by " + r.answered_by : "")) : "open" }),
+            !answered && r.reminder_due ? el("span", { class: "tag due", text: "reminder due" }) : null));
+      })))
+      : el("div", { class: "body nil", text: "No open info requests recorded." }));
+
+  document.getElementById("monitor").replaceChildren(el("div", { class: "wrap" },
+    el("div", { class: "mon-head" }, el("h1", { text: "Monitoring" }),
+      el("span", { class: "meta", text: `computed ${fmtDate(m.generated_at)} · updates after every review` })),
+    tiles, alertCard, el("div", { class: "cols" }, barCard, reqCard), disCard));
+}
+
+async function loadMonitor() {
+  const box = document.getElementById("monitor");
+  try {
+    const [m, reqs] = await Promise.all([api("/api/metrics"), api("/api/open-requests")]);
+    renderMonitor(m, reqs);
+    const n = (m.alerts || []).length, b = document.getElementById("v-monitor");
+    b.replaceChildren("Monitoring", n ? el("span", { class: "dot", text: n }) : null);
+  } catch (e) {
+    box.replaceChildren(el("div", { class: "banner-err", text: "Could not load monitoring metrics.\n" + e.message }));
+  }
+}
+
+document.getElementById("v-queue").addEventListener("click", () => setView("queue"));
+document.getElementById("v-monitor").addEventListener("click", () => setView("monitor"));
+
 document.addEventListener("keydown", e => {
-  if (!state.data || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  if (!state.data || state.view === "monitor" || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
   if (e.key !== "j" && e.key !== "k" && e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
   const items = state.data.items.filter(i => matches(i, state.filter));
   const i = items.findIndex(x => x.claim_id === state.selected);
@@ -577,6 +750,7 @@ const rv = document.getElementById("reviewer");
 rv.value = store("reviewer") || "handler";
 rv.addEventListener("change", () => store("reviewer", rv.value.trim()));
 refresh(true);
+setView(store("view") === "monitor" ? "monitor" : "queue");
 </script>
 </body>
 </html>

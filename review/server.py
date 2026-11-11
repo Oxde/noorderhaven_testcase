@@ -5,6 +5,8 @@
 Serves review/index.html and a small JSON API over the agent's review queue:
   GET  /api/queue                      items (attachment text stripped) + counts + run/eval summaries
   GET  /api/claims/<claim_id>          full item
+  GET  /api/metrics                    agent.monitor.compute_metrics(OUTPUT_DIR), computed live
+  GET  /api/open-requests              OUTPUT_DIR/open_info_requests.json (or {"items": []})
   POST /api/claims/<claim_id>/review   {action: approve|edit|reject, new_action?, net_payout?, reason?,
                                         letter_body?, reviewer?}
 
@@ -34,7 +36,7 @@ if str(ROOT) not in sys.path:
 
 from agent.models import ACTION_TO_STATUS, ACTIONS  # noqa: E402  (shared contract, always present)
 
-OUTPUT_DIR = ROOT / "output"
+OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", str(ROOT / "output"))).resolve()
 INDEX_HTML = HERE / "index.html"
 REVIEW_ACTIONS = ("approve", "edit", "reject")
 API_MAX_ATTEMPTS = 4          # keep the UI responsive when the API is down
@@ -110,6 +112,31 @@ def read_json_if_exists(path: Path) -> Optional[dict]:
         return None
     with open(path, encoding="utf-8") as f:
         return json.load(f)
+
+
+def live_metrics() -> Tuple[int, dict]:
+    """Monitoring metrics computed on request so review overrides show up immediately."""
+    try:
+        from agent.monitor import compute_metrics  # noqa: WPS433 (lazy: the queue UI must work without it)
+    except Exception as e:
+        return 500, {"ok": False, "error": f"monitoring unavailable (cannot import agent.monitor: "
+                                           f"{type(e).__name__}: {e})"}
+    try:
+        return 200, compute_metrics(OUTPUT_DIR)
+    except Exception as e:
+        return 500, {"ok": False, "error": f"computing metrics from {OUTPUT_DIR} failed: {type(e).__name__}: {e}"}
+
+
+def open_requests() -> dict:
+    data = read_json_if_exists(OUTPUT_DIR / "open_info_requests.json")
+    if data is None:
+        return {"items": []}
+    if isinstance(data, list):
+        return {"items": data}
+    if isinstance(data, dict) and isinstance(data.get("items"), list):
+        return data
+    raise ValueError(f"unexpected format in {OUTPUT_DIR / 'open_info_requests.json'}: "
+                     f"expected a list or {{'items': [...]}}, got {type(data).__name__}")
 
 
 def summarise_item(item: dict) -> dict:
@@ -310,6 +337,10 @@ def make_handler(store: Store):
                         "run_summary": read_json_if_exists(OUTPUT_DIR / "run_summary.json"),
                         "eval_summary": read_json_if_exists(OUTPUT_DIR / "eval_summary.json"),
                     })
+                if parts == ["api", "metrics"]:
+                    return self._send(*live_metrics())
+                if parts == ["api", "open-requests"]:
+                    return self._send(200, open_requests())
                 if len(parts) == 3 and parts[:2] == ["api", "claims"]:
                     item = next((it for it in store.load() if it.get("claim_id") == parts[2]), None)
                     if item is None:
