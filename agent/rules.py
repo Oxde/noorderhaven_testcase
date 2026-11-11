@@ -114,6 +114,22 @@ def decide(facts: Facts, res: PolicyResolution, history: List[HistoryClaim], tod
     trace: List[RuleStep] = []
     flags: List[str] = []
 
+    # Rule 0 (Nikita's decision): when the LLM was meant to read the email but every model failed, the
+    # keyword-based fallback may misread a fact without knowing it, and the rules would act on that with
+    # full confidence. So nothing is decided automatically: the claim goes to a handler with the reason,
+    # no letter is sent, and the fallback's facts are only a pre-fill for the handler (marked unverified).
+    # Explicit --no-llm runs (extractor == "fallback") are a developer/test mode and still decide.
+    if facts.extractor == "fallback(llm_failed)":
+        trace.append(RuleStep("intake.llm_available", False,
+                              "all LLM models failed; facts below come from the keyword reader and are unverified"))
+        flags.extend(["llm_unavailable", "facts_unverified"])
+        if facts.injection_detected.value:
+            flags.append("injection")
+        return _finish(facts, "escalate_handler", None,
+                       "AI extraction was unavailable (all LLM models failed), so no automatic decision was made. "
+                       "A handler must read the email; the extracted facts are an unverified keyword pre-fill.",
+                       flags, trace, None, extra=False)
+
     # Rule 1: intents that are not a new claim for this agent.
     if facts.intent == "spam":
         trace.append(RuleStep("intent.spam", False, "email classified as spam / not a claim"))

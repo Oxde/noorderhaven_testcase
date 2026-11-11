@@ -172,6 +172,14 @@ class RulesTest(unittest.TestCase):
         self.assertEqual(d.action, "reject_draft")
         self.assertIn("outside_europe", d.flags)
 
+    def test_llm_down_goes_to_manual_review(self):
+        f = facts(extractor="fallback(llm_failed)")   # otherwise a clean auto-approvable claim
+        d = run(f, res(policy()))
+        self.assertEqual(d.action, "escalate_handler")
+        self.assertIsNone(d.net_payout)
+        self.assertIsNone(d.letter_kind)
+        self.assertIn("llm_unavailable", d.flags)
+
     def test_vague_email_from_unknown_sender_asks_identity(self):
         unresolved = PolicyResolution(policy=None, how="none")
         d = run(facts(intent="other", policy_number=None, loss_date=None, loss_type=None), unresolved)
