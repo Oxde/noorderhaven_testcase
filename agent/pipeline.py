@@ -327,7 +327,9 @@ def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = Fa
                     api_id = api_ids.get(parent_id) if parent_id else None
                     if api_id:      # one loss event, one API claim: the reply reuses the parent's record
                         audit.log(cid, "register", True, {"reused_parent_claim": api_id})
-                    elif res.policy and facts.loss_date and facts.loss_type:
+                    elif res.policy and res.sender_verified and facts.loss_date and facts.loss_type:
+                        # Unverified senders are never registered against someone's policy: that would
+                        # put a stranger's claim into the policyholder's history (lead's call, §5).
                         payload = {"policy_number": res.policy.policy_number, "loss_date": facts.loss_date,
                                    "loss_type": facts.loss_type, "invoice_number": _invoice_number(facts),
                                    "amount_claimed": rules.document_amount(facts)[0] or facts.amount_in_email,
