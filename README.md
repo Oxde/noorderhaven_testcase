@@ -104,6 +104,8 @@ python3 -m unittest discover -s tests
 | `output/run_summary.json` | counts per action, API and LLM stats, duration |
 | `output/eval_report.md`, `output/eval_summary.json` | eval results |
 | `output/reviews.jsonl` | handler actions from the review page (created on first review) |
+| `output/metrics.json` | monitoring metrics and alerts (also live in the review page's Monitoring view) |
+| `output/open_info_requests.json` | info requests: answered or open, days open, reminder due |
 | `mock_api/runtime/` | the mock API's own record of every write and queued email, from the final run |
 
 ## Final run result
@@ -111,7 +113,8 @@ python3 -m unittest discover -s tests
 40 claims, chaos on, real LLM (`deepseek-v4-1-flash` via KIE):
 - **Actions:** 9 auto-approved, 4 info requests, 11 escalated (8 handler, 3 senior), 7 rejections drafted (held), 6 fraud review, 3 routed elsewhere.
 - **API:** 170 calls, 43 retries, 0 failed writes, no duplicates.
-- **Eval:** 100% action and payout match, all safety checks 0. See [DECISIONS.md](DECISIONS.md) for why that number flatters it.
+- **Eval:** 100% action and payout match, all safety checks 0. That number flatters it (see [DECISIONS.md](DECISIONS.md)), so there is also a **blind holdout** of 12 new claims written without seeing the code: **91.7% strict, 100% lenient, safety 0** (`eval/holdout/`).
+- **Robustness** under heavy API failure, with KIE down, and on idempotent re-runs: [docs/robustness.md](docs/robustness.md).
 
 ## Repository map
 

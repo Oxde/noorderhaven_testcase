@@ -80,7 +80,7 @@ The last decision overrode Claude's original design. That design let the keyword
 
 ## How the agents were orchestrated
 
-**Subagents used so far: 6.**
+**Subagents used: 10** (6 in the build phase, 4 in the strengthening phase), plus 2 separate Claude sessions working for Nikita: one that tested the KIE API live, and one independent reviewer.
 
 | # | Agent | Model | Role | Started | Finished |
 |---|---|---|---|---|---|
@@ -90,6 +90,10 @@ The last decision overrode Claude's original design. That design let the keyword
 | 4 | C: Rules, threads, letters | Opus | Task 3 | 14:30 | 14:34 (39 tests green) |
 | 5 | D: Review web page | Opus | Task 4 | 14:30 | 14:37 (checked with curl, then in a browser by the lead) |
 | 6 | E: Evaluation | Opus | Task 5 | 14:30 | 14:33 (7 tests green) |
+| 7 | Blind holdout author | Opus | 12 new claims + expected answers from the rulebook only (forbidden to read the code) | 14:57 | 15:03 |
+| 8 | Robustness tester | Opus | heavy chaos, KIE down, idempotent re-run, no-LLM mode, on an isolated copy | 14:57 | see docs/robustness.md |
+| 9 | Part 05 builder | Opus | thread closing, open info requests, reminder drafts | 14:57 | 15:08 (4 tests) |
+| 10 | Part 07 builder | Opus | metrics, alerts, Monitoring view in the review page | 14:57 | 15:04 (5 tests) |
 
 A separate Claude session tested the KIE.ai models live and wrote `docs/kie-llm-api.md`. This build used its findings: model choice, the Responses format for DeepSeek and GPT, errors inside HTTP 200 bodies, and Haiku failing on system prompts.
 
@@ -116,3 +120,15 @@ All five builders finished between 14:33 and 14:42, well inside their 15:05 dead
 - **14:47:** rerun: **100%** actions, 100% payouts, safety 0. (Caveat in DECISIONS.md: the rules were adjusted on the same 40 claims.)
 - **14:48:** checked the review page in a browser with real data: the queue, the rule trace, and C-005's injection warning with its neutral Dutch acknowledgement.
 - **14:50:** wrote DECISIONS.md, PROMPTS.md (runtime prompt generated from the source) and the README run guide.
+
+## Strengthening phase (14:52–15:20)
+
+Nikita chose to spend the spare time on more testing and on the two weakest parts, not on stopping early.
+
+- **Four more agents in parallel** (table above). Same pattern as before: disjoint files, isolated copies of the mock API on their own ports (so the hand-in `mock_api/runtime/` files were never touched by a test), and the lead verifying and committing.
+- **Blind holdout:** the agent was told it could read the rulebook, API docs and policy data, but not the code or the answer key. On its 12 claims the agent scored **91.7% strict, 100% lenient, safety 0.**
+- **Nikita's decision, 14:58:** if the AI is down, the keyword fallback must not decide; every claim goes to manual review (see "Decisions made by Nikita").
+- **Review page end-to-end test** (lead): approving a held rejection queued exactly one mail, to the right sender; a handler's edit was posted to the API as a human decision; the monitoring panel updated live.
+- **Independent reviewer session**, 15:11: found two more paths where the fallback could still decide (no key; an extraction error outside the retry loop). On unseen emails these had let a Dutch injection and an IBAN-change request be auto-approved. Fixed with tests, including Nikita's idea of validating the answer inside the retry loop and ending the model chain with the stronger `claude-sonnet-5-5`.
+- **Mistake by the lead, stated plainly:** a cleanup command for a test server also stopped the main mock API and the review page at 15:04. The committed final-run files were unaffected (stopping a server does not erase them), and a fresh final run was made after the fixes anyway.
+- **15:16 fresh final run:** 40 live KIE calls (1.19 credits), chaos on, 170 API calls, 40 retries, 0 failed writes; eval 100% / 100% / safety 0. Holdout re-run on the final code: unchanged (91.7% / 100% / safety 0).
