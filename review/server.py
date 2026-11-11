@@ -283,7 +283,20 @@ def make_handler(store: Store):
         def _error(self, code: int, message: str) -> None:
             self._send(code, {"ok": False, "error": message})
 
+        def _allowed_hosts(self) -> set:
+            port = self.server.server_address[1]
+            return {f"localhost:{port}", f"127.0.0.1:{port}"}
+
+        def _host_ok(self) -> bool:
+            """Block DNS rebinding: only accept requests addressed to this local server."""
+            if (self.headers.get("Host") or "") in self._allowed_hosts():
+                return True
+            self._error(403, "request must be addressed to localhost")
+            return False
+
         def do_GET(self):
+            if not self._host_ok():
+                return
             parts = [unquote(p) for p in urlparse(self.path).path.split("/") if p]
             try:
                 if parts in ([], ["index.html"]):
@@ -310,6 +323,17 @@ def make_handler(store: Store):
             parts = [unquote(p) for p in urlparse(self.path).path.split("/") if p]
             if not (len(parts) == 4 and parts[:2] == ["api", "claims"] and parts[3] == "review"):
                 return self._error(404, f"not found: POST {self.path}")
+            # CSRF guard: a review POST can release held letters, so any other web page the handler has
+            # open must not be able to trigger it. Require JSON (forces a CORS preflight, which this
+            # server never answers) and a same-origin Origin header when the browser sends one.
+            if not self._host_ok():
+                return
+            ctype = (self.headers.get("Content-Type") or "").split(";")[0].strip().lower()
+            if ctype != "application/json":
+                return self._error(415, f"Content-Type must be application/json, got {ctype or 'none'!r}")
+            origin = self.headers.get("Origin")
+            if origin and origin not in {"http://" + h for h in self._allowed_hosts()}:
+                return self._error(403, f"cross-origin review request refused (Origin {origin!r})")
             try:
                 n = int(self.headers.get("Content-Length") or 0)
                 req = json.loads(self.rfile.read(n) or b"{}")
