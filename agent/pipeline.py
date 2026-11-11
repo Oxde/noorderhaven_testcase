@@ -130,10 +130,46 @@ def _error_decision(cid: str, err: BaseException) -> Decision:
                     letter_kind=None)
 
 
+def _close_threads(decisions: List[Decision], queue: List[dict], links: Dict[str, str], audit: Audit) -> None:
+    """Mark answered info requests: parent gets thread.answered_by, reply gets thread.answers.
+
+    The parent keeps its request_info action; its flags get "answered_in:<reply id>". When the reply reused
+    the parent's API claim (its decision POST updated that record), the thread is logged as closed.
+    """
+    q_by_id = {q["claim_id"]: q for q in queue}
+    d_by_id = {d.claim_id: d for d in decisions}
+    for child_id in sorted(links, key=lambda c: q_by_id[c]["received_at"] if c in q_by_id else ""):
+        parent_id = links[child_id]
+        child_q, parent_q = q_by_id.get(child_id), q_by_id.get(parent_id)
+        if child_q is None or parent_q is None:
+            continue
+        child_q["thread"] = {"answers": parent_id}
+        if (parent_q.get("thread") or {}).get("answered_by"):   # already answered by an earlier reply
+            continue
+        parent_q["thread"] = {"answered_by": child_id, "status": "answered"}
+        flag = f"answered_in:{child_id}"
+        parent_d = d_by_id.get(parent_id)
+        if parent_d is not None and flag not in parent_d.flags:
+            parent_d.flags.append(flag)
+        if flag not in parent_q["decision"]["flags"]:
+            parent_q["decision"]["flags"].append(flag)
+        api_id = parent_q.get("api_claim_id")
+        if api_id and child_q.get("api_claim_id") == api_id:
+            child_flags = child_q["decision"]["flags"]
+            ok = not any(f in child_flags for f in ("api_write_failed", "processing_error", "api_read_failed"))
+            audit.log(child_id, "thread_closed", ok,
+                      {"parent": parent_id, "api_claim_id": api_id, "action": child_q["decision"]["action"]})
+        else:
+            # parent was never registered (e.g. no loss date yet), so the reply carries its own API claim
+            audit.log(child_id, "thread_closed", True,
+                      {"parent": parent_id, "api_claim_id": None, "parent_registered": False,
+                       "reply_api_claim_id": child_q.get("api_claim_id"), "action": child_q["decision"]["action"]})
+
+
 # ---- main run -----------------------------------------------------------------------------------
 
 def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = False) -> dict:
-    from agent import comms, extract, rules, threads  # lazy: built by other tasks
+    from agent import comms, extract, followup, rules, threads  # lazy: built by other tasks
 
     t0 = time.time()
     started = _now()
@@ -245,6 +281,7 @@ def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = Fa
             "letter": asdict(letter) if letter else None,
             "letter_status": letter_status,
             "review_status": _review_status(decision, facts),
+            "thread": None,
         }
 
     def _fail(email: Email, facts: Facts, res: Optional[PolicyResolution], step: str, ex: BaseException):
@@ -349,6 +386,7 @@ def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = Fa
         results = [r.result() if hasattr(r, "result") else r for r in results]
     decisions: List[Decision] = [r[0] for r in results]
     queue: List[dict] = [r[1] for r in results]
+    _close_threads(decisions, queue, links, audit)
 
     # 9. outputs
     _write_json(out_dir / "decisions.json", [d.hand_in() for d in decisions])
@@ -367,6 +405,25 @@ def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = Fa
         "errors": errors, "today": config.TODAY, "api_base": api.base,
         "started": started, "finished": finished, "duration_s": round(time.time() - t0, 2),
     }
+    try:
+        open_requests = followup.build_open_requests(queue, config.TODAY)
+        _write_json(out_dir / "open_info_requests.json", open_requests)
+        audit.log(None, "open_info_requests", True, {k: open_requests[k] for k in ("open", "answered", "reminder_due")})
+    except Exception as ex:  # outputs above are already written; recorded, not silent
+        audit.log(None, "open_info_requests", False, {"error": repr(ex), "trace": traceback.format_exc()[-800:]})
+        errors.append({"claim_id": None, "step": "open_info_requests", "error": repr(ex)})
     _write_json(out_dir / "run_summary.json", summary)
+    try:
+        from agent import monitor
+    except ImportError:
+        monitor = None
+    if monitor is not None:
+        try:
+            monitor.write_metrics(out_dir)
+            audit.log(None, "metrics", True, {"out_dir": str(out_dir)})
+        except Exception as ex:  # metrics must not fail the run, but the failure is recorded
+            audit.log(None, "metrics", False, {"error": repr(ex), "trace": traceback.format_exc()[-800:]})
+            errors.append({"claim_id": None, "step": "metrics", "error": repr(ex)})
+            _write_json(out_dir / "run_summary.json", summary)
     audit.log(None, "run_end", not errors, {"actions": counts, "errors": len(errors)})
     return summary
