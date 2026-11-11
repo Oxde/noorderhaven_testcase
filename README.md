@@ -4,7 +4,7 @@ An agentic claims-intake system for the fictional insurer Noorderhaven Verzekeri
 
 **Core principle: the LLM extracts, code decides.** The LLM only turns an email into a structured fact sheet. Every coverage check, payout, routing decision and outgoing email is deterministic, testable Python. Email and document text is treated as untrusted data, so an injected instruction cannot approve anything.
 
-See also: [DECISIONS.md](DECISIONS.md) (what was built, cut, assumed, faked), [PROMPTS.md](PROMPTS.md), [PROCESS.md](PROCESS.md) (how it was built), [docs/design.md](docs/design.md) (spec), [docs/plan.md](docs/plan.md) (build plan).
+See also: [docs/architecture.pdf](docs/architecture.pdf) (5-page architecture and decisions summary), [DECISIONS.md](DECISIONS.md) (what was built, cut, assumed, faked), [PROMPTS.md](PROMPTS.md), [PROCESS.md](PROCESS.md) (how it was built), [docs/design.md](docs/design.md) (spec), [docs/plan.md](docs/plan.md) (build plan).
 
 ## Architecture
 
