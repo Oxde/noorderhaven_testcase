@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T15:11:47",
+  "generated_at": "2026-11-11T15:16:47",
   "claims": 40,
   "actions": {
     "auto_approve": 9,
@@ -23,15 +23,15 @@
   },
   "api": {
     "calls": 170,
-    "retries": 38,
+    "retries": 40,
     "failures": 0,
-    "retry_rate": 0.2235
+    "retry_rate": 0.2353
   },
   "llm": {
-    "mode": "llm:deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash",
-    "calls": 0,
-    "cache_hits": 40,
-    "credits_consumed": 0.0,
+    "mode": "llm:deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash,claude-sonnet-5-5",
+    "calls": 40,
+    "cache_hits": 0,
+    "credits_consumed": 1.1900000000000006,
     "fallback_used": 0
   },
   "extraction_agreement": {
@@ -48,9 +48,9 @@
     "per_field": {
       "policy_number": 1.0,
       "loss_date": 1.0,
-      "loss_type": 0.85,
+      "loss_type": 0.825,
       "priced_amount": 1.0,
-      "intent": 0.975,
+      "intent": 1.0,
       "injection": 1.0
     },
     "disagreements": [
@@ -61,9 +61,15 @@
         "fallback": "burglary_theft"
       },
       {
-        "claim_id": "C-035",
+        "claim_id": "C-011",
         "field": "loss_type",
-        "llm": "vandalism",
+        "llm": "burglary_theft",
+        "fallback": "theft"
+      },
+      {
+        "claim_id": "C-030",
+        "field": "loss_type",
+        "llm": "collision",
         "fallback": "parking_damage"
       },
       {
@@ -71,12 +77,6 @@
         "field": "loss_type",
         "llm": "glass",
         "fallback": null
-      },
-      {
-        "claim_id": "C-033",
-        "field": "intent",
-        "llm": "other",
-        "fallback": "new_claim"
       },
       {
         "claim_id": "C-024",
