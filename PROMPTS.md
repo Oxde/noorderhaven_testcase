@@ -82,26 +82,70 @@ Return the JSON object now.
 
 ## (b) Prompts given to AI coding tools
 
-**Tooling:** Claude Code (Claude Opus 5.5) was the lead engineer and orchestrator, with 10 subagents. Nikita also ran two separate Claude sessions: one that tested the KIE.ai API live (`docs/kie-llm-api.md`), and one independent code reviewer. The full story is in [PROCESS.md](PROCESS.md).
+**Tooling:** Claude Code (Claude Opus 5.5) as lead engineer and orchestrator, with 10 subagents. Two separate Claude sessions ran alongside: one tested the KIE.ai API live (`docs/kie-llm-api.md`), one reviewed the code independently. Full story in [PROCESS.md](PROCESS.md). *Nikita's prompts are lightly edited for spelling; content and order are unchanged.*
 
-### Nikita's prompts to Claude Code, verbatim and in order
+The approach: **understand first, then decide scope, then make the AI explain the plan before it builds, then build in parallel, then challenge the result.**
 
-Typos are kept, since this is an export. The recruiter emails that came with the first prompt are left out.
+### 1. Understand the case before building anything
+*Logic: make sure the AI and I share the same reading of the problem. If the understanding is wrong, everything built on it is wrong.*
 
-1. **14:05** (with the briefing HTML and the candidate pack zip): "okay check these … its an assignemnt ofr ai autoamtion role i needto show how good i can vibe coder etc / check whats insisght i need to say that o got it"
-2. **14:12:** "we have a lot of time i think maybe we can builkd eveyrhting in the time being / lets first /superpowers:brainstorming i want you to brainstomr about this task how far can we take it and realise? ideally if we can almost finish it and test it / api key i wil lprovide but lets start with any compatable api i think most likely i will use kie api but we will see tbh / so yeah we can orchestrate agents in parallel to build that fast and asap / ans lets instal lskills from skills.sh that are needed"
-3. **14:15:** "idk is that frontend part needed or not ? and yeah faster more uqesiton in one go"
-4. **14:17:** "yes do the frontend then / yes kie api is openai somcpetible / lets do the repo and a zip as well oxde account indeed / yes lets stop building at 15:40 around that time / no lets search skills from skilss.sh so yo ucan build better search for aht can be rlevant like llm chat bots idk what is sudeful in that case nice skilsl are improtant !!!"
-5. **14:24:** "okay explain me the task and illustrate the plan for me ans architecturee adn about 7 parts what are going to be weak what ans why we decide to build what left outside( but maybe we can build all)"
-6. **14:26:** "approved, start building now / and pls save the priocess like we did along the way in md / like we did braisntorm / installed needed skills / disucssed the archtiecture (save somewhere the scheme of architecture) in readme ideally / and other agent is woking on kie api so we wil ltest on that on real api calls", followed by the KIE session's findings (default `deepseek-v4-1-flash`; fallbacks `gpt-5-6-luna` and `gemini-3-7-flash`; Haiku fails with a system prompt; KIE returns 500/524/429 at times, so retries and model fallback are needed).
-7. **14:31:** "for now create repo lcoally GO GO GO"
-8. **14:35:** "when you think we will be finished with that part with AI agents orchestration? / aslo document amount of subagetns used and how w eorchestrated them / id some decisiion is needed from me ask me any time"
-9. **14:52:** "We have a lot of time what can we stengeth? / maybe more testing? or what you can strengthen ?"
-10. **14:54:** "okay but abnout 7 steps we did all of them? or some of them are weak? … fallback without ai? liek without agent in the loop or what?"
-11. **14:56:** "Tests + part 05 + 07"
-12. **14:58:** "btw i think in case that ai agent is down, we wont try to extract etc and pass i think it actually cna be mislaeding? / maybe to send all of these if ai is down to the manual review with reason AI is down? / i want you to docuemnt that decisison btw and hwo i evalauted your workj etc"
-13. **15:11, through the reviewer session:** review findings (the fallback could still decide when there is no key or extraction fails; validate inside the retry loop; Nikita's idea of a stronger, more expensive final model; thread provenance; cross-type duplicates; Dutch rejection reasons).
-14. **15:23:** "what is route other? … letter held? / how do you evlaute the task completion did we dine good stuff? i want you to prepare [the debrief questions] … and PROMPTS.md … can ywe provide them based on the hsitory of our convo?"
+> "Check these files (case briefing and candidate pack). What are the key insights I need to show that I understood the case?"
+
+Result: a claim-by-claim answer key for all 40 claims, written before any code, plus the traps (prompt injection, the flaky API, replies, privacy, letter rules).
+
+### 2. Brainstorm the scope
+*Logic: decide what "done" means, and how ambitious to be, before choosing tools.*
+
+> "/superpowers:brainstorming: how far can we take this in the time? Ideally almost finish it and test it. Orchestrate agents in parallel to build fast. I'll use the KIE API."
+
+> "Is a frontend needed or not? And ask more questions in one go, faster."
+
+> "Yes, do the frontend. KIE is OpenAI-compatible. Repo and a zip on my Oxde account. Stop building at 15:40."
+
+Result: `docs/design.md`, then a fresh reviewer agent read it as a builder would and listed open questions, which were answered in the doc.
+
+### 3. Pick skills deliberately
+*Logic: use proven tools, but check them first instead of installing blindly.*
+
+> "Search skills.sh for skills that are relevant here, so you can build better."
+
+Result: 10 topics searched; three skills installed only after reading their contents (LLM evaluation, prompt engineering, prompt safety review). Insurance skills were rejected because they had few installs and unknown authors.
+
+### 4. Make the AI explain the plan before approving it
+*Logic: don't approve what you can't explain to someone else yourself. Know the weak spots before they're built.*
+
+> "Explain the task and illustrate the plan and architecture. For the 7 parts: which will be weak, why, and what do we leave out? Maybe we can build all of them."
+
+> "Approved, start building. Document the process as we go: the brainstorm, the skills, the architecture diagram in the README."
+
+Result: the architecture diagram, the strength table per part, the shared data contract (`agent/models.py`), and a plan with five tasks on separate files (`docs/plan.md`).
+
+### 5. Orchestrate and keep it auditable
+*Logic: parallel agents are fast, but only useful if you can see who did what and why.*
+
+> "When will the agent part be finished? Also document how many subagents were used and how we orchestrated them. If a decision is needed from me, ask any time."
+
+Result: the orchestration section in PROCESS.md (contract first, separate files per agent, one integrator who re-runs tests before every commit).
+
+### 6. The feedback loop: challenge the result
+*Logic: a 100% score on data you tuned on proves little. Look for the weak spots and test what the score can't show.*
+
+> "We have time left. What can we strengthen? More testing?"
+
+> "Did we really do all 7 parts, or are some weak? And what does the fallback actually do without AI?"
+
+> "If the AI is down, we shouldn't extract with keywords and decide anyway. That could be misleading. Send everything to manual review with the reason 'AI is down'. Document that decision, and how I evaluated your work."
+
+Result: a blind holdout set written by an agent that never saw the code (91.7% strict, 100% lenient, safety 0), robustness runs (`docs/robustness.md`), parts 05 and 07 strengthened, and the "AI down → manual review" rule, which overrode Claude's original design.
+
+### 7. Independent review
+*Logic: a second AI that didn't write the code finds what the first one misses.*
+
+A separate reviewer session found two paths where the keyword fallback could still decide (no key; an extraction error). Nikita added the fix idea:
+
+> "Retry, and if it still fails, fall back to a stronger, more expensive model."
+
+Result: schema validation inside the retry loop, `claude-sonnet-5-5` as the last model in the chain, and a test for every path (`tests/test_fallback_safety.py`).
 
 ### Claude (lead) → subagents
 
