@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-11-11T15:11:47",
+  "today": "2026-11-02",
+  "items": [
+    {
+      "claim_id": "C-033",
+      "from_email": "h.aalders@example.net",
+      "subject": "auto beschadigd",
+      "requested_on": "2026-10-31",
+      "missing_items": [
+        "identity"
+      ],
+      "days_open": 2,
+      "reminder_due": false,
+      "status": "open",
+      "answered_by": null,
+      "from_name": "Hendrik Aalders",
+      "message_id": "<c-033@mail.noorderhaven.example>",
+      "language": "nl"
+    },
+    {
+      "claim_id": "C-003",
+      "from_email": "eva.brouwer@example.com",
+      "subject": "Inbraak, laptop weg",
+      "requested_on": "2026-10-29",
+      "missing_items": [
+        "loss_date",
+        "priced_document",
+        "police_report"
+      ],
+      "days_open": 4,
+      "reminder_due": false,
+      "status": "answered",
+      "answered_by": "C-017",
+      "from_name": "Eva Brouwer",
+      "message_id": "<c-003@mail.noorderhaven.example>",
+      "language": "nl"
+    },
+    {
+      "claim_id": "C-013",
+      "from_email": "amber.kuiper@example.com",
+      "subject": "Waterschade meubels",
+      "requested_on": "2026-10-29",
+      "missing_items": [
+        "loss_date",
+        "priced_document"
+      ],
+      "days_open": 4,
+      "reminder_due": false,
+      "status": "answered",
+      "answered_by": "C-027",
+      "from_name": "Amber Kuiper",
+      "message_id": "<c-013@mail.noorderhaven.example>",
+      "language": "nl"
+    },
+    {
+      "claim_id": "C-023",
+      "from_email": "lotte.degroot@example.com",
+      "subject": "My car was hit",
+      "requested_on": "2026-10-30",
+      "missing_items": [
+        "loss_date",
+        "priced_document"
+      ],
+      "days_open": 3,
+      "reminder_due": false,
+      "status": "answered",
+      "answered_by": "C-036",
+      "from_name": "Lotte de Groot",
+      "message_id": "<c-023@mail.noorderhaven.example>",
+      "language": "en"
+    }
+  ],
+  "open": 1,
+  "answered": 3,
+  "reminder_due": 0
+}

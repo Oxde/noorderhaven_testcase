@@ -19,12 +19,12 @@
   "review_pending": 26,
   "api": {
     "calls": 170,
-    "retries": 43,
+    "retries": 38,
     "failures": 0,
     "by_status": {
       "200": 78,
-      "503": 34,
-      "429": 9,
+      "503": 30,
+      "429": 8,
       "404": 2,
       "201": 90
     }
@@ -44,7 +44,7 @@
   "errors": [],
   "today": "2026-11-02",
   "api_base": "http://localhost:8080",
-  "started": "2026-11-11T14:47:10",
-  "finished": "2026-11-11T14:48:45",
-  "duration_s": 95.31
+  "started": "2026-11-11T15:09:56",
+  "finished": "2026-11-11T15:11:47",
+  "duration_s": 110.5
 }

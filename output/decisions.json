@@ -52,7 +52,8 @@
     "net_payout": null,
     "reason": "Claim cannot be assessed yet; missing the date of the loss, an invoice or repair quote with an amount (§2.5), a police report number (§2.4).",
     "flags": [
-      "missing_info"
+      "missing_info",
+      "answered_in:C-017"
     ]
   },
   {
@@ -61,7 +62,8 @@
     "net_payout": null,
     "reason": "Claim cannot be assessed yet; missing the date of the loss, an invoice or repair quote with an amount (§2.5).",
     "flags": [
-      "missing_info"
+      "missing_info",
+      "answered_in:C-027"
     ]
   },
   {
@@ -151,7 +153,8 @@
     "net_payout": null,
     "reason": "Claim cannot be assessed yet; missing the date of the loss, an invoice or repair quote with an amount (§2.5).",
     "flags": [
-      "missing_info"
+      "missing_info",
+      "answered_in:C-036"
     ]
   },
   {

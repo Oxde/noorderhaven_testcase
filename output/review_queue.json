@@ -216,7 +216,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-006",
@@ -430,7 +431,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-025",
@@ -643,7 +645,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-004",
@@ -870,7 +873,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-022",
@@ -1101,7 +1105,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-012",
@@ -1317,7 +1322,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-003",
@@ -1408,7 +1414,8 @@
       "net_payout": null,
       "reason": "Claim cannot be assessed yet; missing the date of the loss, an invoice or repair quote with an amount (§2.5), a police report number (§2.4).",
       "flags": [
-        "missing_info"
+        "missing_info",
+        "answered_in:C-017"
       ],
       "letter_kind": "info_request",
       "missing_items": [
@@ -1470,7 +1477,11 @@
       "api_kind": "info_request"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": {
+      "answered_by": "C-017",
+      "status": "answered"
+    }
   },
   {
     "claim_id": "C-013",
@@ -1561,7 +1572,8 @@
       "net_payout": null,
       "reason": "Claim cannot be assessed yet; missing the date of the loss, an invoice or repair quote with an amount (§2.5).",
       "flags": [
-        "missing_info"
+        "missing_info",
+        "answered_in:C-027"
       ],
       "letter_kind": "info_request",
       "missing_items": [
@@ -1622,7 +1634,11 @@
       "api_kind": "info_request"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": {
+      "answered_by": "C-027",
+      "status": "answered"
+    }
   },
   {
     "claim_id": "C-011",
@@ -1793,7 +1809,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-037",
@@ -1976,7 +1993,8 @@
       "api_kind": "decision"
     },
     "letter_status": "held",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-008",
@@ -2061,7 +2079,8 @@
     },
     "letter": null,
     "letter_status": "none",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-009",
@@ -2277,7 +2296,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-030",
@@ -2453,7 +2473,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-034",
@@ -2667,7 +2688,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-031",
@@ -2900,7 +2922,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-002",
@@ -3081,7 +3104,8 @@
       "api_kind": "decision"
     },
     "letter_status": "held",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-032",
@@ -3254,7 +3278,8 @@
       "api_kind": "decision"
     },
     "letter_status": "held",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-023",
@@ -3355,7 +3380,8 @@
       "net_payout": null,
       "reason": "Claim cannot be assessed yet; missing the date of the loss, an invoice or repair quote with an amount (§2.5).",
       "flags": [
-        "missing_info"
+        "missing_info",
+        "answered_in:C-036"
       ],
       "letter_kind": "info_request",
       "missing_items": [
@@ -3416,7 +3442,11 @@
       "api_kind": "info_request"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": {
+      "answered_by": "C-036",
+      "status": "answered"
+    }
   },
   {
     "claim_id": "C-029",
@@ -3635,7 +3665,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-015",
@@ -3869,7 +3900,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-018",
@@ -4083,7 +4115,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-035",
@@ -4302,7 +4335,8 @@
       "api_kind": "decision"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-014",
@@ -4479,7 +4513,8 @@
       "api_kind": "decision"
     },
     "letter_status": "held",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-010",
@@ -4641,7 +4676,8 @@
       "api_kind": "decision"
     },
     "letter_status": "held",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-033",
@@ -4743,7 +4779,8 @@
       "api_kind": "info_request"
     },
     "letter_status": "sent",
-    "review_status": "auto"
+    "review_status": "auto",
+    "thread": null
   },
   {
     "claim_id": "C-005",
@@ -4921,7 +4958,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-016",
@@ -5156,7 +5194,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-020",
@@ -5332,7 +5371,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-017",
@@ -5566,7 +5606,10 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": {
+      "answers": "C-003"
+    }
   },
   {
     "claim_id": "C-027",
@@ -5799,7 +5842,10 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": {
+      "answers": "C-013"
+    }
   },
   {
     "claim_id": "C-024",
@@ -5962,7 +6008,8 @@
       "api_kind": "decision"
     },
     "letter_status": "held",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-036",
@@ -6191,7 +6238,10 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": {
+      "answers": "C-023"
+    }
   },
   {
     "claim_id": "C-038",
@@ -6304,7 +6354,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-040",
@@ -6409,7 +6460,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-026",
@@ -6525,7 +6577,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-019",
@@ -6693,7 +6746,8 @@
       "api_kind": "decision"
     },
     "letter_status": "held",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-007",
@@ -6914,7 +6968,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-039",
@@ -7135,7 +7190,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-028",
@@ -7367,7 +7423,8 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   },
   {
     "claim_id": "C-021",
@@ -7534,6 +7591,7 @@
       "api_kind": "other"
     },
     "letter_status": "sent",
-    "review_status": "pending"
+    "review_status": "pending",
+    "thread": null
   }
 ]

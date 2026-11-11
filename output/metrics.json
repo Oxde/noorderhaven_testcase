@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-11-11T15:11:47",
+  "claims": 40,
+  "actions": {
+    "auto_approve": 9,
+    "escalate_handler": 8,
+    "request_info": 4,
+    "fraud_review": 6,
+    "reject_draft": 7,
+    "route_other": 3,
+    "escalate_senior": 3
+  },
+  "automation": {
+    "auto_handled": 14,
+    "needs_human": 26,
+    "auto_rate": 0.35
+  },
+  "letters": {
+    "sent": 32,
+    "held": 7,
+    "none": 1,
+    "failed": 0
+  },
+  "api": {
+    "calls": 170,
+    "retries": 38,
+    "failures": 0,
+    "retry_rate": 0.2235
+  },
+  "llm": {
+    "mode": "llm:deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash",
+    "calls": 0,
+    "cache_hits": 40,
+    "credits_consumed": 0.0,
+    "fallback_used": 0
+  },
+  "extraction_agreement": {
+    "claims_compared": 40,
+    "fields": [
+      "policy_number",
+      "loss_date",
+      "loss_type",
+      "priced_amount",
+      "intent",
+      "injection"
+    ],
+    "agreement_rate": 0.9708,
+    "per_field": {
+      "policy_number": 1.0,
+      "loss_date": 1.0,
+      "loss_type": 0.85,
+      "priced_amount": 1.0,
+      "intent": 0.975,
+      "injection": 1.0
+    },
+    "disagreements": [
+      {
+        "claim_id": "C-022",
+        "field": "loss_type",
+        "llm": "theft",
+        "fallback": "burglary_theft"
+      },
+      {
+        "claim_id": "C-035",
+        "field": "loss_type",
+        "llm": "vandalism",
+        "fallback": "parking_damage"
+      },
+      {
+        "claim_id": "C-010",
+        "field": "loss_type",
+        "llm": "glass",
+        "fallback": null
+      },
+      {
+        "claim_id": "C-033",
+        "field": "intent",
+        "llm": "other",
+        "fallback": "new_claim"
+      },
+      {
+        "claim_id": "C-024",
+        "field": "loss_type",
+        "llm": "sudden_water",
+        "fallback": null
+      },
+      {
+        "claim_id": "C-036",
+        "field": "loss_type",
+        "llm": "collision",
+        "fallback": "parking_damage"
+      },
+      {
+        "claim_id": "C-038",
+        "field": "loss_type",
+        "llm": "collision",
+        "fallback": "parking_damage"
+      }
+    ]
+  },
+  "reviews": {
+    "total": 0,
+    "records": 0,
+    "approve": 0,
+    "edit": 0,
+    "reject": 0,
+    "override_rate": null,
+    "by_action": {}
+  },
+  "open_info_requests": {
+    "open": 1,
+    "answered": 3,
+    "reminder_due": 0
+  },
+  "eval": {
+    "strict_accuracy": 1.0,
+    "payout_match": 1.0,
+    "safety_total": 0
+  },
+  "alerts": []
+}
