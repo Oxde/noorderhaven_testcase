@@ -94,6 +94,16 @@ Tests (73 unit tests: rules, letters, API client retries and idempotency, PDF te
 python3 -m unittest discover -s tests
 ```
 
+### Try an email (dry run)
+
+Push one email through the whole agent without changing anything: in the review UI open the **Try an email** tab (four presets: clean claim, injection, different IBAN, unknown sender), or run
+
+```bash
+python3 -m agent.try claims/C-005/email.json [--json] [--no-llm]
+```
+
+It reads: the LLM (KIE.ai, a few cents per email; keyword fallback when `KIE_API_KEY` is empty, which escalates like the pipeline does) and GET requests to the policy API (policy lookup and claim history). It never writes: `agent/try_email.py` uses a `ReadOnlyApiClient` whose `register_claim`, `post_decision`, `queue_email` and `reset` raise before any request, and nothing is written to `output/`. The result shows the action, payout, rule trace, extracted facts with evidence, and the letter that would be sent or held.
+
 ## Outputs
 
 | File | What |

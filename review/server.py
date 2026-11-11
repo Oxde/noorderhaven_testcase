@@ -9,6 +9,7 @@ Serves review/index.html and a small JSON API over the agent's review queue:
   GET  /api/open-requests              OUTPUT_DIR/open_info_requests.json (or {"items": []})
   POST /api/claims/<claim_id>/review   {action: approve|edit|reject, new_action?, net_payout?, reason?,
                                         letter_body?, reviewer?}
+  POST /api/try                        dry run of one email (agent.try_email); writes nothing anywhere
 
 Every review is appended to output/reviews.jsonl ({ts, claim_id, reviewer, action, before, after}) and the
 queue file is rewritten atomically. The mock API client (agent.api_client) is imported lazily: if it is
@@ -290,6 +291,25 @@ def apply_review(store: Store, claim_id: str, req: dict) -> dict:
                 "review_number": n}
 
 
+def try_email(req: dict) -> Tuple[int, dict]:
+    """Dry run of one email (agent.try_email): read-only API client, nothing written to output/ or the API."""
+    try:
+        from agent.try_email import dry_run, email_from_dict  # noqa: WPS433 (lazy: queue UI works without it)
+    except Exception as e:
+        return 500, {"ok": False, "error": f"dry run unavailable (cannot import agent.try_email: "
+                                           f"{type(e).__name__}: {e})"}
+    try:
+        email = email_from_dict(req)
+    except (ValueError, TypeError) as e:
+        return 400, {"ok": False, "error": f"bad email: {e}"}
+    if not (email.body.strip() or email.subject.strip()):
+        return 400, {"ok": False, "error": "subject or body is required"}
+    try:
+        return 200, dict(dry_run(email), ok=True)
+    except Exception as e:
+        return 500, {"ok": False, "error": f"dry run failed: {type(e).__name__}: {e}"}
+
+
 def make_handler(store: Store):
     class Handler(BaseHTTPRequestHandler):
         server_version = "ClaimsReview/1.0"
@@ -352,7 +372,8 @@ def make_handler(store: Store):
 
         def do_POST(self):
             parts = [unquote(p) for p in urlparse(self.path).path.split("/") if p]
-            if not (len(parts) == 4 and parts[:2] == ["api", "claims"] and parts[3] == "review"):
+            is_try = parts == ["api", "try"]
+            if not is_try and not (len(parts) == 4 and parts[:2] == ["api", "claims"] and parts[3] == "review"):
                 return self._error(404, f"not found: POST {self.path}")
             # CSRF guard: a review POST can release held letters, so any other web page the handler has
             # open must not be able to trigger it. Require JSON (forces a CORS preflight, which this
@@ -374,6 +395,8 @@ def make_handler(store: Store):
                 return self._error(400, f"invalid JSON body: {e}")
             except ReviewError as e:
                 return self._error(e.status, e.message)
+            if is_try:
+                return self._send(*try_email(req))
             try:
                 return self._send(200, apply_review(store, parts[2], req))
             except ReviewError as e:
