@@ -80,7 +80,7 @@ The last decision overrode Claude's original design. That design let the keyword
 
 ## How the agents were orchestrated
 
-**Subagents used: 10** (6 in the build phase, 4 in the strengthening phase), plus 2 separate Claude sessions working for Nikita: one that tested the KIE API live, and one independent reviewer.
+**Subagents used: 11** (6 in the build phase, 4 in the strengthening phase, 1 for the "Try an email" tester), plus 2 separate Claude sessions working for Nikita: one that tested the KIE API live, and one independent reviewer.
 
 | # | Agent | Model | Role | Started | Finished |
 |---|---|---|---|---|---|
@@ -132,3 +132,11 @@ Nikita chose to spend the spare time on more testing and on the two weakest part
 - **Independent reviewer session**, 15:11: found two more paths where the fallback could still decide (no key; an extraction error outside the retry loop). On unseen emails these had let a Dutch injection and an IBAN-change request be auto-approved. Fixed with tests, including Nikita's idea of validating the answer inside the retry loop and ending the model chain with the stronger `claude-sonnet-5-5`.
 - **Mistake by the lead, stated plainly:** a cleanup command for a test server also stopped the main mock API and the review page at 15:04. The committed final-run files were unaffected (stopping a server does not erase them), and a fresh final run was made after the fixes anyway.
 - **15:16 fresh final run:** 40 live KIE calls (1.19 credits), chaos on, 170 API calls, 40 retries, 0 failed writes; eval 100% / 100% / safety 0. Holdout re-run on the final code: unchanged (91.7% / 100% / safety 0).
+
+## Final additions (15:22–15:36)
+
+- **15:20–15:22, final run on the final code:** `--reset`, chaos on. This is the run the `mock_api/runtime/` files come from. The hand-in server was not reset or restarted afterwards; every later test used isolated copies or read-only calls.
+- **PROMPTS.md:** Nikita's prompts grouped by phase, with the reasoning behind each (lightly edited for spelling).
+- **15:28, "Try an email"** (Nikita's request, relayed by the reviewer session; built by an 11th subagent): a dry-run tab and CLI that run the real agent on a pasted email. Writes are blocked in code (`ReadOnlyApiClient`), and the write log stayed at 90 lines. Four demo presets: clean, injection, other IBAN, unknown sender.
+- **Architecture PDF** (`docs/architecture.pdf`, made by the reviewer session at Nikita's request; checked and committed by the lead).
+- **15:31:** pushed to https://github.com/Oxde/noorderhaven_testcase at Nikita's request.
