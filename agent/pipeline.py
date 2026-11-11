@@ -306,9 +306,17 @@ def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = Fa
                 payload = {"status": status, "payout": decision.net_payout, "reason": decision.reason,
                            "flags": list(decision.flags), "source_claim_id": cid}
                 try:
-                    api.post_decision(api_id, payload, f"{cid}:decision")
+                    rec = api.post_decision(api_id, payload, f"{cid}:decision")
                     audit.log(cid, "decision_post", True, {"api_claim_id": api_id, "status": status},
                               api.last_attempts)
+                    if isinstance(rec, dict) and rec.get("status") not in (None, status):
+                        # An earlier run already recorded a different decision under this key: the API keeps
+                        # the old one. Never let the two silently disagree; a handler must reconcile.
+                        decision.flags.append("api_state_mismatch")
+                        audit.log(cid, "decision_post", False, {"api_status": rec.get("status"), "computed": status})
+                        if decision.action == "auto_approve":
+                            decision.action = "escalate_handler"
+                            decision.reason += " Escalated: the API holds a different earlier decision for this claim."
                 except ApiError as err:
                     _fail_write(decision, audit, cid, "decision_post", err, errors)
 
@@ -363,7 +371,9 @@ def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = Fa
                 if decision.action not in ACTIONS:
                     raise ValueError(f"rules.decide returned unknown action {decision.action!r} for {cid}")
 
-                if decision.action != "route_other":
+                # No API claim for non-claims, nor when the LLM did not read the email (facts unverified;
+                # e.g. a complaint misread as a new claim by the keyword reader).
+                if decision.action != "route_other" and "llm_unavailable" not in decision.flags:
                     api_id = api_ids.get(parent_id) if parent_id else None
                     if api_id:      # one loss event, one API claim: the reply reuses the parent's record
                         audit.log(cid, "register", True, {"reused_parent_claim": api_id})

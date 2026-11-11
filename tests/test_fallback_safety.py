@@ -89,6 +89,20 @@ class SchemaValidationInsideRetryLoop(unittest.TestCase):
         self.assertEqual(model, "model-b")
         self.assertEqual(calls.count("model-a"), llm_mod.MAX_ATTEMPTS)
 
+    def test_auth_error_is_not_retried(self):
+        c = llm_mod.LLMClient(models=["model-a", "model-b"], api_key="test")
+        c.use_cache = False
+        c.backoff = c.rate_limit_backoff = [0, 0, 0]
+        calls = []
+
+        def fake_call(model, system, user):
+            calls.append(model)
+            raise llm_mod._AttemptError("HTTP 401", 401)
+        c._call_model = fake_call
+        with self.assertRaises(llm_mod.LLMError):
+            c.complete_json("s", "u")
+        self.assertEqual(calls, ["model-a", "model-b"])   # one try per model, no retries on 401
+
     def test_whole_chain_failing_raises_llm_error(self):
         c, _ = self._client(lambda m: {"loss_type": 123})
         with self.assertRaises(llm_mod.LLMError):

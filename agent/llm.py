@@ -256,6 +256,8 @@ class LLMClient:
                 except _AttemptError as e:
                     last = str(e)
                     self._bump_model(model, "errors")
+                    if e.status in (400, 401, 403):
+                        break   # cannot succeed by retrying (bad request / auth): go to the next model now
                     if attempt + 1 < MAX_ATTEMPTS:
                         self._bump("retries")
                         waits = self.rate_limit_backoff if e.status == 429 else self.backoff

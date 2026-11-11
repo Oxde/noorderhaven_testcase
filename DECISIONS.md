@@ -92,6 +92,8 @@ An end-to-end slice across all seven parts. It runs on the real KIE.ai LLM with 
 
 ## Next steps, in order
 
+0. A persistent per-claim ledger (or reading decision state back from the API) consulted before deciding, so a re-run never auto-approves a claim an earlier run left for a handler after a failed write (robustness finding 1; only partly mitigated by `api_state_mismatch`).
+
 1. Reminder flow for request_info, with real inbox threading by Message-ID and sender (part 05).
 2. Persistent queue, a database for state, and multi-user review with logins (scale and part 06).
 3. A larger labelled eval set from handled claims; CI gate on the safety checks.
