@@ -24,8 +24,8 @@ KIE_BASE = os.environ.get("KIE_BASE", "https://api.kie.ai")
 LLM_MODELS = [m.strip() for m in os.environ.get("LLM_MODELS", "deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash").split(",") if m.strip()]
 LLM_TIMEOUT_S = float(os.environ.get("LLM_TIMEOUT_S", "60"))
 LLM_CONCURRENCY = int(os.environ.get("LLM_CONCURRENCY", "4"))   # KIE allows 20 requests / 10 s
-CLAIMS_DIR = ROOT / "claims"
-OUTPUT_DIR = ROOT / "output"
+CLAIMS_DIR = Path(os.environ.get("CLAIMS_DIR", str(ROOT / "claims")))
+OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", str(ROOT / "output")))
 CACHE_DIR = ROOT / ".cache"
 # "Today" for the run: the case data is from early November 2026.
 TODAY = os.environ.get("CLAIMS_TODAY", "2026-11-02")
