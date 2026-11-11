@@ -118,15 +118,18 @@ def decide(facts: Facts, res: PolicyResolution, history: List[HistoryClaim], tod
     # keyword-based fallback may misread a fact without knowing it, and the rules would act on that with
     # full confidence. So nothing is decided automatically: the claim goes to a handler with the reason,
     # no letter is sent, and the fallback's facts are only a pre-fill for the handler (marked unverified).
-    # Explicit --no-llm runs (extractor == "fallback") are a developer/test mode and still decide.
-    if facts.extractor == "fallback(llm_failed)":
+    # Generalised after an independent review: any extractor that is not the LLM escalates (LLM chain failed,
+    # no key, extraction crash, or any future fallback tag) — safe by default. Only the explicit --no-llm
+    # developer/test mode (extractor exactly "fallback") still decides.
+    if not facts.extractor.startswith("llm:") and facts.extractor != "fallback":
         trace.append(RuleStep("intake.llm_available", False,
-                              "all LLM models failed; facts below come from the keyword reader and are unverified"))
+                              f"facts not read by the LLM ({facts.extractor}); they come from the keyword reader "
+                              "and are unverified"))
         flags.extend(["llm_unavailable", "facts_unverified"])
         if facts.injection_detected.value:
             flags.append("injection")
         return _finish(facts, "escalate_handler", None,
-                       "AI extraction was unavailable (all LLM models failed), so no automatic decision was made. "
+                       f"AI extraction was unavailable ({facts.extractor}), so no automatic decision was made. "
                        "A handler must read the email; the extracted facts are an unverified keyword pre-fill.",
                        flags, trace, None, extra=False)
 
@@ -228,8 +231,9 @@ def decide(facts: Facts, res: PolicyResolution, history: List[HistoryClaim], tod
     trace.append(RuleStep("fraud.duplicate_invoice", not dup_inv,
                           f"invoice already in claim {dup_inv[0].claim_id}" if dup_inv else
                           f"document numbers {sorted(doc_numbers) or 'none'} not seen before"))
-    dup_evt = [h for h in own_hist if loss and h.loss_date and h.loss_type
-               and _d(h.loss_date) == loss and _same_peril(h.loss_type, facts.loss_type)]
+    # Same policy + same loss date, regardless of loss type: the LLM can label one parking hit "parking_damage"
+    # in one email and "collision" in another (seen in a holdout test).
+    dup_evt = [h for h in own_hist if loss and h.loss_date and _d(h.loss_date) == loss]
     if dup_evt:
         fraud.append("duplicate_event")
         details.append(f"same loss event ({facts.loss_type} on {facts.loss_date}) already claimed in {dup_evt[0].claim_id}")

@@ -445,7 +445,10 @@ def extract_facts(email: Email, llm: Optional["LLMClient"] = None) -> Facts:  # 
     from .llm import LLMError
     from .prompts import EXTRACTION_SYSTEM, build_extraction_user
     try:
-        raw, model = llm.complete_json(EXTRACTION_SYSTEM, build_extraction_user(email))
+        # normalise() runs inside the retry loop: a well-formed JSON answer with the wrong shape is a failed
+        # attempt (retry, then next model), not a crash outside the chain.
+        raw, model = llm.complete_json(EXTRACTION_SYSTEM, build_extraction_user(email),
+                                       validate=lambda obj: normalise(obj, email))
     except LLMError:
         f = fallback_extract(email)
         f.extractor = "fallback(llm_failed)"

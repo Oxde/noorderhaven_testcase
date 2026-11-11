@@ -206,8 +206,9 @@ def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = Fa
     mode = "fallback"
     if use_llm:
         if not config.KIE_API_KEY:
-            audit.log(None, "llm", False, "use_llm requested but KIE_API_KEY is empty; using fallback extractor")
-            errors.append({"claim_id": None, "step": "llm", "error": "KIE_API_KEY empty, fallback extractor used"})
+            audit.log(None, "llm", False, "use_llm requested but KIE_API_KEY is empty; keyword pre-fill only, every claim to manual review")
+            errors.append({"claim_id": None, "step": "llm", "error": "KIE_API_KEY empty, every claim sent to manual review"})
+            mode = "fallback(no_key)"
         else:
             from agent import llm as llm_mod
             llm = llm_mod.LLMClient()
@@ -216,6 +217,8 @@ def run(only: Optional[List[str]] = None, use_llm: bool = True, reset: bool = Fa
     def _extract(e: Email) -> Facts:
         try:
             f = extract.extract_facts(e, llm)
+            if use_llm and llm is None:      # LLM wanted but no key: never decide on keyword facts
+                f.extractor = "fallback(no_key)"
             audit.log(e.claim_id, "extract", True, {"extractor": f.extractor, "intent": f.intent,
                                                     "policy_number": f.policy_number, "loss_date": f.loss_date,
                                                     "loss_type": f.loss_type,

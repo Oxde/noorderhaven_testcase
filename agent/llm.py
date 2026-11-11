@@ -14,7 +14,7 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Callable, Dict, List, Optional, Tuple
 
 from . import config
 
@@ -223,16 +223,23 @@ class LLMClient:
             raise _AttemptError("model %s returned unparseable JSON: %s" % (model, e))
         return obj, resp
 
-    def complete_json(self, system: str, user: str) -> Tuple[dict, str]:
-        """Return (parsed JSON object, model id that produced it). Raises LLMError when the chain is exhausted."""
+    def complete_json(self, system: str, user: str,
+                      validate: Optional[Callable[[dict], None]] = None) -> Tuple[dict, str]:
+        """Return (parsed JSON object, model id that produced it). Raises LLMError when the chain is exhausted.
+
+        validate: optional schema check; if it raises (ValueError/TypeError/KeyError/AttributeError) the answer
+        counts as a failed attempt, so it is retried and then the next model is tried.
+        """
         cpath = self._cache_path(system, user)
         if self.use_cache and cpath.exists():
             try:
                 cached = json.loads(cpath.read_text(encoding="utf-8"))
+                if validate:
+                    validate(cached["result"])
                 self._bump("cache_hits")
                 return cached["result"], cached["model"]
-            except (ValueError, KeyError):
-                pass  # corrupt cache entry: recompute and overwrite below
+            except (ValueError, KeyError, TypeError, AttributeError):
+                pass  # corrupt or invalid cache entry: recompute and overwrite below
         errors: List[str] = []
         for model in self.models:
             last = ""
@@ -241,6 +248,11 @@ class LLMClient:
                 t0 = time.monotonic()
                 try:
                     obj, resp = self._call_model(model, system, user)
+                    if validate:
+                        try:
+                            validate(obj)
+                        except (ValueError, KeyError, TypeError, AttributeError) as ve:
+                            raise _AttemptError("model %s returned JSON that fails the schema: %s" % (model, ve))
                 except _AttemptError as e:
                     last = str(e)
                     self._bump_model(model, "errors")

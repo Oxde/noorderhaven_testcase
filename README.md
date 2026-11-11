@@ -35,7 +35,7 @@ Purple is AI, green is plain code, orange is human, grey is data and outside sys
 
 ### Flow per claim
 
-1. **Intake** (`agent/extract.py`, `agent/pdf_text.py`, `agent/llm.py`, `agent/prompts.py`): PDF text is extracted with the standard library. A KIE.ai model (default `deepseek-v4-1-flash`, then `gpt-5-6-luna` and `gemini-3-7-flash` if it fails) returns strict JSON: intent, language, policy number, loss date, loss type, documents with amounts, and yes/no judgments (gradual damage, outside Europe, third party, other bank account, injection) each with an evidence quote. A deterministic regex for injection runs as well, and its result is OR-ed in. With no key, or if every model fails, a rules-based fallback extractor is used.
+1. **Intake** (`agent/extract.py`, `agent/pdf_text.py`, `agent/llm.py`, `agent/prompts.py`): PDF text is extracted with the standard library. A KIE.ai model (default `deepseek-v4-1-flash`, then `gpt-5-6-luna` and `gemini-3-7-flash` if it fails) returns strict JSON: intent, language, policy number, loss date, loss type, documents with amounts, and yes/no judgments (gradual damage, outside Europe, third party, other bank account, injection) each with an evidence quote. A deterministic regex for injection runs as well, and its result is OR-ed in. A schema check runs inside the retry loop, so a malformed answer counts as a failed attempt and the next model is tried; the last model is the stronger `claude-sonnet-5-5`. If no LLM can read the email (no key, all models fail), a keyword reader pre-fills the facts for a handler, but **nothing is decided automatically**.
 2. **Validate and link** (`agent/pipeline.py`, `agent/threads.py`): replies are merged with the original email. The policy is looked up by number, or by sender email when the number is missing or wrong. Claim history comes from the API.
 3. **Decide** (`agent/rules.py`): an ordered, pure function produces the action, net payout, a reason citing the rulebook section, flags, and a trace of every check.
 4. **Write and communicate** (`agent/api_client.py`, `agent/comms.py`): claims, decisions and emails go to the mock API. Every write carries an `Idempotency-Key`. Retries handle 503 and 429 (honouring `Retry-After`) and timeouts. Letters are fixed NL/EN templates; rejections are held until a handler approves.
@@ -59,7 +59,7 @@ Purple is AI, green is plain code, orange is human, grey is data and outside sys
 Requirements: Python 3.9+. **No packages to install** (standard library only).
 
 ```bash
-# 1. LLM key (KIE.ai). Without it the agent still runs, using the rule-based fallback extractor.
+# 1. LLM key (KIE.ai). Without it nothing is decided automatically: every claim goes to manual review.
 echo "KIE_API_KEY=your-key" > .env
 ```
 
@@ -84,9 +84,9 @@ python3 review/server.py
 ```
 
 Other options:
-- `python3 -m agent.run --no-llm` runs without the LLM (fallback extractor only).
+- `python3 -m agent.run --no-llm` is a developer/test mode: the keyword fallback extractor makes decisions so the pipeline can be tested without a key. In normal mode, any claim not read by the LLM (no key, all models failed, extraction error) goes to manual review.
 - `python3 -m agent.run --only C-001,C-005` processes a subset.
-- Environment variables: `LLM_MODELS` (model chain, default `deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash`), `LLM_CONCURRENCY` (default 4), `CLAIMS_API_BASE` (default `http://localhost:8080`).
+- Environment variables: `LLM_MODELS` (model chain, default `deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash,claude-sonnet-5-5`; the stronger Sonnet is only paid for when the cheap models fail), `LLM_CONCURRENCY` (default 4), `CLAIMS_API_BASE` (default `http://localhost:8080`).
 
 Tests (73 unit tests: rules, letters, API client retries and idempotency, PDF text, extraction, eval):
 

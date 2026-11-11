@@ -96,7 +96,9 @@ def _body(kind: str, lang: str, decision: Decision, facts: Facts, policy: Option
         return ("Thank you for your claim. We have received your message and attachments. A claims handler is "
                 "reviewing your claim and will get back to you as soon as possible.")
     if kind == "rejection_draft":
-        why = decision.reason.split(" Draft held")[0]
+        # Customer-facing reason in the customer's language; the internal reason (English, § refs) stays
+        # in the review queue for the handler.
+        why = _customer_reason(decision.flags, nl) or decision.reason.split(" Draft held")[0]
         if nl:
             return ("Bedankt voor uw schademelding. Wij hebben uw melding zorgvuldig bekeken. Helaas kunnen wij deze "
                     f"schade niet vergoeden.\n\nReden: {why}\n\nBent u het niet eens met deze beslissing, "
@@ -118,6 +120,29 @@ def _body(kind: str, lang: str, decision: Decision, facts: Facts, policy: Option
         return ("Thank you for your message. We have forwarded it to the right department, which will review it. "
                 "For privacy reasons we cannot share any information about insured persons or policies.")
     raise ValueError(f"unknown letter kind {kind!r} for claim {decision.claim_id}")
+
+
+_CUSTOMER_REASONS = {
+    "policy_not_active": ("Uw verzekering was op de schadedatum niet actief.",
+                          "Your policy was not active on the date of the loss."),
+    "peril_not_covered": ("Dit type schade valt niet onder de dekking van uw verzekering.",
+                          "This type of damage is not covered by your policy."),
+    "gradual_damage": ("De schade is geleidelijk ontstaan (bijvoorbeeld door vocht, schimmel of een langdurige lekkage). "
+                       "Geleidelijk ontstane schade is uitgesloten van dekking.",
+                       "The damage developed gradually (for example damp, mould or a long-term leak). Gradual damage "
+                       "is excluded from cover."),
+    "outside_europe": ("Uw inboedelverzekering dekt alleen schade binnen Europa.",
+                       "Your contents policy only covers losses within Europe."),
+    "accidental_damage_not_covered": ("Uw inboedelverzekering dekt geen schade door eigen toedoen, zoals laten vallen of morsen.",
+                                      "Your contents policy does not cover accidental damage such as dropping or spilling."),
+}
+
+
+def _customer_reason(flags, nl: bool):
+    for flag, (nl_text, en_text) in _CUSTOMER_REASONS.items():
+        if flag in flags:
+            return nl_text if nl else en_text
+    return None
 
 
 def build_letter(decision: Decision, facts: Facts, email: Email, policy: Optional[Policy]) -> Optional[Letter]:

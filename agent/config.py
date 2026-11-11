@@ -21,7 +21,7 @@ API_BASE = os.environ.get("CLAIMS_API_BASE", "http://localhost:8080")
 KIE_API_KEY = os.environ.get("KIE_API_KEY", "")
 KIE_BASE = os.environ.get("KIE_BASE", "https://api.kie.ai")
 # Ordered model chain: first is primary, the rest are fallbacks.
-LLM_MODELS = [m.strip() for m in os.environ.get("LLM_MODELS", "deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash").split(",") if m.strip()]
+LLM_MODELS = [m.strip() for m in os.environ.get("LLM_MODELS", "deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash,claude-sonnet-5-5").split(",") if m.strip()]
 LLM_TIMEOUT_S = float(os.environ.get("LLM_TIMEOUT_S", "60"))
 LLM_CONCURRENCY = int(os.environ.get("LLM_CONCURRENCY", "4"))   # KIE allows 20 requests / 10 s
 CLAIMS_DIR = Path(os.environ.get("CLAIMS_DIR", str(ROOT / "claims")))

@@ -33,6 +33,18 @@ def _empty(v: object) -> bool:
     return v is None or v == "" or v == [] or v == {}
 
 
+def _extractor_rank(tag: str) -> int:
+    """0 = read by the LLM, 1 = explicit --no-llm mode, 2 = any fallback after a failure (weakest)."""
+    if tag.startswith("llm:"):
+        return 0
+    return 1 if tag == "fallback" else 2
+
+
+def weaker_extractor(a: str, b: str) -> str:
+    """A merged claim is only as trustworthy as its least-verified part."""
+    return a if _extractor_rank(a) >= _extractor_rank(b) else b
+
+
 def merge_thread(parent: Facts, reply: Facts) -> Facts:
     """Reply's non-null/non-empty values win; documents concatenated; photos summed; judgments OR-ed.
 
@@ -58,6 +70,6 @@ def merge_thread(parent: Facts, reply: Facts) -> Facts:
     merged.documents = copy.deepcopy(parent.documents) + copy.deepcopy(reply.documents)
     merged.photo_count = parent.photo_count + reply.photo_count
     merged.thread_parent = parent.claim_id
-    merged.extractor = reply.extractor
+    merged.extractor = weaker_extractor(parent.extractor, reply.extractor)
     merged.intent = parent.intent if reply.intent in ("reply_with_info", "new_claim") else reply.intent
     return merged
