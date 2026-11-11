@@ -88,7 +88,7 @@ Other options:
 - `python3 -m agent.run --only C-001,C-005` processes a subset.
 - Environment variables: `LLM_MODELS` (model chain, default `deepseek-v4-1-flash,gpt-5-6-luna,gemini-3-7-flash,claude-sonnet-5-5`; the stronger Sonnet is only paid for when the cheap models fail), `LLM_CONCURRENCY` (default 4), `CLAIMS_API_BASE` (default `http://localhost:8080`).
 
-Tests (73 unit tests: rules, letters, API client retries and idempotency, PDF text, extraction, eval):
+Tests (100 unit tests: rules, letters, API client retries and idempotency, PDF text, extraction, eval, fallback safety, try-email dry run, follow-up, monitoring):
 
 ```bash
 python3 -m unittest discover -s tests
@@ -120,9 +120,9 @@ It reads: the LLM (KIE.ai, a few cents per email; keyword fallback when `KIE_API
 
 ## Final run result
 
-40 claims, chaos on, real LLM (`deepseek-v4-1-flash` via KIE):
+The hand-in run (15:20:52–15:22:27, chaos on, final code) is the run `output/` and `mock_api/runtime/` come from. It replayed the LLM answers recorded by the live run at 15:14–15:16 (40 real KIE calls with `deepseek-v4-1-flash`, 1.19 credits, same prompt and model chain); see [DECISIONS.md](DECISIONS.md).
 - **Actions:** 9 auto-approved, 4 info requests, 11 escalated (8 handler, 3 senior), 7 rejections drafted (held), 6 fraud review, 3 routed elsewhere.
-- **API:** 170 calls, 43 retries, 0 failed writes, no duplicates.
+- **API:** 170 calls, 31 retries, 0 failed writes, no duplicates.
 - **Eval:** 100% action and payout match, all safety checks 0. That number flatters it (see [DECISIONS.md](DECISIONS.md)), so there is also a **blind holdout** of 12 new claims written without seeing the code: **91.7% strict, 100% lenient, safety 0** (`eval/holdout/`).
 - **Robustness** under heavy API failure, with KIE down, and on idempotent re-runs: [docs/robustness.md](docs/robustness.md).
 
